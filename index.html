@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WhisperFlow — The Fastest Voice Experience in the World</title>
+  <meta name="description" content="Speech to structured thought. WhisperFlow is an open-source, 100% offline local AI voice engine inspired by Superhuman. Sub-400ms speech-to-text dictation and contextual AI text transformation.">
+  <meta name="keywords" content="WhisperFlow, Superhuman voice, offline voice dictation, local AI speech to text, voice commands, whisper.cpp, llama.cpp, Gemma 2B">
+  <meta name="author" content="Parth Varekar">
+  <meta name="theme-color" content="#F9F8F6">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://github.com/ParthVarekar/whisper-landing-page">
+  <meta property="og:title" content="WhisperFlow — The Fastest Voice Experience in the World">
+  <meta property="og:description" content="Speech to structured thought. 100% on-device AI voice dictation & context rewriting. Inspired by Superhuman.">
+  <meta property="og:image" content="https://raw.githubusercontent.com/ParthVarekar/whisper_flow_clone_local/main/docs/assets/og-cover.png">
+
+  <!-- Twitter Cards -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="WhisperFlow — The Fastest Voice Experience in the World">
+  <meta name="twitter:description" content="Speech to structured thought. 100% local, zero cloud dependencies. Sub-400ms latency.">
+
+  <!-- Schema.org SoftwareApplication Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "WhisperFlow",
+    "operatingSystem": "Windows 10, Windows 11, macOS",
+    "applicationCategory": "ProductivityApplication",
+    "offers": {
+      "@type": "Offer",
+      "price": "0.00",
+      "priceCurrency": "USD"
+    },
+    "description": "Zero-latency, 100% offline voice dictation and contextual AI text transformation engine inspired by Superhuman."
+  }
+  </script>
+
+  <!-- Schema.org FAQ Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Is WhisperFlow completely 100% offline?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. WhisperFlow runs speech-to-text (whisper.cpp) and LLM context formatting (llama.cpp) completely on your local machine."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How does Contextual Voice Commands work?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Highlight text in any desktop app, hold Ctrl+Shift+T, speak an instruction, and WhisperFlow rewrites the text in place."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- Typography & Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Top Superhuman Notification Bar -->
+  <div class="top-announcement-bar">
+    <div class="announcement-content">
+      <span class="announcement-badge">NEW v1.9</span>
+      <span class="announcement-text">Looking for WhisperFlow AI? Experience zero-latency voice dictation.</span>
+      <a href="#quickstart" class="announcement-link">Get Started →</a>
+    </div>
+  </div>
+
+  <!-- Navigation Bar -->
+  <header class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#" class="brand">
+        <span class="brand-icon">🌊</span>
+        <span class="brand-name">WhisperFlow</span>
+      </a>
+
+      <nav class="nav-menu">
+        <a href="#suite" class="nav-link">The Suite</a>
+        <a href="#dictation" class="nav-link">Dictation</a>
+        <a href="#commands" class="nav-link">Context Commands</a>
+        <a href="#architecture" class="nav-link">Architecture</a>
+        <a href="#savings" class="nav-link">Savings</a>
+        <a href="#manifesto" class="nav-link">Manifesto</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="sound-toggle-btn" id="soundToggle" aria-label="Toggle UI Sound Effects">
+          <span class="sound-icon">🎧</span>
+          <span class="sound-label">Sound: ON</span>
+        </button>
+
+        <button class="cmd-k-trigger" id="cmdKTrigger" aria-label="Open Command Palette">
+          <span class="cmd-k-text">Search</span>
+          <kbd class="kbd-pill">⌘K</kbd>
+        </button>
+
+        <a href="https://github.com/ParthVarekar/whisper_flow_clone_local" target="_blank" rel="noopener" class="btn btn-navy">
+          <span>Get WhisperFlow →</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="hero-container">
+      
+      <div class="hero-pill-wrapper">
+        <span class="hero-pill">
+          <span class="pill-sparkle">✦</span>
+          <span class="pill-text">WhisperFlow Local</span>
+        </span>
+      </div>
+
+      <h1 class="hero-title">
+        Speech to Structured Thought.<br>
+        <span class="hero-serif-italic">The fastest voice experience in the world.</span>
+      </h1>
+
+      <p class="hero-subtitle">
+        WhisperFlow is an open-source, local-first voice productivity engine. Speak naturally, strip verbal stutters instantly, and auto-paste executive-formatted text into any active application window.
+      </p>
+
+      <div class="hero-cta-group">
+        <a href="#quickstart" class="btn btn-navy btn-hero">
+          <span>Get WhisperFlow →</span>
+        </a>
+
+        <button class="btn btn-cream-outline btn-hero" id="copyCloneBtn">
+          <span id="copyBtnText">git clone repo</span>
+          <kbd class="kbd-subtle">Click to copy</kbd>
+        </button>
+      </div>
+
+      <!-- Hotkey Indicator Banner -->
+      <div class="hotkey-banner">
+        <span class="hotkey-banner-label">GLOBAL DICTATION HOTKEY:</span>
+        <div class="hotkey-group">
+          <kbd class="kbd-key">Ctrl</kbd>
+          <span class="hotkey-plus">+</span>
+          <kbd class="kbd-key">Shift</kbd>
+          <span class="hotkey-plus">+</span>
+          <kbd class="kbd-key kbd-space">Space</kbd>
+        </div>
+        <span class="hotkey-banner-sub">Hold anywhere on Desktop</span>
+      </div>
+
+      <!-- Hero Warm Canvas HUD Showcase -->
+      <div class="hero-canvas-card">
+        <div class="hud-capsule-glass">
+          <div class="hud-status-dot recording" id="hudStatusDot"></div>
+          <div class="hud-phase-text" id="hudPhaseLabel">RECORDING & TRANSCRIBING...</div>
+
+          <div class="hud-waveform">
+            <div class="bar bar-1"></div>
+            <div class="bar bar-2"></div>
+            <div class="bar bar-3"></div>
+            <div class="bar bar-4"></div>
+            <div class="bar bar-5"></div>
+            <div class="bar bar-6"></div>
+          </div>
+
+          <div class="hud-latency-pill">⚡ 142ms</div>
+        </div>
+
+        <div class="hud-output-card">
+          <div class="hud-output-prefix">RAW AUDIO TRANSCRIPT → LLM FORMATTED:</div>
+          <div class="hud-output-text" id="hudOutputText">
+            "• <strong>Groceries:</strong> Bananas, Milk, Eggs.<br><em>Action Item: Email Sarah by 5:00 PM.</em>"
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Metrics Ticker -->
+  <section class="metrics-section">
+    <div class="container">
+      <div class="metrics-grid">
+        <div class="metric-item">
+          <div class="metric-num">0 ms</div>
+          <div class="metric-label">Cloud Latency</div>
+          <div class="metric-sub">Direct local C++ inference</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-num">0 Bytes</div>
+          <div class="metric-label">Data Sent Outside</div>
+          <div class="metric-sub">100% on-device privacy</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-num">4.2x</div>
+          <div class="metric-label">Typing Speedup</div>
+          <div class="metric-sub">160 WPM voice vs 40 WPM typing</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-num">90+</div>
+          <div class="metric-label">Languages</div>
+          <div class="metric-sub">Multilingual whisper.cpp engine</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section Title: The WhisperFlow Suite -->
+  <section class="section-title-block" id="suite">
+    <div class="container center">
+      <h2 class="suite-title">The WhisperFlow Suite</h2>
+      <p class="suite-subtitle">Engineered for speed, privacy, and flawless text execution.</p>
+    </div>
+  </section>
+
+  <!-- Superhuman Suite Stacked Split Cards -->
+  <section class="suite-cards-section">
+    <div class="container">
+
+      <!-- Card 1: Dictation (Sky Blue Pastel Backdrop) -->
+      <div class="suite-card sky-pastel" id="dictation">
+        <div class="suite-card-content">
+          
+          <div class="suite-left-col">
+            <span class="sub-brand-pill sky">
+              <span class="pill-icon">🌊</span>
+              <span>Dictation</span>
+            </span>
+
+            <h2 class="suite-card-heading">
+              The most productive voice engine ever made
+            </h2>
+
+            <p class="suite-card-desc">
+              To be radically more productive, speech recognition must strip filler words ("um", "uh"), execute formatting cues, and structure bullet points automatically.
+            </p>
+
+            <a href="#quickstart" class="arrow-link sky">
+              <span>Learn about Dictation</span>
+              <span class="arrow">→</span>
+            </a>
+
+            <ul class="check-list">
+              <li><span class="check-icon">✓</span> 100% On-Device / Offline Speech Recognition</li>
+              <li><span class="check-icon">✓</span> Automatic Verbal Stutter Removal</li>
+              <li><span class="check-icon">✓</span> Instant Executive Markdown Structuring</li>
+              <li><span class="check-icon">✓</span> Direct Win32 / macOS Cursor Auto-Pasting</li>
+            </ul>
+          </div>
+
+          <!-- Right Column: Interactive UI Sandbox -->
+          <div class="suite-right-col">
+            <div class="ui-preview-card">
+              <div class="preview-header">
+                <span class="preview-dot"></span>
+                <span class="preview-title">Real-Time Dictation Sandbox</span>
+                <button class="btn btn-xs btn-navy" id="runDictationDemo">⚡ Transform Sample</button>
+              </div>
+
+              <div class="preview-body">
+                <div class="preview-raw-box">
+                  <div class="preview-label">RAW SPEECH AUDIO STREAM:</div>
+                  <p class="raw-text" id="sandboxRawText">
+                    "um so yeah like I will list a few items bold this word that is groceries bananas and milk and email Sarah by five p m..."
+                  </p>
+                </div>
+
+                <div class="preview-arrow-divider">↓ Gemma 2B Local LLM Normalization</div>
+
+                <div class="preview-result-box">
+                  <div class="preview-label">WHISPERFLOW PASTED RESULT:</div>
+                  <div class="result-text" id="sandboxResultText">
+                    <p>• <strong>Groceries</strong></p>
+                    <p>• Bananas</p>
+                    <p>• Milk</p>
+                    <br>
+                    <p><em>Action item: Email Sarah by 5:00 PM.</em></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Card 2: Context Commands (Sage Green Pastel Backdrop) -->
+      <div class="suite-card sage-pastel" id="commands">
+        <div class="suite-card-content">
+          
+          <div class="suite-left-col">
+            <span class="sub-brand-pill sage">
+              <span class="pill-icon">🧠</span>
+              <span>Context Commands</span>
+            </span>
+
+            <h2 class="suite-card-heading">
+              Everyone's favorite AI writing partner
+            </h2>
+
+            <p class="suite-card-desc">
+              Highlight text in any application—VS Code, Slack, Outlook, or Notion—hold Ctrl+Shift+T, and speak an instruction to rewrite text in place effortlessly.
+            </p>
+
+            <a href="#quickstart" class="arrow-link sage">
+              <span>Learn about Context Commands</span>
+              <span class="arrow">→</span>
+            </a>
+
+            <ul class="check-list">
+              <li><span class="check-icon">✓</span> In-Place Text Editing Across All Desktop Apps</li>
+              <li><span class="check-icon">✓</span> Executive Tone Adjustments & Summaries</li>
+              <li><span class="check-icon">✓</span> Instant Language Translation & JSON Structuring</li>
+              <li><span class="check-icon">✓</span> Zero Clipboard State Pollution</li>
+            </ul>
+          </div>
+
+          <!-- Right Column: Interactive Prompt Switcher -->
+          <div class="suite-right-col">
+            <div class="ui-preview-card">
+              <div class="preview-header">
+                <span class="preview-title">Context Command Sandbox (Ctrl+Shift+T)</span>
+              </div>
+
+              <div class="prompt-chips-bar">
+                <button class="chip active" data-prompt="professional">Executive</button>
+                <button class="chip" data-prompt="action-items">Action Items</button>
+                <button class="chip" data-prompt="spanish">Spanish</button>
+                <button class="chip" data-prompt="json">JSON</button>
+              </div>
+
+              <div class="preview-body">
+                <div class="context-selected-box">
+                  <div class="preview-label">SELECTED TEXT IN APP:</div>
+                  <p id="contextSelectedText">"Hey team, we might delay the release by two days due to open bugs."</p>
+                </div>
+
+                <div class="context-spoken-box">
+                  <span class="mic-icon">🎙️</span>
+                  <span class="spoken-label">Spoken:</span>
+                  <span id="contextSpokenText">"Make this executive and action-oriented."</span>
+                </div>
+
+                <div class="context-result-box">
+                  <div class="preview-label">REPLACED RESULT:</div>
+                  <p id="contextResultText">"Team, we are adjusting our release schedule by 48 hours to resolve critical issues."</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Card 3: Dual Local Engine (Warm Amber Pastel Backdrop) -->
+      <div class="suite-card amber-pastel" id="architecture">
+        <div class="suite-card-content">
+          
+          <div class="suite-left-col">
+            <span class="sub-brand-pill amber">
+              <span class="pill-icon">⚡</span>
+              <span>Dual Engine</span>
+            </span>
+
+            <h2 class="suite-card-heading">
+              100% Local. Zero Cloud. Zero Latency.
+            </h2>
+
+            <p class="suite-card-desc">
+              Upstream blessed architecture: whisper.cpp handles high-fidelity acoustic speech decoding, llama.cpp (Gemma 2B) handles local context processing.
+            </p>
+
+            <a href="#quickstart" class="arrow-link amber">
+              <span>Learn about Architecture</span>
+              <span class="arrow">→</span>
+            </a>
+
+            <ul class="check-list">
+              <li><span class="check-icon">✓</span> whisper.cpp C++ Port for CUDA, Metal & Vulkan</li>
+              <li><span class="check-icon">✓</span> llama.cpp HTTP Server for Gemma 2B LLM</li>
+              <li><span class="check-icon">✓</span> Python stdlib-only Orchestrator</li>
+              <li><span class="check-icon">✓</span> Custom Phonetic Dictionary & Snippets</li>
+            </ul>
+          </div>
+
+          <!-- Right Column: Architecture Grid Visualizer -->
+          <div class="suite-right-col">
+            <div class="ui-preview-card">
+              <div class="preview-header">
+                <span class="preview-title">Local Dual Engine Architecture</span>
+              </div>
+              <div class="arch-flow-box">
+                <div class="arch-node">
+                  <div class="node-icon">🎙️</div>
+                  <div class="node-title">Audio Input</div>
+                  <div class="node-sub">VAD Silence Trim</div>
+                </div>
+                <div class="arch-arrow">➔</div>
+                <div class="arch-node highlight">
+                  <div class="node-icon">⚡</div>
+                  <div class="node-title">whisper.cpp STT</div>
+                  <div class="node-sub">CUDA / Metal</div>
+                </div>
+                <div class="arch-arrow">➔</div>
+                <div class="arch-node highlight-llm">
+                  <div class="node-icon">🧠</div>
+                  <div class="node-title">llama.cpp LLM</div>
+                  <div class="node-sub">Gemma 2B</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Speed & Savings Calculator -->
+  <section class="section calculator-section" id="savings">
+    <div class="container">
+      <div class="calculator-card">
+        <div class="calc-header center">
+          <span class="sub-brand-pill navy">
+            <span class="pill-icon">⏱️</span>
+            <span>Speed & Savings</span>
+          </span>
+          <h2 class="calc-title">Calculate Your Time & Cost Savings</h2>
+          <p class="calc-subtitle">See how much time you recover each month by speaking at 160 WPM instead of typing at 40 WPM.</p>
+        </div>
+
+        <div class="calc-body">
+          <div class="calc-inputs">
+            <div class="slider-group">
+              <div class="slider-label-row">
+                <span>Daily Dictation Volume:</span>
+                <span class="slider-val"><strong id="wordsVal">4,000</strong> words/day</span>
+              </div>
+              <input type="range" id="wordsRange" min="500" max="15000" step="500" value="4000">
+            </div>
+
+            <div class="select-group">
+              <label for="hwSelect">Hardware Setup:</label>
+              <select id="hwSelect" class="form-select">
+                <option value="nvidia">Dedicated NVIDIA GPU (RTX 3060/4070+) — Sub-200ms</option>
+                <option value="apple">Apple Silicon (M1/M2/M3/M4 Metal) — ~240ms</option>
+                <option value="cpu">Multi-core CPU Fallback — ~580ms</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="calc-outputs">
+            <div class="calc-tile">
+              <div class="tile-icon">⏱️</div>
+              <div>
+                <span class="tile-val" id="hoursVal">27.5 Hours</span>
+                <span class="tile-label">Saved Every Month</span>
+              </div>
+            </div>
+            <div class="calc-tile">
+              <div class="tile-icon">💰</div>
+              <div>
+                <span class="tile-val" id="moneyVal">$180 / Year</span>
+                <span class="tile-label">Saved vs Paid STT APIs</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Full-Width Dark Teal / Indigo Manifesto Block ("Becoming Superhuman Voice") -->
+  <section class="manifesto-section" id="manifesto">
+    <div class="container">
+      <div class="manifesto-card">
+        
+        <div class="manifesto-left-art">
+          <div class="art-graphic">
+            <span class="art-icon">🌊</span>
+            <div class="art-glow"></div>
+          </div>
+        </div>
+
+        <div class="manifesto-right-content">
+          <h2 class="manifesto-heading">Becoming Superhuman.</h2>
+          <p class="manifesto-text">
+            When all your tools are designed to put you in flow, you work faster, think clearer, and focus on what matters most. WhisperFlow brings zero-latency, local AI dictation directly to your keyboard—100% offline, private, and free forever.
+          </p>
+          <a href="https://github.com/ParthVarekar/whisper_flow_clone_local" target="_blank" rel="noopener" class="btn btn-manifesto">
+            <span>Get Started on GitHub →</span>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Configuration Showcase -->
+  <section class="section config-section" id="config">
+    <div class="container">
+      <div class="config-card">
+        <div class="config-header">
+          <div class="config-title-group">
+            <h3>Human-Readable Configuration (`config.llama4.toml`)</h3>
+            <p>Customize hotkeys, writing style prompts, phonetic terms, and text expansion snippets.</p>
+          </div>
+          <button class="btn btn-sm btn-navy-outline" id="copyConfigBtn">Copy Config</button>
+        </div>
+        <div class="config-body">
+          <pre><code class="language-toml"><span class="toml-key">mode</span> = <span class="toml-string">"auto"</span>
+<span class="toml-key">writing_style</span> = <span class="toml-string">"default"</span>
+<span class="toml-key">smart_formatting</span> = <span class="toml-boolean">true</span>
+<span class="toml-key">dictation_hotkey</span> = <span class="toml-string">"ctrl+shift+space"</span>
+<span class="toml-key">command_hotkey</span> = <span class="toml-string">"ctrl+shift+t"</span>
+
+<span class="toml-key">dictionary</span> = [
+  <span class="toml-string">"WhisperFlow"</span>, <span class="toml-string">"whisper.cpp"</span>, <span class="toml-string">"llama.cpp"</span>, <span class="toml-string">"Qwen3-ASR"</span>
+]
+
+[<span class="toml-table">snippets</span>]
+<span class="toml-string">"my email"</span> = <span class="toml-string">"your.email@domain.com"</span></code></pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Accordion -->
+  <section class="section faq-section" id="faq">
+    <div class="container max-800">
+      <div class="center margin-bottom-40">
+        <h2 class="suite-title">Frequently Asked Questions</h2>
+      </div>
+
+      <div class="faq-accordion">
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Is WhisperFlow completely 100% offline?</span>
+            <span class="faq-toggle">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Yes. Both speech transcription (whisper.cpp) and LLM context formatting (llama.cpp) execute locally on your machine. Zero cloud servers are involved.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>What hardware do I need for sub-second responses?</span>
+            <span class="faq-toggle">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>A dedicated NVIDIA GPU (RTX 3060+) or Apple Silicon Mac (M1/M2/M3/M4) provides optimal performance (< 200ms). Multi-core CPU fallbacks are also supported.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>How do Contextual Commands work?</span>
+            <span class="faq-toggle">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Highlight text in any desktop app, hold Ctrl+Shift+T, speak an instruction, and WhisperFlow rewrites the text in place via Win32 SendInput APIs.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Editorial Watermark Footer -->
+  <footer class="footer">
+    <div class="container">
+      
+      <div class="footer-top-brand">
+        <a href="#" class="footer-logo">
+          <span>🌊 WhisperFlow</span>
+        </a>
+        <p class="footer-tagline">Builders of WhisperFlow Platform Voice Engine.</p>
+      </div>
+
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h4 class="footer-col-title">Products</h4>
+          <ul class="footer-links">
+            <li><a href="#dictation">Whisper Dictation</a></li>
+            <li><a href="#commands">Context Commands</a></li>
+            <li><a href="#architecture">Dual Engine</a></li>
+            <li><a href="#config">TOML Configuration</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-col-title">Company</h4>
+          <ul class="footer-links">
+            <li><a href="https://github.com/ParthVarekar/whisper_flow_clone_local" target="_blank">About</a></li>
+            <li><a href="https://github.com/ParthVarekar/whisper_flow_clone_local/blob/main/README.md" target="_blank">Documentation</a></li>
+            <li><a href="https://github.com/ParthVarekar/whisper_flow_clone_local/blob/main/ARCHITECTURE.md" target="_blank">Architecture</a></li>
+            <li><a href="#manifesto">Manifesto</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-col-title">Legal</h4>
+          <ul class="footer-links">
+            <li><a href="#">MIT License</a></li>
+            <li><a href="#">Privacy Guarantee</a></li>
+            <li><a href="#">Security</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-col-title">Connect</h4>
+          <ul class="footer-links">
+            <li><a href="https://github.com/ParthVarekar" target="_blank">GitHub</a></li>
+            <li><a href="#">Twitter / X</a></li>
+            <li><a href="#">Discord</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom-copy">
+        <span>© 2026 Parth Varekar. Open source under the MIT License.</span>
+      </div>
+
+      <!-- Massive Superhuman-Style Background Watermark Text -->
+      <div class="footer-watermark">
+        WHISPERFLOW
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Command Palette Modal (Cmd+K) -->
+  <div class="cmd-modal-overlay" id="cmdKModal">
+    <div class="cmd-box">
+      <div class="cmd-header">
+        <span>🔍</span>
+        <input type="text" id="cmdKInput" placeholder="Type a command or search sections... (e.g. Dictation, Architecture, Config)">
+        <kbd>ESC</kbd>
+      </div>
+      <div class="cmd-results" id="cmdKResults">
+        <div class="cmd-item" data-action="nav-dictation">🌊 Jump to Dictation</div>
+        <div class="cmd-item" data-action="nav-commands">🧠 Jump to Context Commands</div>
+        <div class="cmd-item" data-action="nav-architecture">⚡ Jump to Dual Engine</div>
+        <div class="cmd-item" data-action="toggle-sound">🎧 Toggle Audio Chimes</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Keyboard Cheatsheet Modal (?) -->
+  <div class="cmd-modal-overlay" id="cheatsheetModal">
+    <div class="cmd-box">
+      <div class="cmd-header">
+        <span>⌨️</span>
+        <strong style="font-size:16px;">WhisperFlow Keyboard Cheatsheet</strong>
+        <kbd>ESC</kbd>
+      </div>
+      <div class="cmd-results" style="padding:20px;">
+        <div style="display:flex; justify-content:space-between; margin-bottom:12px;">
+          <span>Global Dictation</span>
+          <kbd>Ctrl + Shift + Space</kbd>
+        </div>
+        <div style="display:flex; justify-content:space-between; margin-bottom:12px;">
+          <span>Context Voice Command</span>
+          <kbd>Ctrl + Shift + T</kbd>
+        </div>
+        <div style="display:flex; justify-content:space-between; margin-bottom:12px;">
+          <span>Command Palette</span>
+          <kbd>⌘K / Ctrl + K</kbd>
+        </div>
+        <div style="display:flex; justify-content:space-between;">
+          <span>Cheatsheet</span>
+          <kbd>?</kbd>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div class="toast" id="toast">
+    <span id="toastMsg">Notification</span>
+  </div>
+
+  <!-- Script -->
+  <script src="app.js"></script>
+</body>
+</html>

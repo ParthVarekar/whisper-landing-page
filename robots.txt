@@ -1,0 +1,5 @@
+# WhisperFlow Landing Page Robots.txt
+User-agent: *
+Allow: /
+
+Sitemap: https://github.com/ParthVarekar/whisper-landing-page/sitemap.xml
