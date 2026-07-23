@@ -76,18 +76,18 @@ export default function BentoGrid() {
   }, []);
 
   return (
-    <section id="bento-grid" ref={containerRef} className="py-24 bg-[#F9F8F6] relative">
+    <section id="bento-grid" ref={containerRef} className="py-28 bg-[#F9F8F6] relative">
       <div className="max-w-[1200px] mx-auto px-6">
         
         {/* Section Header */}
-        <div className="text-center max-w-[800px] mx-auto mb-20 space-y-3">
+        <div className="text-center max-w-[800px] mx-auto mb-20 space-y-4">
           <div className="inline-flex items-center gap-2 bg-[#2A2859] text-white px-4 py-1.5 rounded-[8px] text-xs font-bold font-mono">
-            <span>THE WHISPERFLOW SUITE</span>
+            <span>THE SUSURRUS SUITE</span>
           </div>
-          <h2 className="text-[36px] md:text-[48px] font-[540] leading-[0.96] tracking-tight text-[#0F172A]">
+          <h2 className="text-[36px] md:text-[48px] font-[540] leading-[1.08] tracking-tight text-[#0F172A]">
             Capabilities & Architecture
           </h2>
-          <p className="text-base text-[#475569] font-[460] leading-[1.50]">
+          <p className="text-base text-[#475569] font-[460] leading-relaxed">
             Engineered for speed, privacy, and flawless text execution.
           </p>
         </div>
@@ -101,14 +101,13 @@ export default function BentoGrid() {
             id="dictation"
             className="sticky top-[120px] bg-[#F9F8F6] border border-[#dcd7d3] rounded-[16px] p-8 md:p-12 shadow-2xl transition-all origin-top z-10"
           >
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
               
               <div className="lg:col-span-5 space-y-6">
                 <div className="inline-flex items-center gap-2 text-[#2A2859] font-bold text-sm">
-                  <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/>
                     <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
-                    <line x1="12" y1="19" x2="12" y2="22"/>
                   </svg>
                   <span>Dictation Studio</span>
                 </div>
@@ -117,25 +116,25 @@ export default function BentoGrid() {
                   The most productive voice dictation engine ever made
                 </h3>
 
-                <p className="text-base font-[460] leading-[1.50] text-[#334155]">
+                <p className="text-base font-[460] leading-relaxed text-[#334155]">
                   To be radically more productive, speech recognition must strip verbal stutters ("um", "uh"), execute spoken formatting cues, and structure bullet points automatically.
                 </p>
 
-                <ul className="space-y-2 text-sm font-semibold text-[#0F172A]">
-                  <li className="flex items-center gap-2">
-                    <svg className="w-4 h-4 text-[#2A2859]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                <ul className="space-y-3 text-sm font-semibold text-[#0F172A]">
+                  <li className="flex items-center gap-2.5">
+                    <svg className="w-4 h-4 text-[#2A2859]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
                       <polyline points="20 6 9 17 4 12"/>
                     </svg>
                     100% On-Device / Offline Speech Recognition
                   </li>
-                  <li className="flex items-center gap-2">
-                    <svg className="w-4 h-4 text-[#2A2859]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                  <li className="flex items-center gap-2.5">
+                    <svg className="w-4 h-4 text-[#2A2859]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
                       <polyline points="20 6 9 17 4 12"/>
                     </svg>
                     Automatic Verbal Stutter & Filler Stripping
                   </li>
-                  <li className="flex items-center gap-2">
-                    <svg className="w-4 h-4 text-[#2A2859]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                  <li className="flex items-center gap-2.5">
+                    <svg className="w-4 h-4 text-[#2A2859]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
                       <polyline points="20 6 9 17 4 12"/>
                     </svg>
                     Direct Cursor Auto-Pasting in any Desktop App
@@ -143,11 +142,11 @@ export default function BentoGrid() {
                 </ul>
               </div>
 
-              {/* Editorial Photography Canvas + Floating White UI Window */}
+              {/* Photography Canvas + Floating UI Card */}
               <div className="lg:col-span-7 relative rounded-[16px] overflow-hidden aspect-[4/3] p-6 flex items-center justify-center shadow-md">
                 <Image
                   src="/assets/card1_sky.jpg"
-                  alt="Pastel Sky Photography Background"
+                  alt="Pastel Sky Background"
                   fill
                   className="object-cover"
                 />
@@ -174,7 +173,7 @@ export default function BentoGrid() {
                     </div>
 
                     <div className="space-y-1 bg-[#F9F8F6] p-3 rounded-[8px]">
-                      <div className="font-mono text-[11px] font-bold text-[#2A2859]">WHISPERFLOW PASTED RESULT:</div>
+                      <div className="font-mono text-[11px] font-bold text-[#2A2859]">SUSURRUS PASTED RESULT:</div>
                       <p className="whitespace-pre-line font-medium text-[#0F172A]">
                         {dictationPresets[presetIdx].result}
                       </p>
@@ -193,11 +192,11 @@ export default function BentoGrid() {
             id="commands"
             className="sticky top-[140px] bg-[#F9F8F6] border border-[#dcd7d3] rounded-[16px] p-8 md:p-12 shadow-2xl transition-all origin-top z-20"
           >
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
               
               <div className="lg:col-span-5 space-y-6">
                 <div className="inline-flex items-center gap-2 text-[#2A2859] font-bold text-sm">
-                  <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <path d="M12 2a8 8 0 0 0-8 8c0 5.25 7 12 8 12s8-6.75 8-12a8 8 0 0 0-8-8z"/>
                   </svg>
                   <span>Context Commands</span>
@@ -207,25 +206,25 @@ export default function BentoGrid() {
                   AI that actually works in every app you use
                 </h3>
 
-                <p className="text-base font-[460] leading-[1.50] text-[#334155]">
+                <p className="text-base font-[460] leading-relaxed text-[#334155]">
                   Highlight text in any desktop application—VS Code, Slack, Outlook, or Notion—hold Ctrl+Shift+T, and speak an instruction to rewrite text in place effortlessly.
                 </p>
 
-                <ul className="space-y-2 text-sm font-semibold text-[#0F172A]">
-                  <li className="flex items-center gap-2">
-                    <svg className="w-4 h-4 text-[#2A2859]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                <ul className="space-y-3 text-sm font-semibold text-[#0F172A]">
+                  <li className="flex items-center gap-2.5">
+                    <svg className="w-4 h-4 text-[#2A2859]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
                       <polyline points="20 6 9 17 4 12"/>
                     </svg>
                     In-Place Text Editing Across All Desktop Apps
                   </li>
-                  <li className="flex items-center gap-2">
-                    <svg className="w-4 h-4 text-[#2A2859]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                  <li className="flex items-center gap-2.5">
+                    <svg className="w-4 h-4 text-[#2A2859]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
                       <polyline points="20 6 9 17 4 12"/>
                     </svg>
                     Executive Tone Adjustments & Action Item Extraction
                   </li>
-                  <li className="flex items-center gap-2">
-                    <svg className="w-4 h-4 text-[#2A2859]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                  <li className="flex items-center gap-2.5">
+                    <svg className="w-4 h-4 text-[#2A2859]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
                       <polyline points="20 6 9 17 4 12"/>
                     </svg>
                     Zero Clipboard Pollution
@@ -270,10 +269,6 @@ export default function BentoGrid() {
                     </div>
 
                     <div className="flex items-center gap-2 text-emerald-700 font-semibold">
-                      <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                        <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/>
-                        <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
-                      </svg>
                       <span>Spoken: {contextData[promptKey].spoken}</span>
                     </div>
 
@@ -297,11 +292,11 @@ export default function BentoGrid() {
             id="architecture"
             className="sticky top-[160px] bg-[#F9F8F6] border border-[#dcd7d3] rounded-[16px] p-8 md:p-12 shadow-2xl transition-all origin-top z-30"
           >
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
               
               <div className="lg:col-span-5 space-y-6">
                 <div className="inline-flex items-center gap-2 text-[#2A2859] font-bold text-sm">
-                  <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
                   </svg>
                   <span>Dual Local Engine</span>
@@ -311,25 +306,25 @@ export default function BentoGrid() {
                   100% Local. Zero Cloud. Powered by whisper.cpp + Gemma 2B.
                 </h3>
 
-                <p className="text-base font-[460] leading-[1.50] text-[#334155]">
+                <p className="text-base font-[460] leading-relaxed text-[#334155]">
                   Upstream blessed architecture: whisper.cpp handles high-fidelity acoustic speech decoding, llama.cpp handles local context processing.
                 </p>
 
-                <ul className="space-y-2 text-sm font-semibold text-[#0F172A]">
-                  <li className="flex items-center gap-2">
-                    <svg className="w-4 h-4 text-[#2A2859]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                <ul className="space-y-3 text-sm font-semibold text-[#0F172A]">
+                  <li className="flex items-center gap-2.5">
+                    <svg className="w-4 h-4 text-[#2A2859]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
                       <polyline points="20 6 9 17 4 12"/>
                     </svg>
                     CUDA, Metal & Vulkan GPU Acceleration
                   </li>
-                  <li className="flex items-center gap-2">
-                    <svg className="w-4 h-4 text-[#2A2859]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                  <li className="flex items-center gap-2.5">
+                    <svg className="w-4 h-4 text-[#2A2859]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
                       <polyline points="20 6 9 17 4 12"/>
                     </svg>
                     llama.cpp HTTP Server for Gemma 2B LLM
                   </li>
-                  <li className="flex items-center gap-2">
-                    <svg className="w-4 h-4 text-[#2A2859]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                  <li className="flex items-center gap-2.5">
+                    <svg className="w-4 h-4 text-[#2A2859]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
                       <polyline points="20 6 9 17 4 12"/>
                     </svg>
                     Python stdlib-only Orchestrator

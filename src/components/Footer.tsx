@@ -10,9 +10,9 @@ export default function Footer() {
               <path d="M2 12c.6 0 1.2-.4 1.4-1 1.2-3.4 3.4-3.4 4.6 0 1.2 3.4 3.4 3.4 4.6 0 1.2-3.4 3.4-3.4 4.6 0 .2.6.8 1 1.4 1" />
               <path d="M2 18c.6 0 1.2-.4 1.4-1 1.2-3.4 3.4-3.4 4.6 0 1.2 3.4 3.4 3.4 4.6 0 1.2-3.4 3.4-3.4 4.6 0 .2.6.8 1 1.4 1" />
             </svg>
-            <span>WhisperFlow</span>
+            <span>Susurrus</span>
           </a>
-          <p className="text-xs text-[#94a3b8] mt-2">Builders of WhisperFlow Platform Voice Engine.</p>
+          <p className="text-xs text-[#94a3b8] mt-2">Builders of Susurrus Platform Voice Engine.</p>
         </div>
 
         {/* 4 Columns */}
@@ -67,7 +67,7 @@ export default function Footer() {
 
       {/* Giant Background Watermark */}
       <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 font-sans text-[120px] md:text-[150px] font-black text-white/[0.04] tracking-widest pointer-events-none select-none z-0 whitespace-nowrap">
-        WHISPERFLOW
+        SUSURRUS
       </div>
     </footer>
   );

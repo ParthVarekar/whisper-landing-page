@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "WhisperFlow — Save 4 Hours Every Single Week",
-  description: "The most productive voice experience in the world. 100% offline, zero cloud latency voice dictation and contextual AI rewriting engine powered by whisper.cpp and Gemma 2B.",
-  keywords: ["WhisperFlow", "voice dictation", "whisper.cpp", "offline AI", "Gemma 2B", "voice productivity"],
+  title: "Susurrus — Speech to Structured Thought",
+  description: "The most productive voice experience in the world. 100% offline, zero cloud latency voice dictation and contextual AI rewriting engine.",
+  keywords: ["Susurrus", "voice dictation", "whisper.cpp", "offline AI", "Gemma 2B", "voice productivity"],
 };
 
 export default function RootLayout({

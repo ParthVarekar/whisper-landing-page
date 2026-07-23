@@ -1,114 +1,146 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import Image from "next/image";
 import gsap from "gsap";
 
 export default function HeroSection() {
-  const headlineRef = useRef<HTMLHeadingElement>(null);
-  const portraitRef = useRef<HTMLDivElement>(null);
-  const [copied, setCopied] = useState(false);
+  const heroRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (headlineRef.current && portraitRef.current) {
+    if (heroRef.current) {
       gsap.fromTo(
-        portraitRef.current,
-        { opacity: 0, scale: 0.95, y: 30 },
-        { opacity: 1, scale: 1, y: 0, duration: 0.8, ease: "power3.out" }
-      );
-
-      gsap.fromTo(
-        headlineRef.current,
-        { opacity: 0, y: 20 },
-        { opacity: 1, y: 0, duration: 0.8, delay: 0.2, ease: "power3.out" }
+        ".hero-floating-card",
+        { opacity: 0, y: 30, scale: 0.95 },
+        { opacity: 1, y: 0, scale: 1, duration: 1, stagger: 0.12, ease: "power3.out" }
       );
     }
   }, []);
 
-  const handleCopy = () => {
-    navigator.clipboard.writeText("git clone https://github.com/ParthVarekar/whisper_flow_clone_local.git");
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
-  };
-
   return (
-    <section className="pt-28 pb-20 bg-[#F9F8F6] text-[#0F172A] text-center relative overflow-hidden">
-      <div className="max-w-[900px] mx-auto px-6 relative z-10">
+    <section ref={heroRef} className="pt-32 pb-24 bg-gradient-to-b from-[#1b1938] via-[#2d2955] to-[#121929] text-white text-center relative overflow-hidden">
+      <div className="max-w-[1200px] mx-auto px-6 relative z-10 space-y-8">
         
-        {/* Top Brand Pill with Clean SVG Sparkle */}
-        <div className="inline-flex items-center gap-2 bg-[#2A2859] text-white px-5 py-2 rounded-full mb-8 shadow-sm">
-          <span className="font-bold text-sm">WhisperFlow Engine</span>
-          <svg className="w-3.5 h-3.5 text-[#cbb7fb]" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z" />
-          </svg>
-        </div>
+        {/* Top Headline & Subtitle matching attached image #1 */}
+        <div className="space-y-4 max-w-[840px] mx-auto">
+          <h1 className="text-4xl md:text-6xl font-[540] leading-[1.08] tracking-tight text-white">
+            Speech to Structured Thought.
+          </h1>
+          <p className="text-lg md:text-xl font-normal text-slate-200 leading-relaxed">
+            Dictation, Context, and AI that works in every app and tab
+          </p>
 
-        {/* Hero Editorial Portrait Photography */}
-        <div
-          ref={portraitRef}
-          className="relative max-w-[440px] mx-auto mb-8 rounded-[24px] overflow-hidden shadow-2xl border border-[#dcd7d3] aspect-[3/4]"
-        >
-          <Image
-            src="/assets/hero_portrait.jpg"
-            alt="WhisperFlow Editorial Creator Portrait"
-            fill
-            className="object-cover"
-            priority
-          />
-        </div>
-
-        {/* Display Headline */}
-        <h1
-          ref={headlineRef}
-          className="text-[44px] md:text-[56px] font-[540] leading-[1.05] tracking-tight text-[#0F172A] max-w-[800px] mx-auto mb-6"
-        >
-          Save 4 hours every single week.<br />
-          <span className="font-serif italic font-normal text-[#2A2859] block mt-1">
-            The most productive voice experience in the world.
-          </span>
-        </h1>
-
-        {/* Airy Body Copy */}
-        <p className="text-lg md:text-xl font-[460] leading-[1.50] text-[#334155] max-w-[720px] mx-auto mb-8">
-          The human voice speaks at 160 words per minute. The keyboard caps out at 40. WhisperFlow listens, cleans stutters, structures thought, and pastes executive-ready text directly at your cursor—100% on your device.
-        </p>
-
-        {/* Two-Mode CTAs */}
-        <div className="flex flex-wrap items-center justify-center gap-4 mb-6">
-          <a
-            href="#waitlist"
-            className="bg-[#2A2859] text-white font-bold text-base px-8 py-4 rounded-[8px] hover:bg-[#1E1B42] hover:-translate-y-0.5 transition-all duration-200 shadow-xl shadow-[#2A2859]/20"
-          >
-            Get Early Access →
-          </a>
-
-          <button
-            onClick={handleCopy}
-            className="bg-white border border-[#dcd7d3] text-[#0F172A] font-semibold text-base px-6 py-4 rounded-[8px] hover:bg-[#F3F0EB] transition-all duration-200 flex items-center gap-2 shadow-sm"
-          >
-            <span>{copied ? "Copied Git Command!" : "git clone repo"}</span>
-            <kbd className="bg-[#F9F8F6] text-xs px-2 py-0.5 rounded-[4px] font-mono text-[#475569] border border-[#dcd7d3]">
-              Click to copy
-            </kbd>
-          </button>
-        </div>
-
-        {/* Frictionless Microcopy */}
-        <p className="text-xs text-[#475569] font-medium mb-10">
-          Get early access. No credit card required. Setup in 1 minute.
-        </p>
-
-        {/* Global Hotkey Banner */}
-        <div className="inline-flex flex-wrap items-center justify-center gap-3 bg-white border border-[#dcd7d3] px-6 py-3 rounded-[8px] shadow-sm">
-          <span className="font-mono text-xs text-[#475569] font-semibold">GLOBAL HOTKEY:</span>
-          <div className="flex items-center gap-1.5 font-mono text-xs font-bold">
-            <kbd className="bg-[#F9F8F6] px-2.5 py-1 rounded-[6px] text-[#0F172A] border border-[#dcd7d3]">Ctrl</kbd>
-            <span className="text-[#475569]">+</span>
-            <kbd className="bg-[#F9F8F6] px-2.5 py-1 rounded-[6px] text-[#0F172A] border border-[#dcd7d3]">Shift</kbd>
-            <span className="text-[#475569]">+</span>
-            <kbd className="bg-[#F9F8F6] px-3 py-1 rounded-[6px] text-[#0F172A] border border-[#dcd7d3]">Space</kbd>
+          {/* Dark Violet Pill CTA */}
+          <div className="pt-4 flex justify-center">
+            <a
+              href="#waitlist"
+              className="bg-[#2A2859] hover:bg-[#1E1B42] text-white font-bold text-base px-8 py-4 rounded-full transition-all duration-200 flex items-center gap-3 shadow-2xl border border-white/20 group"
+            >
+              <span>Get Susurrus</span>
+              <div className="w-7 h-7 rounded-full bg-white/20 flex items-center justify-center group-hover:translate-x-1 transition-transform">
+                →
+              </div>
+            </a>
           </div>
-          <span className="text-xs text-[#475569] hidden sm:inline">• Hold anywhere on Desktop</span>
+        </div>
+
+        {/* Hero Interactive Workspace Canvas matching attached image #1 */}
+        <div className="relative max-w-[1060px] mx-auto pt-10 pb-16 min-h-[580px] flex items-center justify-center">
+          
+          {/* Central Editorial Portrait */}
+          <div className="relative w-[340px] md:w-[420px] h-[480px] rounded-[32px] overflow-hidden border border-white/20 shadow-2xl mx-auto">
+            <Image
+              src="/assets/hero_portrait.jpg"
+              alt="Susurrus Editorial Portrait"
+              fill
+              className="object-cover"
+              priority
+            />
+          </div>
+
+          {/* 1. Left Floating Voice Assistant Meeting Card */}
+          <div className="hero-floating-card absolute left-0 top-12 hidden lg:block bg-slate-900/80 backdrop-blur-xl border border-white/20 rounded-[16px] p-5 w-[280px] text-left space-y-3 shadow-2xl text-xs z-20">
+            <div className="flex items-center gap-2 text-slate-300 font-semibold">
+              <div className="w-5 h-5 rounded-full bg-[#2A2859] flex items-center justify-center text-white text-[10px]">🎙️</div>
+              <span>Susurrus AI Assistant</span>
+            </div>
+            <p className="text-slate-200 leading-normal">
+              Looks like you're chatting with Antonio and Laura in <span className="bg-white/15 px-1.5 py-0.5 rounded text-white font-mono">#launch-project-chat</span> and need to book a meeting. Would you like me to find a good time?
+            </p>
+            <div className="bg-white/10 rounded-full px-3 py-1 text-[11px] text-slate-300 w-fit ml-auto">yes!</div>
+            <div className="space-y-1.5 pt-1">
+              <div className="text-[11px] text-slate-400">Available times:</div>
+              <div className="flex gap-2">
+                <span className="bg-white/10 px-2.5 py-1 rounded-full text-[10px]">⏱️ Mon 3:00 PM</span>
+                <span className="bg-white/10 px-2.5 py-1 rounded-full text-[10px]">⏱️ Tue 1:00 PM</span>
+              </div>
+            </div>
+            <div className="bg-white/10 border border-white/20 rounded-[8px] p-2 flex justify-between text-slate-300">
+              <span>book it for monday</span>
+              <span className="text-[#cbb7fb]">➔</span>
+            </div>
+          </div>
+
+          {/* 2. Vertical Floating Icon Switcher Bar */}
+          <div className="hero-floating-card absolute left-[300px] top-32 hidden xl:flex flex-col gap-4 bg-white/15 backdrop-blur-md rounded-full p-2.5 border border-white/20 shadow-xl z-20">
+            <div className="w-7 h-7 rounded-full bg-[#2A2859] text-white flex items-center justify-center text-xs">🎙️</div>
+            <div className="w-7 h-7 rounded-full bg-white/10 text-white flex items-center justify-center text-xs">✍️</div>
+            <div className="w-7 h-7 rounded-full bg-white/10 text-white flex items-center justify-center text-xs">📝</div>
+            <div className="w-7 h-7 rounded-full bg-white/10 text-white flex items-center justify-center text-xs">📅</div>
+          </div>
+
+          {/* 3. Bottom Left Email Triage Card */}
+          <div className="hero-floating-card absolute left-8 bottom-0 hidden lg:block bg-slate-900/85 backdrop-blur-xl border border-white/20 rounded-[16px] p-4 w-[340px] text-left text-xs space-y-2 shadow-2xl z-20">
+            <div className="flex gap-3 text-slate-400 font-mono text-[10px] pb-1 border-b border-white/10">
+              <span className="text-white font-bold">Important 12</span>
+              <span>Calendar 13</span>
+              <span>Docs 8</span>
+            </div>
+            <div className="space-y-2 pt-1">
+              <div className="flex justify-between">
+                <span className="font-bold text-white">Sarah Kim</span>
+                <span className="text-slate-300">Design Review moved to Thursday</span>
+              </div>
+              <div className="flex justify-between text-slate-400">
+                <span className="font-bold text-slate-300">James Patel</span>
+                <span>Feedback on client presentation</span>
+              </div>
+              <div className="flex justify-between text-slate-400">
+                <span className="font-bold text-slate-300">Laura Chen</span>
+                <span>Coffee next week?</span>
+              </div>
+            </div>
+          </div>
+
+          {/* 4. Top Right Floating Prompt Pill */}
+          <div className="hero-floating-card absolute right-16 top-24 hidden lg:block bg-white/20 backdrop-blur-md border border-white/30 rounded-full px-4 py-2 text-xs font-semibold text-white shadow-lg z-20">
+            💬 Tailor this language for executives
+          </div>
+
+          {/* 5. Right Document Workspace Window */}
+          <div className="hero-floating-card absolute right-0 top-36 hidden lg:block bg-slate-900/80 backdrop-blur-xl border border-white/20 rounded-[16px] p-5 w-[320px] text-left space-y-3 shadow-2xl text-xs z-20">
+            <div className="flex justify-between text-slate-400 border-b border-white/10 pb-2">
+              <span className="font-semibold text-white">Team workspace</span>
+              <span>Share 💬</span>
+            </div>
+            <div className="space-y-1.5">
+              <div className="font-bold text-white text-sm">Streamlining Team Documentation</div>
+              <p className="text-slate-300 leading-normal text-[11px]">
+                I've been thinking about how our team can streamline the onboarding process for <span className="bg-white/20 px-1 rounded text-white">new-hires</span>. Right now documentation is scattered across different tools...
+              </p>
+            </div>
+          </div>
+
+          {/* 6. Bottom Right Floating Prompt Pills */}
+          <div className="hero-floating-card absolute right-12 bottom-6 hidden lg:flex flex-col gap-2 z-20">
+            <div className="bg-white/20 backdrop-blur-md border border-white/30 rounded-full px-4 py-2 text-xs font-semibold text-white shadow-lg">
+              ✨ Proofread with Susurrus
+            </div>
+            <div className="bg-slate-900/90 backdrop-blur-md border border-white/20 rounded-full px-4 py-2 text-xs font-semibold text-white shadow-lg">
+              ✨ Schedule 15 minutes for a quick meeting with Mike
+            </div>
+          </div>
+
         </div>
 
       </div>
