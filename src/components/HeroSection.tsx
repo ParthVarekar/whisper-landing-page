@@ -47,8 +47,8 @@ export default function HeroSection() {
         {/* Hero Interactive Workspace Canvas */}
         <div className="relative max-w-[1180px] mx-auto pt-10 pb-16 min-h-[600px] flex items-center justify-center">
           
-          {/* Central Editorial Portrait */}
-          <div className="relative w-[340px] md:w-[420px] h-[480px] rounded-[32px] overflow-hidden border border-white/20 shadow-2xl mx-auto z-10">
+          {/* Central Editorial Portrait (Layer Z-20 - Middle Depth Layer) */}
+          <div className="relative w-[340px] md:w-[420px] h-[480px] rounded-[32px] overflow-hidden border border-white/20 shadow-2xl mx-auto z-20">
             <Image
               src="/assets/hero_portrait.jpg"
               alt="Susurrus Editorial Portrait"
@@ -58,16 +58,22 @@ export default function HeroSection() {
             />
           </div>
 
-          {/* NEW 1: Top Left Floating Chip (Top Left Circle) */}
-          <div className="hero-floating-card absolute left-4 top-4 hidden xl:flex items-center gap-2 bg-white/20 backdrop-blur-md border border-white/30 rounded-full px-4 py-2 text-xs font-semibold text-white shadow-lg z-20">
+          {/* 
+            ========================================================================
+            LEFT-SIDE CARDS: OVERLAPPING ON TOP OF THE IMAGE (Layer Z-30 - Highest)
+            ========================================================================
+          */}
+
+          {/* 1. Top Left Floating Chip (z-30) */}
+          <div className="hero-floating-card absolute left-4 top-4 hidden xl:flex items-center gap-2 bg-white/20 backdrop-blur-md border border-white/30 rounded-full px-4 py-2 text-xs font-semibold text-white shadow-lg z-30">
             <svg className="w-3.5 h-3.5 text-[#cbb7fb]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
             </svg>
             <span>Dictating at 160 WPM • Sub-200ms</span>
           </div>
 
-          {/* 2. Left Floating Voice Assistant Meeting Card */}
-          <div className="hero-floating-card absolute left-0 top-20 hidden lg:block bg-slate-900/80 backdrop-blur-xl border border-white/20 rounded-[16px] p-5 w-[280px] text-left space-y-3 shadow-2xl text-xs z-20">
+          {/* 2. Left Floating Voice Assistant Meeting Card (z-30, Overlaps Image Top-Left) */}
+          <div className="hero-floating-card absolute left-12 top-20 hidden lg:block bg-slate-900/90 backdrop-blur-xl border border-white/25 rounded-[16px] p-5 w-[290px] text-left space-y-3 shadow-2xl text-xs z-30">
             <div className="flex items-center gap-2 text-slate-300 font-semibold">
               <div className="w-5 h-5 rounded-full bg-[#2A2859] flex items-center justify-center text-white text-[10px]">
                 <svg className="w-3 h-3 text-[#cbb7fb]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -104,8 +110,8 @@ export default function HeroSection() {
             </div>
           </div>
 
-          {/* 3. Vertical Floating Icon Switcher Bar */}
-          <div className="hero-floating-card absolute left-[295px] top-36 hidden xl:flex flex-col gap-4 bg-white/15 backdrop-blur-md rounded-full p-2.5 border border-white/20 shadow-xl z-20">
+          {/* 3. Vertical Floating Icon Switcher Bar (z-30, Overlaps Image Edge) */}
+          <div className="hero-floating-card absolute left-[310px] top-36 hidden xl:flex flex-col gap-4 bg-slate-900/90 backdrop-blur-md rounded-full p-2.5 border border-white/25 shadow-2xl z-30">
             <div className="w-7 h-7 rounded-full bg-[#2A2859] text-white flex items-center justify-center">
               <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
@@ -128,8 +134,8 @@ export default function HeroSection() {
             </div>
           </div>
 
-          {/* 4. Bottom Left Email Triage Card */}
-          <div className="hero-floating-card absolute left-6 bottom-0 hidden lg:block bg-slate-900/85 backdrop-blur-xl border border-white/20 rounded-[16px] p-4 w-[340px] text-left text-xs space-y-2 shadow-2xl z-20">
+          {/* 4. Bottom Left Email Triage Card (z-30, Overlaps Image Bottom-Left) */}
+          <div className="hero-floating-card absolute left-14 bottom-0 hidden lg:block bg-slate-900/90 backdrop-blur-xl border border-white/25 rounded-[16px] p-4 w-[340px] text-left text-xs space-y-2 shadow-2xl z-30">
             <div className="flex gap-3 text-slate-400 font-mono text-[10px] pb-1 border-b border-white/10">
               <span className="text-white font-bold">Important 12</span>
               <span>Calendar 13</span>
@@ -151,16 +157,22 @@ export default function HeroSection() {
             </div>
           </div>
 
-          {/* NEW 2: Top Right Floating Chip (Top Right Circle) */}
-          <div className="hero-floating-card absolute right-4 top-4 hidden xl:flex items-center gap-2 bg-slate-900/80 backdrop-blur-md border border-white/20 rounded-full px-4 py-2 text-xs font-semibold text-white shadow-lg z-20">
+          {/* 
+            ========================================================================
+            RIGHT-SIDE CARDS: UNDERLAPPING BELOW THE IMAGE (Layer Z-10 - Lower)
+            ========================================================================
+          */}
+
+          {/* 5. Top Right Floating Chip (z-10) */}
+          <div className="hero-floating-card absolute right-4 top-4 hidden xl:flex items-center gap-2 bg-slate-900/80 backdrop-blur-md border border-white/20 rounded-full px-4 py-2 text-xs font-semibold text-white shadow-lg z-10">
             <svg className="w-3.5 h-3.5 text-[#cbb7fb]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               <circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/>
             </svg>
             <span>Translate selected text to Spanish</span>
           </div>
 
-          {/* 5. Right Document Workspace Window */}
-          <div className="hero-floating-card absolute right-10 top-20 hidden lg:block bg-slate-900/80 backdrop-blur-xl border border-white/20 rounded-[16px] p-5 w-[320px] text-left space-y-3 shadow-2xl text-xs z-20">
+          {/* 6. Right Document Workspace Window (z-10, Left side underlaps Image Right) */}
+          <div className="hero-floating-card absolute right-20 top-20 hidden lg:block bg-slate-900/80 backdrop-blur-xl border border-white/20 rounded-[16px] p-5 w-[330px] text-left space-y-3 shadow-2xl text-xs z-10">
             <div className="flex justify-between items-center text-slate-400 border-b border-white/10 pb-2">
               <span className="font-semibold text-white">Team workspace</span>
               <span className="flex items-center gap-1 text-[11px]">
@@ -178,8 +190,8 @@ export default function HeroSection() {
             </div>
           </div>
 
-          {/* NEW 3: Mid-Right Local Engine Status Card (Mid-Right Circle) */}
-          <div className="hero-floating-card absolute right-4 top-[290px] hidden xl:block bg-slate-900/85 backdrop-blur-xl border border-white/20 rounded-[16px] p-4 w-[280px] text-left text-xs space-y-2 shadow-2xl z-20">
+          {/* 7. Mid-Right Dual Engine Status Card (z-10, Left side underlaps Image Right) */}
+          <div className="hero-floating-card absolute right-16 top-[280px] hidden xl:block bg-slate-900/85 backdrop-blur-xl border border-white/20 rounded-[16px] p-4 w-[290px] text-left text-xs space-y-2 shadow-2xl z-10">
             <div className="flex items-center justify-between text-slate-400 pb-1.5 border-b border-white/10">
               <span className="font-semibold text-white flex items-center gap-1.5">
                 <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
@@ -197,8 +209,8 @@ export default function HeroSection() {
             </div>
           </div>
 
-          {/* 6. Bottom Right Floating Prompt Pills */}
-          <div className="hero-floating-card absolute right-10 bottom-0 hidden lg:flex flex-col gap-2 z-20">
+          {/* 8. Bottom Right Floating Prompt Pills (z-10) */}
+          <div className="hero-floating-card absolute right-14 bottom-0 hidden lg:flex flex-col gap-2 z-10">
             <div className="bg-white/20 backdrop-blur-md border border-white/30 rounded-full px-4 py-2 text-xs font-semibold text-white shadow-lg flex items-center gap-2">
               <svg className="w-3.5 h-3.5 text-[#cbb7fb]" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/>
