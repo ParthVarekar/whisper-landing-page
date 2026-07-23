@@ -123,14 +123,15 @@ export default function BentoGrid() {
 
         {/* 
           2. STICKY HORIZONTAL SLIDER BAR (Layer z-40, pinned at top-16)
+          Flat top edge (rounded-t-none) connects flush with sticky mask bar above so zero top corner gaps exist!
         */}
-        <div className="sticky top-16 z-40 w-full bg-[#EFECE6] px-6 py-4 rounded-[16px] border border-[#dcd7d3] mb-10 shadow-md">
+        <div className="sticky top-16 z-40 w-full bg-[#EFECE6] px-6 py-4 rounded-b-[16px] rounded-t-none border border-[#dcd7d3] border-t-0 mb-10 shadow-md">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
             <h3 className="text-2xl font-[540] text-[#0F172A] tracking-tight">
               Your Susurrus suite
             </h3>
             
-            {/* Tab Switcher Button Group */}
+            {/* Sticky Tab Switcher Button Group */}
             <div className="flex bg-white p-1.5 rounded-[12px] gap-1 shadow-sm border border-[#dcd7d3]">
               <button
                 onClick={() => scrollToSection("dictation", "dictation")}
