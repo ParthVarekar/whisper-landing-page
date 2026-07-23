@@ -12,20 +12,20 @@ export default function HeroSection() {
       // Intro Stagger Entrance
       gsap.fromTo(
         ".hero-float",
-        { opacity: 0, y: 30, scale: 0.95 },
+        { opacity: 0, y: 20, scale: 0.97 },
         { opacity: 1, y: 0, scale: 1, duration: 0.9, stagger: 0.1, ease: "power3.out" }
       );
 
-      // Subtle Continuous Floating Up & Down Animation
+      // Ultra-subtle continuous floating up & down motion (80% more subtle)
       const floatingElements = document.querySelectorAll(".hero-float");
       floatingElements.forEach((el, index) => {
         gsap.to(el, {
-          y: index % 2 === 0 ? "-=14" : "+=12",
-          duration: 3.5 + (index % 3) * 0.5,
+          y: index % 2 === 0 ? "-=3" : "+=2.5",
+          duration: 5.0 + (index % 3) * 0.8,
           repeat: -1,
           yoyo: true,
           ease: "sine.inOut",
-          delay: 0.9 + index * 0.15,
+          delay: 0.9 + index * 0.2,
         });
       });
     }
@@ -58,7 +58,7 @@ export default function HeroSection() {
           </div>
         </div>
 
-        {/* Hero Interactive Workspace Canvas with Floating Subtle Motion & Custom SVGs */}
+        {/* Hero Interactive Workspace Canvas with Ultra-Subtle Motion & Custom SVGs */}
         <div className="relative max-w-[1060px] mx-auto pt-10 pb-16 min-h-[580px] flex items-center justify-center">
           
           {/* Central Editorial Portrait */}
@@ -72,7 +72,7 @@ export default function HeroSection() {
             />
           </div>
 
-          {/* 1. Left Floating Voice Assistant Meeting Card (Floating Motion) */}
+          {/* 1. Left Floating Voice Assistant Meeting Card */}
           <div className="hero-float absolute left-0 top-12 hidden lg:block bg-slate-900/80 backdrop-blur-xl border border-white/20 rounded-[16px] p-5 w-[280px] text-left space-y-3 shadow-2xl text-xs z-20">
             <div className="flex items-center gap-2 text-slate-300 font-semibold">
               <div className="w-6 h-6 rounded-full bg-[#2A2859] flex items-center justify-center text-white p-1">
@@ -92,12 +92,12 @@ export default function HeroSection() {
               <div className="flex gap-2">
                 <span className="bg-white/10 px-2.5 py-1 rounded-full text-[10px] flex items-center gap-1">
                   <svg className="w-3 h-3 text-[#cbb7fb]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+                    <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 16 14"/>
                   </svg> Mon 3:00 PM
                 </span>
                 <span className="bg-white/10 px-2.5 py-1 rounded-full text-[10px] flex items-center gap-1">
                   <svg className="w-3 h-3 text-[#cbb7fb]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+                    <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 16 14"/>
                   </svg> Tue 1:00 PM
                 </span>
               </div>
@@ -110,7 +110,7 @@ export default function HeroSection() {
             </div>
           </div>
 
-          {/* 2. Vertical Floating Icon Switcher Bar (Floating Motion) */}
+          {/* 2. Vertical Floating Icon Switcher Bar */}
           <div className="hero-float absolute left-[300px] top-32 hidden xl:flex flex-col gap-4 bg-white/15 backdrop-blur-md rounded-full p-2.5 border border-white/20 shadow-xl z-20">
             <div className="w-7 h-7 rounded-full bg-[#2A2859] text-white flex items-center justify-center p-1.5">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -139,7 +139,7 @@ export default function HeroSection() {
             </div>
           </div>
 
-          {/* 3. Bottom Left Email Triage Card (Floating Motion) */}
+          {/* 3. Bottom Left Email Triage Card */}
           <div className="hero-float absolute left-8 bottom-0 hidden lg:block bg-slate-900/85 backdrop-blur-xl border border-white/20 rounded-[16px] p-4 w-[340px] text-left text-xs space-y-2 shadow-2xl z-20">
             <div className="flex gap-3 text-slate-400 font-mono text-[10px] pb-1 border-b border-white/10">
               <span className="text-white font-bold">Important 12</span>
@@ -162,7 +162,7 @@ export default function HeroSection() {
             </div>
           </div>
 
-          {/* 4. Top Right Floating Prompt Chip (Floating Motion) */}
+          {/* 4. Top Right Floating Prompt Chip */}
           <div className="hero-float absolute right-16 top-24 hidden lg:flex items-center gap-2 bg-white/20 backdrop-blur-md border border-white/30 rounded-full px-4 py-2 text-xs font-semibold text-white shadow-lg z-20">
             <svg className="w-3.5 h-3.5 text-[#cbb7fb]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
@@ -170,7 +170,7 @@ export default function HeroSection() {
             <span>Tailor this language for executives</span>
           </div>
 
-          {/* 5. Right Document Workspace Window (Floating Motion) */}
+          {/* 5. Right Document Workspace Window */}
           <div className="hero-float absolute right-0 top-36 hidden lg:block bg-slate-900/80 backdrop-blur-xl border border-white/20 rounded-[16px] p-5 w-[320px] text-left space-y-3 shadow-2xl text-xs z-20">
             <div className="flex justify-between items-center text-slate-400 border-b border-white/10 pb-2">
               <span className="font-semibold text-white">Team workspace</span>
@@ -190,7 +190,7 @@ export default function HeroSection() {
             </div>
           </div>
 
-          {/* 6. Bottom Right Floating Prompt Pills (Floating Motion) */}
+          {/* 6. Bottom Right Floating Prompt Pills */}
           <div className="hero-float absolute right-12 bottom-6 hidden lg:flex flex-col gap-2 z-20">
             <div className="bg-white/20 backdrop-blur-md border border-white/30 rounded-full px-4 py-2 text-xs font-semibold text-white shadow-lg flex items-center gap-2">
               <svg className="w-3.5 h-3.5 text-[#cbb7fb]" viewBox="0 0 24 24" fill="currentColor">
