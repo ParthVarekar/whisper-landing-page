@@ -160,6 +160,7 @@ export default function HeroSection() {
           {/* 
             ========================================================================
             RIGHT-SIDE CARDS: UNDERLAPPING BELOW THE IMAGE (Layer Z-10 - Lower)
+            Contents shifted right (pl-14 / pl-12) so text is 100% readable!
             ========================================================================
           */}
 
@@ -171,8 +172,8 @@ export default function HeroSection() {
             <span>Translate selected text to Spanish</span>
           </div>
 
-          {/* 6. Right Document Workspace Window (z-10, Left side underlaps Image Right) */}
-          <div className="hero-floating-card absolute right-20 top-20 hidden lg:block bg-slate-900/80 backdrop-blur-xl border border-white/20 rounded-[16px] p-5 w-[330px] text-left space-y-3 shadow-2xl text-xs z-10">
+          {/* 6. Right Document Workspace Window (z-10, Left side underlaps Image, Text shifted right with pl-14 for 100% readability!) */}
+          <div className="hero-floating-card absolute right-[70px] top-20 hidden lg:block bg-slate-900/85 backdrop-blur-xl border border-white/20 rounded-[16px] py-5 pr-5 pl-14 w-[340px] text-left space-y-3 shadow-2xl text-xs z-10">
             <div className="flex justify-between items-center text-slate-400 border-b border-white/10 pb-2">
               <span className="font-semibold text-white">Team workspace</span>
               <span className="flex items-center gap-1 text-[11px]">
@@ -190,8 +191,8 @@ export default function HeroSection() {
             </div>
           </div>
 
-          {/* 7. Mid-Right Dual Engine Status Card (z-10, Left side underlaps Image Right) */}
-          <div className="hero-floating-card absolute right-16 top-[280px] hidden xl:block bg-slate-900/85 backdrop-blur-xl border border-white/20 rounded-[16px] p-4 w-[290px] text-left text-xs space-y-2 shadow-2xl z-10">
+          {/* 7. Mid-Right Dual Engine Status Card (z-10, Left side underlaps Image, Text shifted right with pl-12) */}
+          <div className="hero-floating-card absolute right-12 top-[280px] hidden xl:block bg-slate-900/85 backdrop-blur-xl border border-white/20 rounded-[16px] py-4 pr-4 pl-12 w-[300px] text-left text-xs space-y-2 shadow-2xl z-10">
             <div className="flex items-center justify-between text-slate-400 pb-1.5 border-b border-white/10">
               <span className="font-semibold text-white flex items-center gap-1.5">
                 <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
