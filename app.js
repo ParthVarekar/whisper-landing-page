@@ -1,11 +1,45 @@
 /**
- * WHISPERFLOW — LANDING PAGE INTERACTIVE ENGINE
- * Superhuman Light-Mode Edition
+ * WHISPERFLOW — LANDING PAGE MOTION & INTERACTIVE ENGINE
+ * Superhuman Teardown Architecture Edition
  */
 
 document.addEventListener('DOMContentLoaded', () => {
 
-  // Web Audio Synthesizer
+  // --------------------------------------------------------------------------
+  // 1. Fixed Navbar Shrinking Floating Pill Controller
+  // --------------------------------------------------------------------------
+  const navbar = document.getElementById('navbar');
+  if (navbar) {
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 40) {
+        navbar.classList.add('shrunk');
+      } else {
+        navbar.classList.remove('shrunk');
+      }
+    });
+  }
+
+  // --------------------------------------------------------------------------
+  // 2. Heading Translation Offsets & Exponential Scroll Reveal
+  // --------------------------------------------------------------------------
+  const revealHeadings = document.querySelectorAll('.reveal-heading');
+  if ('IntersectionObserver' in window) {
+    const headingObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.15 });
+
+    revealHeadings.forEach(heading => headingObserver.observe(heading));
+  } else {
+    revealHeadings.forEach(heading => heading.classList.add('visible'));
+  }
+
+  // --------------------------------------------------------------------------
+  // 3. Web Audio Synthesizer (UI Sound Feedback)
+  // --------------------------------------------------------------------------
   class WebAudioEngine {
     constructor() {
       this.enabled = true;
@@ -58,7 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const audio = new WebAudioEngine();
 
-  // Sound Toggle Button
+  // Sound Toggle Button Listener
   const soundToggle = document.getElementById('soundToggle');
   if (soundToggle) {
     soundToggle.addEventListener('click', () => {
@@ -83,7 +117,7 @@ document.addEventListener('DOMContentLoaded', () => {
     toastTimer = setTimeout(() => toast.classList.remove('show'), 2600);
   }
 
-  // Copy Clone Command
+  // Copy Clone Command Helper
   const copyCloneBtn = document.getElementById('copyCloneBtn');
   if (copyCloneBtn) {
     copyCloneBtn.addEventListener('click', () => {
@@ -95,7 +129,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Dictation Sandbox Transform Simulator
+  // --------------------------------------------------------------------------
+  // 4. Interactive Dictation Studio Sandbox Simulator
+  // --------------------------------------------------------------------------
   const runDictationDemo = document.getElementById('runDictationDemo');
   const sandboxRawText = document.getElementById('sandboxRawText');
   const sandboxResultText = document.getElementById('sandboxResultText');
@@ -106,11 +142,11 @@ document.addEventListener('DOMContentLoaded', () => {
   const dictationPresets = [
     {
       raw: '"um so yeah like I will list a few items bold this word that is groceries bananas and milk and email Sarah by five p m..."',
-      result: `<p>• <strong>Groceries</strong></p><p>• Bananas</p><p>• Milk</p><br><p><em>Action item: Email Sarah by 5:00 PM.</em></p>`
+      result: `<p>• <strong>Groceries:</strong> Bananas, Milk, Eggs.</p><br><p><em>Action item: Email Sarah by 5:00 PM.</em></p>`
     },
     {
-      raw: '"uh hey team so basically we need to push back the deploy to thursday at 3pm due to open bugs..."',
-      result: `<p><strong>Update:</strong> Deployment schedule adjusted to Thursday at 3:00 PM to resolve critical bugs.</p>`
+      raw: '"uh hey team so basically we need to push back the deploy to thursday at 3pm due to open bugs on backend..."',
+      result: `<p><strong>Update:</strong> Deployment schedule adjusted to Thursday at 3:00 PM to resolve critical backend bugs.</p>`
     }
   ];
   let presetIdx = 0;
@@ -136,7 +172,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Context Prompt Switcher
+  // --------------------------------------------------------------------------
+  // 5. Context Command Prompt Switcher (Ctrl+Shift+T)
+  // --------------------------------------------------------------------------
   const chips = document.querySelectorAll('.chip');
   const contextSelectedText = document.getElementById('contextSelectedText');
   const contextSpokenText = document.getElementById('contextSpokenText');
@@ -186,7 +224,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Speed Calculator
+  // --------------------------------------------------------------------------
+  // 6. Speed & ROI Calculator Slider
+  // --------------------------------------------------------------------------
   const wordsRange = document.getElementById('wordsRange');
   const wordsVal = document.getElementById('wordsVal');
   const hwSelect = document.getElementById('hwSelect');
@@ -209,7 +249,9 @@ document.addEventListener('DOMContentLoaded', () => {
   if (hwSelect) hwSelect.addEventListener('change', () => { audio.playClick(); updateCalc(); });
   updateCalc();
 
-  // FAQ Accordion
+  // --------------------------------------------------------------------------
+  // 7. FAQ Accordion Handler
+  // --------------------------------------------------------------------------
   const faqQuestions = document.querySelectorAll('.faq-question');
   faqQuestions.forEach(q => {
     q.addEventListener('click', () => {
@@ -223,7 +265,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Command Palette & Cheatsheet Modals
+  // --------------------------------------------------------------------------
+  // 8. Command Palette (Cmd+K) & Cheatsheet (?) Modals
+  // --------------------------------------------------------------------------
   const cmdKModal = document.getElementById('cmdKModal');
   const cheatsheetModal = document.getElementById('cheatsheetModal');
   const cmdKTrigger = document.getElementById('cmdKTrigger');
@@ -254,7 +298,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (m) m.addEventListener('click', (e) => { if (e.target === m) closeModal(m); });
   });
 
-  // Copy Config
+  // Copy Config Helper
   const copyConfigBtn = document.getElementById('copyConfigBtn');
   if (copyConfigBtn) {
     copyConfigBtn.addEventListener('click', () => {
