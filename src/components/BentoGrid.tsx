@@ -10,6 +10,7 @@ export default function BentoGrid() {
   const card1Ref = useRef<HTMLDivElement>(null);
   const card2Ref = useRef<HTMLDivElement>(null);
   const card3Ref = useRef<HTMLDivElement>(null);
+  const [activeTab, setActiveTab] = useState<"dictation" | "commands" | "architecture">("dictation");
 
   // Dictation Studio State
   const [presetIdx, setPresetIdx] = useState(0);
@@ -63,11 +64,33 @@ export default function BentoGrid() {
           scrollTrigger: {
             trigger: cards[index + 1],
             start: "top 75%",
-            end: "top 120px",
+            end: "top 148px",
             scrub: true,
           },
         });
       }
+    });
+
+    // Track Active Suite Tab on Scroll
+    ScrollTrigger.create({
+      trigger: card1Ref.current,
+      start: "top 200px",
+      onEnter: () => setActiveTab("dictation"),
+      onEnterBack: () => setActiveTab("dictation"),
+    });
+
+    ScrollTrigger.create({
+      trigger: card2Ref.current,
+      start: "top 200px",
+      onEnter: () => setActiveTab("commands"),
+      onEnterBack: () => setActiveTab("commands"),
+    });
+
+    ScrollTrigger.create({
+      trigger: card3Ref.current,
+      start: "top 200px",
+      onEnter: () => setActiveTab("architecture"),
+      onEnterBack: () => setActiveTab("architecture"),
     });
 
     return () => {
@@ -76,11 +99,11 @@ export default function BentoGrid() {
   }, []);
 
   return (
-    <section id="bento-grid" ref={containerRef} className="py-28 bg-[#F9F8F6] relative">
+    <section id="bento-grid" ref={containerRef} className="py-20 bg-[#F9F8F6] relative">
       <div className="max-w-[1200px] mx-auto px-6">
         
         {/* Section Header */}
-        <div className="text-center max-w-[800px] mx-auto mb-20 space-y-4">
+        <div className="text-center max-w-[800px] mx-auto mb-12 space-y-3">
           <div className="inline-flex items-center gap-2 bg-[#2A2859] text-white px-4 py-1.5 rounded-[8px] text-xs font-bold font-mono">
             <span>THE SUSURRUS SUITE</span>
           </div>
@@ -92,14 +115,55 @@ export default function BentoGrid() {
           </p>
         </div>
 
-        {/* Cascading Stacking Cards Deck Container */}
-        <div className="space-y-16 relative">
+        {/* Superhuman Suite Sticky Tab Bar (Cards slide under this bar) */}
+        <div className="sticky top-[72px] z-40 bg-[#F9F8F6]/95 backdrop-blur-md pt-4 pb-4 mb-8 border-b border-[#dcd7d3]">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+            <h3 className="text-2xl font-[540] text-[#0F172A] tracking-tight">Your Susurrus suite</h3>
+            
+            {/* Sticky Tab Switcher (Matching Images #2, #3, #4) */}
+            <div className="flex bg-[#E9E5DD] p-1.5 rounded-[12px] gap-1 shadow-inner">
+              <a
+                href="#dictation"
+                className={`px-5 py-2 rounded-[8px] text-xs font-bold transition-all ${
+                  activeTab === "dictation"
+                    ? "bg-white text-[#2A2859] shadow-sm"
+                    : "text-[#475569] hover:text-[#0F172A]"
+                }`}
+              >
+                Dictation
+              </a>
+              <a
+                href="#commands"
+                className={`px-5 py-2 rounded-[8px] text-xs font-bold transition-all ${
+                  activeTab === "commands"
+                    ? "bg-white text-[#2A2859] shadow-sm"
+                    : "text-[#475569] hover:text-[#0F172A]"
+                }`}
+              >
+                Context Commands
+              </a>
+              <a
+                href="#architecture"
+                className={`px-5 py-2 rounded-[8px] text-xs font-bold transition-all ${
+                  activeTab === "architecture"
+                    ? "bg-white text-[#2A2859] shadow-sm"
+                    : "text-[#475569] hover:text-[#0F172A]"
+                }`}
+              >
+                Dual Engine
+              </a>
+            </div>
+          </div>
+        </div>
 
-          {/* Card 1: Dictation Studio */}
+        {/* Cascading Stacking Cards Deck Container (Cards slide under Sticky Suite Tab Bar) */}
+        <div className="space-y-16 relative pt-2">
+
+          {/* Card 1: Dictation Studio (Cascading Pin 1 - Slides under Suite Tab Bar) */}
           <div
             ref={card1Ref}
             id="dictation"
-            className="sticky top-[120px] bg-[#F9F8F6] border border-[#dcd7d3] rounded-[16px] p-8 md:p-12 shadow-2xl transition-all origin-top z-10"
+            className="sticky top-[148px] bg-[#F9F8F6] border border-[#dcd7d3] rounded-[16px] p-8 md:p-12 shadow-2xl transition-all origin-top z-10"
           >
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
               
@@ -142,7 +206,7 @@ export default function BentoGrid() {
                 </ul>
               </div>
 
-              {/* Photography Canvas + Floating UI Card */}
+              {/* Photography Canvas + Floating White UI Window */}
               <div className="lg:col-span-7 relative rounded-[16px] overflow-hidden aspect-[4/3] p-6 flex items-center justify-center shadow-md">
                 <Image
                   src="/assets/card1_sky.jpg"
@@ -186,11 +250,11 @@ export default function BentoGrid() {
             </div>
           </div>
 
-          {/* Card 2: Context Commands */}
+          {/* Card 2: Context Commands (Cascading Pin 2 - Slides under Suite Tab Bar) */}
           <div
             ref={card2Ref}
             id="commands"
-            className="sticky top-[140px] bg-[#F9F8F6] border border-[#dcd7d3] rounded-[16px] p-8 md:p-12 shadow-2xl transition-all origin-top z-20"
+            className="sticky top-[168px] bg-[#F9F8F6] border border-[#dcd7d3] rounded-[16px] p-8 md:p-12 shadow-2xl transition-all origin-top z-20"
           >
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
               
@@ -286,11 +350,11 @@ export default function BentoGrid() {
             </div>
           </div>
 
-          {/* Card 3: Dual Local Engine */}
+          {/* Card 3: Dual Local Engine (Cascading Pin 3 - Slides under Suite Tab Bar) */}
           <div
             ref={card3Ref}
             id="architecture"
-            className="sticky top-[160px] bg-[#F9F8F6] border border-[#dcd7d3] rounded-[16px] p-8 md:p-12 shadow-2xl transition-all origin-top z-30"
+            className="sticky top-[188px] bg-[#F9F8F6] border border-[#dcd7d3] rounded-[16px] p-8 md:p-12 shadow-2xl transition-all origin-top z-30"
           >
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
               
