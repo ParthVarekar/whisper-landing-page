@@ -12,7 +12,7 @@ export default function HeroSection() {
       gsap.fromTo(
         ".hero-floating-card",
         { opacity: 0, y: 30, scale: 0.95 },
-        { opacity: 1, y: 0, scale: 1, duration: 1, stagger: 0.1, ease: "power3.out" }
+        { opacity: 1, y: 0, scale: 1, duration: 1, stagger: 0.08, ease: "power3.out" }
       );
     }
   }, []);
@@ -160,9 +160,36 @@ export default function HeroSection() {
           {/* 
             ========================================================================
             RIGHT-SIDE CARDS: UNDERLAPPING BELOW THE IMAGE (Layer Z-10 - Lower)
-            Contents shifted right (pl-14 / pl-12) so text is 100% readable!
             ========================================================================
           */}
+
+          {/* DECORATIVE UNDERLAPPING CARD 1: Acoustic Waveform Telemetry (z-10, underlaps Image Right) */}
+          <div className="hero-floating-card absolute right-[230px] top-[120px] hidden xl:block bg-slate-900/70 backdrop-blur-md border border-white/15 rounded-[12px] p-3 w-[220px] text-left text-xs shadow-xl z-10">
+            <div className="flex items-center justify-between text-[10px] text-slate-400 font-mono mb-1.5">
+              <span>Acoustic Neural Stream</span>
+              <span className="text-[#cbb7fb]">16kHz</span>
+            </div>
+            <div className="flex items-end gap-1 h-6 pt-1">
+              <div className="w-1 bg-[#cbb7fb] h-3 animate-pulse" />
+              <div className="w-1 bg-[#cbb7fb] h-5 animate-pulse delay-75" />
+              <div className="w-1 bg-[#cbb7fb] h-2 animate-pulse delay-150" />
+              <div className="w-1 bg-[#cbb7fb] h-6 animate-pulse delay-100" />
+              <div className="w-1 bg-[#cbb7fb] h-4 animate-pulse delay-200" />
+              <div className="w-1 bg-[#cbb7fb] h-3 animate-pulse delay-50" />
+              <div className="w-1 bg-[#cbb7fb] h-5 animate-pulse delay-300" />
+            </div>
+          </div>
+
+          {/* DECORATIVE UNDERLAPPING CARD 2: VAD Silence Gating Graphic (z-10, underlaps Image Right) */}
+          <div className="hero-floating-card absolute right-[210px] top-[340px] hidden xl:block bg-slate-900/70 backdrop-blur-md border border-white/15 rounded-[12px] p-3 w-[210px] text-left text-xs shadow-xl z-10">
+            <div className="flex items-center justify-between text-[10px] text-slate-400 font-mono mb-1">
+              <span>VAD Gating Engine</span>
+              <span className="text-emerald-400 font-bold">99.4%</span>
+            </div>
+            <svg className="w-full h-5 text-emerald-400/80" viewBox="0 0 100 25" fill="none" stroke="currentColor" strokeWidth="2">
+              <path d="M0 20 Q25 5, 50 18 T100 8" />
+            </svg>
+          </div>
 
           {/* 5. Top Right Floating Chip (z-10) */}
           <div className="hero-floating-card absolute right-4 top-4 hidden xl:flex items-center gap-2 bg-slate-900/80 backdrop-blur-md border border-white/20 rounded-full px-4 py-2 text-xs font-semibold text-white shadow-lg z-10">
@@ -172,7 +199,7 @@ export default function HeroSection() {
             <span>Translate selected text to Spanish</span>
           </div>
 
-          {/* 6. Right Document Workspace Window (z-10, Left side underlaps Image, Text shifted right with pl-14 for 100% readability!) */}
+          {/* 6. Right Document Workspace Window (z-10, Left side underlaps Image) */}
           <div className="hero-floating-card absolute right-[70px] top-20 hidden lg:block bg-slate-900/85 backdrop-blur-xl border border-white/20 rounded-[16px] py-5 pr-5 pl-14 w-[340px] text-left space-y-3 shadow-2xl text-xs z-10">
             <div className="flex justify-between items-center text-slate-400 border-b border-white/10 pb-2">
               <span className="font-semibold text-white">Team workspace</span>
@@ -191,7 +218,7 @@ export default function HeroSection() {
             </div>
           </div>
 
-          {/* 7. Mid-Right Dual Engine Status Card (z-10, Left side underlaps Image, Text shifted right with pl-12) */}
+          {/* 7. Mid-Right Dual Engine Status Card (z-10, Left side underlaps Image) */}
           <div className="hero-floating-card absolute right-12 top-[280px] hidden xl:block bg-slate-900/85 backdrop-blur-xl border border-white/20 rounded-[16px] py-4 pr-4 pl-12 w-[300px] text-left text-xs space-y-2 shadow-2xl z-10">
             <div className="flex items-center justify-between text-slate-400 pb-1.5 border-b border-white/10">
               <span className="font-semibold text-white flex items-center gap-1.5">
