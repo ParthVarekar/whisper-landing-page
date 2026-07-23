@@ -34,7 +34,7 @@ export default function Navbar() {
   }, []);
 
   return (
-    <header ref={navRef} className="fixed top-0 left-0 right-0 z-50 py-3 transition-all duration-300 bg-transparent">
+    <header ref={navRef} className="fixed top-0 left-0 right-0 z-50 py-3 transition-all duration-300 bg-[#F9F8F6]">
       <div
         ref={containerRef}
         className="mx-auto flex items-center justify-between w-full max-w-[1200px] px-6 text-[#292827] transition-all duration-300 box-border"
@@ -69,7 +69,7 @@ export default function Navbar() {
           </a>
         </nav>
 
-        {/* CTA Button - Strictly Contained Inside Navbar */}
+        {/* CTA Button */}
         <div className="flex items-center shrink-0">
           <a
             href="#waitlist"

@@ -99,11 +99,10 @@ export default function BentoGrid() {
 
   return (
     <section id="bento-grid" ref={containerRef} className="py-24 bg-[#F9F8F6] relative">
-      {/* Strict Vertical Flex-Col Block Flow Container */}
-      <div className="max-w-[1200px] mx-auto px-6 flex flex-col gap-10">
+      <div className="max-w-[1200px] mx-auto px-6 flex flex-col">
         
         {/* Section Header */}
-        <div className="text-center max-w-[800px] mx-auto space-y-4">
+        <div className="text-center max-w-[800px] mx-auto space-y-4 mb-12">
           <div className="inline-flex items-center gap-2 bg-[#2A2859] text-white px-4 py-1.5 rounded-[8px] text-xs font-bold font-mono">
             <span>THE SUSURRUS SUITE</span>
           </div>
@@ -115,55 +114,57 @@ export default function BentoGrid() {
           </p>
         </div>
 
-        {/* Direct Sibling 1: Bounded Tab Selector Bar */}
-        <div className="w-full bg-[#E9E5DD] p-2 rounded-[16px] border border-[#dcd7d3] flex flex-col sm:flex-row items-center justify-between gap-4 shadow-sm">
-          <h3 className="text-xl font-[540] text-[#0F172A] tracking-tight px-4">
-            Your Susurrus suite
-          </h3>
-          
-          {/* Tab Button Group with 8px Binary Radius */}
-          <div className="flex bg-[#F9F8F6] p-1.5 rounded-[12px] gap-1.5 border border-[#dcd7d3] w-full sm:w-auto overflow-x-auto">
-            <button
-              onClick={() => scrollToSection("dictation", "dictation")}
-              className={`px-5 py-2.5 rounded-[8px] text-xs font-bold transition-all whitespace-nowrap ${
-                activeTab === "dictation"
-                  ? "bg-[#2A2859] text-white shadow-sm"
-                  : "text-[#475569] hover:text-[#0F172A] hover:bg-white/50"
-              }`}
-            >
-              Dictation
-            </button>
-            <button
-              onClick={() => scrollToSection("commands", "commands")}
-              className={`px-5 py-2.5 rounded-[8px] text-xs font-bold transition-all whitespace-nowrap ${
-                activeTab === "commands"
-                  ? "bg-[#2A2859] text-white shadow-sm"
-                  : "text-[#475569] hover:text-[#0F172A] hover:bg-white/50"
-              }`}
-            >
-              Context Commands
-            </button>
-            <button
-              onClick={() => scrollToSection("architecture", "architecture")}
-              className={`px-5 py-2.5 rounded-[8px] text-xs font-bold transition-all whitespace-nowrap ${
-                activeTab === "architecture"
-                  ? "bg-[#2A2859] text-white shadow-sm"
-                  : "text-[#475569] hover:text-[#0F172A] hover:bg-white/50"
-              }`}
-            >
-              Dual Engine
-            </button>
+        {/* STICKY SUITE TAB BAR (Pinned at top-[64px] with 100% Opaque #F9F8F6 Background so cards scroll UNDER it) */}
+        <div className="sticky top-[64px] z-40 bg-[#F9F8F6] py-4 border-b border-[#dcd7d3] mb-10 shadow-sm">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+            <h3 className="text-2xl font-[540] text-[#0F172A] tracking-tight">
+              Your Susurrus suite
+            </h3>
+            
+            {/* Sticky Tab Switcher Button Group */}
+            <div className="flex bg-[#E9E5DD] p-1.5 rounded-[12px] gap-1 shadow-inner border border-[#dcd7d3]">
+              <button
+                onClick={() => scrollToSection("dictation", "dictation")}
+                className={`px-5 py-2.5 rounded-[8px] text-xs font-bold transition-all whitespace-nowrap ${
+                  activeTab === "dictation"
+                    ? "bg-[#2A2859] text-white shadow-sm"
+                    : "text-[#475569] hover:text-[#0F172A]"
+                }`}
+              >
+                Dictation
+              </button>
+              <button
+                onClick={() => scrollToSection("commands", "commands")}
+                className={`px-5 py-2.5 rounded-[8px] text-xs font-bold transition-all whitespace-nowrap ${
+                  activeTab === "commands"
+                    ? "bg-[#2A2859] text-white shadow-sm"
+                    : "text-[#475569] hover:text-[#0F172A]"
+                }`}
+              >
+                Context Commands
+              </button>
+              <button
+                onClick={() => scrollToSection("architecture", "architecture")}
+                className={`px-5 py-2.5 rounded-[8px] text-xs font-bold transition-all whitespace-nowrap ${
+                  activeTab === "architecture"
+                    ? "bg-[#2A2859] text-white shadow-sm"
+                    : "text-[#475569] hover:text-[#0F172A]"
+                }`}
+              >
+                Dual Engine
+              </button>
+            </div>
           </div>
         </div>
 
-        {/* Direct Sibling 2: Bounded Cards Container with Strict Overflow Clipping & 16px Radius */}
-        <div className="w-full bg-white border border-[#dcd7d3] rounded-[16px] overflow-hidden shadow-sm flex flex-col divide-y divide-[#dcd7d3]">
+        {/* Feature Cards Container (Passes cleanly UNDER the sticky tab bar at z-10) */}
+        <div className="w-full bg-white border border-[#dcd7d3] rounded-[16px] overflow-hidden shadow-sm flex flex-col divide-y divide-[#dcd7d3] relative z-10">
 
           {/* Card 1: Dictation Studio */}
           <div
             ref={card1Ref}
             id="dictation"
-            className="p-8 md:p-14 bg-white overflow-hidden scroll-mt-28"
+            className="p-8 md:p-14 bg-white overflow-hidden scroll-mt-36"
           >
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
               
@@ -254,7 +255,7 @@ export default function BentoGrid() {
           <div
             ref={card2Ref}
             id="commands"
-            className="p-8 md:p-14 bg-white overflow-hidden scroll-mt-28"
+            className="p-8 md:p-14 bg-white overflow-hidden scroll-mt-36"
           >
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
               
@@ -354,7 +355,7 @@ export default function BentoGrid() {
           <div
             ref={card3Ref}
             id="architecture"
-            className="p-8 md:p-14 bg-white overflow-hidden scroll-mt-28"
+            className="p-8 md:p-14 bg-white overflow-hidden scroll-mt-36"
           >
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
               
