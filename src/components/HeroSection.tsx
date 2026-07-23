@@ -44,11 +44,11 @@ export default function HeroSection() {
           </div>
         </div>
 
-        {/* Hero Interactive Workspace Canvas matching attached reference layout */}
+        {/* Hero Interactive Workspace Canvas matching reference layout */}
         <div className="relative max-w-[1180px] mx-auto pt-6 pb-20 min-h-[640px] flex items-center justify-center">
           
-          {/* Central Editorial Portrait (Layer Z-15 - Base Backdrop Depth) */}
-          <div className="relative w-[360px] md:w-[440px] h-[500px] rounded-[32px] overflow-hidden border border-white/20 shadow-2xl mx-auto z-15">
+          {/* Central Editorial Portrait (Layer Z-20 - Middle Backdrop Depth) */}
+          <div className="relative w-[360px] md:w-[440px] h-[500px] rounded-[32px] overflow-hidden border border-white/20 shadow-2xl mx-auto z-20">
             <Image
               src="/assets/hero_portrait.jpg"
               alt="Susurrus Editorial Portrait"
@@ -60,12 +60,12 @@ export default function HeroSection() {
 
           {/* 
             ========================================================================
-            EXACT CASCADING OVERLAPPING DECK LAYOUT (Matching attached reference image)
+            LEFT-SIDE CARDS: OVERLAPPING ON TOP OF THE IMAGE (Layer Z-30 to Z-50)
             ========================================================================
           */}
 
-          {/* 1. Left Base Card: Voice Assistant Card (z-10) */}
-          <div className="hero-floating-card absolute left-2 top-16 hidden lg:block bg-slate-900/90 backdrop-blur-xl border border-white/25 rounded-[20px] p-5 w-[310px] text-left space-y-3 shadow-2xl text-xs z-10">
+          {/* 1. Left Base Card: Voice Assistant Card (z-30) */}
+          <div className="hero-floating-card absolute left-2 top-16 hidden lg:block bg-slate-900/90 backdrop-blur-xl border border-white/25 rounded-[20px] p-5 w-[310px] text-left space-y-3 shadow-2xl text-xs z-30">
             <div className="flex items-center gap-2 text-slate-300 font-semibold">
               <div className="w-5 h-5 rounded-full bg-[#2A2859] flex items-center justify-center text-white text-[10px]">
                 <svg className="w-3 h-3 text-[#cbb7fb]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -102,8 +102,8 @@ export default function HeroSection() {
             </div>
           </div>
 
-          {/* 2. Vertical Floating Icon Switcher Bar (z-30, Overlaps Voice Card & Image Edge) */}
-          <div className="hero-floating-card absolute left-[295px] top-28 hidden xl:flex flex-col gap-4 bg-slate-900/90 backdrop-blur-md rounded-full p-3 border border-white/30 shadow-2xl z-30">
+          {/* 2. Vertical Floating Icon Switcher Bar (z-35, Overlaps Voice Card & Image Edge) */}
+          <div className="hero-floating-card absolute left-[295px] top-28 hidden xl:flex flex-col gap-4 bg-slate-900/90 backdrop-blur-md rounded-full p-3 border border-white/30 shadow-2xl z-35">
             <div className="w-7 h-7 rounded-full bg-[#2A2859] text-white flex items-center justify-center">
               <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
@@ -158,16 +158,23 @@ export default function HeroSection() {
             <span className="text-[11px] leading-tight">Schedule 15 minutes for a quick meeting with Mike</span>
           </div>
 
-          {/* 5. Top Right Prompt Chip (z-25) */}
-          <div className="hero-floating-card absolute right-16 top-24 hidden lg:flex items-center gap-2 bg-white/20 backdrop-blur-md border border-white/30 rounded-full px-5 py-2.5 text-xs font-semibold text-white shadow-lg z-25">
+          {/* 
+            ========================================================================
+            RIGHT-SIDE CARDS: UNDERLAPPING BEHIND THE IMAGE (Layer Z-10 - Strictly Below Z-20)
+            Positioned horizontally so they pass behind head, shoulder & back matching reference!
+            ========================================================================
+          */}
+
+          {/* 5. Top Right Prompt Chip (z-10, Passes BEHIND the back of the beanie/head!) */}
+          <div className="hero-floating-card absolute right-[130px] top-[140px] hidden lg:flex items-center gap-2 bg-[#433E78]/80 backdrop-blur-md border border-white/20 rounded-full px-5 py-2.5 text-xs font-semibold text-white shadow-lg z-10">
             <svg className="w-3.5 h-3.5 text-[#cbb7fb]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
             </svg>
             Tailor this language for executives
           </div>
 
-          {/* 6. Right Document Workspace Window (z-20, Left side underlaps Image Right) */}
-          <div className="hero-floating-card absolute right-4 top-[140px] hidden lg:block bg-slate-900/85 backdrop-blur-xl border border-white/20 rounded-[20px] py-5 pr-5 pl-14 w-[340px] text-left space-y-3 shadow-2xl text-xs z-20">
+          {/* 6. Right Document Workspace Window (z-10, Left side passes BEHIND the neck & shoulder!) */}
+          <div className="hero-floating-card absolute right-[40px] top-[210px] hidden lg:block bg-slate-900/85 backdrop-blur-xl border border-white/20 rounded-[20px] py-5 pr-5 pl-10 w-[350px] text-left space-y-3 shadow-2xl text-xs z-10">
             <div className="flex justify-between items-center text-slate-400 border-b border-white/10 pb-2">
               <span className="font-semibold text-white">Team workspace</span>
               <span className="flex items-center gap-1.5 text-[11px]">
@@ -180,13 +187,13 @@ export default function HeroSection() {
             <div className="space-y-1.5">
               <div className="font-bold text-white text-sm">Streamlining Team Documentation</div>
               <p className="text-slate-300 leading-normal text-[11px]">
-                I've been thinking about how our team can streamline the onboarding process for <span className="bg-white/20 px-1 rounded text-white">new-hires</span>. Right now documentation is scattered...
+                I've been thinking about how our team can streamline the onboarding process for <span className="bg-white/20 px-1 rounded text-white">new-hires</span>. Right now documentation is scattered across different tools...
               </p>
             </div>
           </div>
 
-          {/* 7. Right Bottom Overlapping Prompt Pill (z-30, Overlaps bottom of Workspace Card!) */}
-          <div className="hero-floating-card absolute right-[90px] top-[370px] hidden lg:flex items-center gap-2 bg-slate-900/90 backdrop-blur-md border border-white/25 rounded-full px-5 py-2.5 text-xs font-semibold text-white shadow-2xl z-30">
+          {/* 7. Right Bottom Prompt Pill (z-10, Passes BEHIND the lower shoulder/back!) */}
+          <div className="hero-floating-card absolute right-[150px] top-[410px] hidden lg:flex items-center gap-2 bg-slate-900/90 backdrop-blur-md border border-white/25 rounded-full px-5 py-2.5 text-xs font-semibold text-white shadow-2xl z-10">
             <svg className="w-3.5 h-3.5 text-[#cbb7fb]" viewBox="0 0 24 24" fill="currentColor">
               <path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/>
             </svg>
