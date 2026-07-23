@@ -114,21 +114,21 @@ export default function BentoGrid() {
           </p>
         </div>
 
-        {/* STICKY SUITE TAB BAR (Pinned at top-[64px] with 100% Opaque #F9F8F6 Background so cards scroll UNDER it) */}
-        <div className="sticky top-[64px] z-40 bg-[#F9F8F6] py-4 border-b border-[#dcd7d3] mb-10 shadow-sm">
+        {/* STICKY SUITE TAB BAR (Solid Warm Parchment #EFECE6 background so it pops out from the #F9F8F6 canvas!) */}
+        <div className="sticky top-[64px] z-40 bg-[#EFECE6] px-6 py-4 rounded-[16px] border border-[#dcd7d3] mb-10 shadow-md">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
             <h3 className="text-2xl font-[540] text-[#0F172A] tracking-tight">
               Your Susurrus suite
             </h3>
             
             {/* Sticky Tab Switcher Button Group */}
-            <div className="flex bg-[#E9E5DD] p-1.5 rounded-[12px] gap-1 shadow-inner border border-[#dcd7d3]">
+            <div className="flex bg-white p-1.5 rounded-[12px] gap-1 shadow-sm border border-[#dcd7d3]">
               <button
                 onClick={() => scrollToSection("dictation", "dictation")}
                 className={`px-5 py-2.5 rounded-[8px] text-xs font-bold transition-all whitespace-nowrap ${
                   activeTab === "dictation"
                     ? "bg-[#2A2859] text-white shadow-sm"
-                    : "text-[#475569] hover:text-[#0F172A]"
+                    : "text-[#475569] hover:text-[#0F172A] hover:bg-[#F9F8F6]"
                 }`}
               >
                 Dictation
@@ -138,7 +138,7 @@ export default function BentoGrid() {
                 className={`px-5 py-2.5 rounded-[8px] text-xs font-bold transition-all whitespace-nowrap ${
                   activeTab === "commands"
                     ? "bg-[#2A2859] text-white shadow-sm"
-                    : "text-[#475569] hover:text-[#0F172A]"
+                    : "text-[#475569] hover:text-[#0F172A] hover:bg-[#F9F8F6]"
                 }`}
               >
                 Context Commands
@@ -148,7 +148,7 @@ export default function BentoGrid() {
                 className={`px-5 py-2.5 rounded-[8px] text-xs font-bold transition-all whitespace-nowrap ${
                   activeTab === "architecture"
                     ? "bg-[#2A2859] text-white shadow-sm"
-                    : "text-[#475569] hover:text-[#0F172A]"
+                    : "text-[#475569] hover:text-[#0F172A] hover:bg-[#F9F8F6]"
                 }`}
               >
                 Dual Engine
