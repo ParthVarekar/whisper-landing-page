@@ -161,7 +161,6 @@ export default function HeroSection() {
           {/* 
             ========================================================================
             RIGHT-SIDE CARDS: UNDERLAPPING BEHIND THE IMAGE (Layer Z-10 - Strictly Below Z-20)
-            Positioned horizontally so they pass behind head, shoulder & back matching reference!
             ========================================================================
           */}
 
@@ -192,12 +191,17 @@ export default function HeroSection() {
             </div>
           </div>
 
-          {/* 7. Right Bottom Prompt Pill (z-10, Passes BEHIND the lower shoulder/back!) */}
-          <div className="hero-floating-card absolute right-[150px] top-[410px] hidden lg:flex items-center gap-2 bg-slate-900/90 backdrop-blur-md border border-white/25 rounded-full px-5 py-2.5 text-xs font-semibold text-white shadow-2xl z-10">
-            <svg className="w-3.5 h-3.5 text-[#cbb7fb]" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/>
-            </svg>
-            Proofread with Susurrus
+          {/* 7. Right Bottom Overlapping/Underlapping Card (z-10, Top-Left Corner Underlaps Bottom-Right of Portrait Image!) */}
+          <div className="hero-floating-card absolute right-[90px] top-[450px] hidden lg:flex items-center gap-3 bg-slate-900/90 backdrop-blur-xl border border-white/25 rounded-[20px] p-4 w-[310px] text-left shadow-2xl z-10">
+            <div className="w-8 h-8 rounded-full bg-[#2A2859] flex items-center justify-center shrink-0">
+              <svg className="w-4 h-4 text-[#cbb7fb]" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/>
+              </svg>
+            </div>
+            <div className="space-y-0.5">
+              <div className="text-xs font-bold text-white">Proofread with Susurrus</div>
+              <p className="text-[10px] text-slate-300">Fix grammar, tone, and formatting in place</p>
+            </div>
           </div>
 
         </div>
