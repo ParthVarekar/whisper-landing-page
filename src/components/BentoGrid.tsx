@@ -53,45 +53,36 @@ export default function BentoGrid() {
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
 
-    const cards = [card1Ref.current, card2Ref.current, card3Ref.current].filter(Boolean);
+    // Update Active Suite Tab on Natural Page Scroll
+    if (card1Ref.current) {
+      ScrollTrigger.create({
+        trigger: card1Ref.current,
+        start: "top 300px",
+        end: "bottom 300px",
+        onEnter: () => setActiveTab("dictation"),
+        onEnterBack: () => setActiveTab("dictation"),
+      });
+    }
 
-    cards.forEach((card, index) => {
-      if (index < cards.length - 1 && card) {
-        gsap.to(card, {
-          scale: 0.93,
-          opacity: 0.6,
-          ease: "none",
-          scrollTrigger: {
-            trigger: cards[index + 1],
-            start: "top 75%",
-            end: "top 148px",
-            scrub: true,
-          },
-        });
-      }
-    });
+    if (card2Ref.current) {
+      ScrollTrigger.create({
+        trigger: card2Ref.current,
+        start: "top 300px",
+        end: "bottom 300px",
+        onEnter: () => setActiveTab("commands"),
+        onEnterBack: () => setActiveTab("commands"),
+      });
+    }
 
-    // Track Active Suite Tab on Scroll
-    ScrollTrigger.create({
-      trigger: card1Ref.current,
-      start: "top 200px",
-      onEnter: () => setActiveTab("dictation"),
-      onEnterBack: () => setActiveTab("dictation"),
-    });
-
-    ScrollTrigger.create({
-      trigger: card2Ref.current,
-      start: "top 200px",
-      onEnter: () => setActiveTab("commands"),
-      onEnterBack: () => setActiveTab("commands"),
-    });
-
-    ScrollTrigger.create({
-      trigger: card3Ref.current,
-      start: "top 200px",
-      onEnter: () => setActiveTab("architecture"),
-      onEnterBack: () => setActiveTab("architecture"),
-    });
+    if (card3Ref.current) {
+      ScrollTrigger.create({
+        trigger: card3Ref.current,
+        start: "top 300px",
+        end: "bottom 300px",
+        onEnter: () => setActiveTab("architecture"),
+        onEnterBack: () => setActiveTab("architecture"),
+      });
+    }
 
     return () => {
       ScrollTrigger.getAll().forEach((t) => t.kill());
@@ -115,12 +106,12 @@ export default function BentoGrid() {
           </p>
         </div>
 
-        {/* Superhuman Suite Sticky Tab Bar (Cards slide under this bar) */}
-        <div className="sticky top-[72px] z-40 bg-[#F9F8F6]/95 backdrop-blur-md pt-4 pb-4 mb-8 border-b border-[#dcd7d3]">
+        {/* Sticky Suite Tab Bar (Solid Opaque Background so cards scroll UNDER it) */}
+        <div className="sticky top-[64px] z-30 bg-[#F9F8F6] py-4 border-b border-[#dcd7d3] mb-12 shadow-sm">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
             <h3 className="text-2xl font-[540] text-[#0F172A] tracking-tight">Your Susurrus suite</h3>
             
-            {/* Sticky Tab Switcher (Matching Images #2, #3, #4) */}
+            {/* Tab Switcher */}
             <div className="flex bg-[#E9E5DD] p-1.5 rounded-[12px] gap-1 shadow-inner">
               <a
                 href="#dictation"
@@ -156,14 +147,14 @@ export default function BentoGrid() {
           </div>
         </div>
 
-        {/* Cascading Stacking Cards Deck Container (Cards slide under Sticky Suite Tab Bar) */}
-        <div className="space-y-16 relative pt-2">
+        {/* Plain Scrolling Cards Container (No stacking - flow naturally like plain page) */}
+        <div className="space-y-16">
 
-          {/* Card 1: Dictation Studio (Cascading Pin 1 - Slides under Suite Tab Bar) */}
+          {/* Card 1: Dictation Studio */}
           <div
             ref={card1Ref}
             id="dictation"
-            className="sticky top-[148px] bg-[#F9F8F6] border border-[#dcd7d3] rounded-[16px] p-8 md:p-12 shadow-2xl transition-all origin-top z-10"
+            className="bg-[#F9F8F6] border border-[#dcd7d3] rounded-[16px] p-8 md:p-12 shadow-sm"
           >
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
               
@@ -250,11 +241,11 @@ export default function BentoGrid() {
             </div>
           </div>
 
-          {/* Card 2: Context Commands (Cascading Pin 2 - Slides under Suite Tab Bar) */}
+          {/* Card 2: Context Commands */}
           <div
             ref={card2Ref}
             id="commands"
-            className="sticky top-[168px] bg-[#F9F8F6] border border-[#dcd7d3] rounded-[16px] p-8 md:p-12 shadow-2xl transition-all origin-top z-20"
+            className="bg-[#F9F8F6] border border-[#dcd7d3] rounded-[16px] p-8 md:p-12 shadow-sm"
           >
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
               
@@ -350,11 +341,11 @@ export default function BentoGrid() {
             </div>
           </div>
 
-          {/* Card 3: Dual Local Engine (Cascading Pin 3 - Slides under Suite Tab Bar) */}
+          {/* Card 3: Dual Local Engine */}
           <div
             ref={card3Ref}
             id="architecture"
-            className="sticky top-[188px] bg-[#F9F8F6] border border-[#dcd7d3] rounded-[16px] p-8 md:p-12 shadow-2xl transition-all origin-top z-30"
+            className="bg-[#F9F8F6] border border-[#dcd7d3] rounded-[16px] p-8 md:p-12 shadow-sm"
           >
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
               
