@@ -45,7 +45,7 @@ export default function HeroSection() {
         </div>
 
         {/* Hero Interactive Workspace Canvas matching reference layout */}
-        <div className="relative max-w-[1180px] mx-auto pt-6 pb-24 min-h-[660px] flex items-center justify-center">
+        <div className="relative max-w-[1180px] mx-auto pt-6 pb-28 min-h-[680px] flex items-center justify-center">
           
           {/* Central Editorial Portrait (Layer Z-20 - Middle Backdrop Depth) */}
           <div className="relative w-[360px] md:w-[440px] h-[500px] rounded-[32px] overflow-hidden border border-white/20 shadow-2xl mx-auto z-20">
@@ -84,13 +84,13 @@ export default function HeroSection() {
               <div className="flex gap-2">
                 <span className="bg-white/10 px-2.5 py-1 rounded-full text-[10px] flex items-center gap-1">
                   <svg className="w-2.5 h-2.5 text-slate-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+                    <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 16 14"/>
                   </svg>
                   Monday at 3:00 PM
                 </span>
                 <span className="bg-white/10 px-2.5 py-1 rounded-full text-[10px] flex items-center gap-1">
                   <svg className="w-2.5 h-2.5 text-slate-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+                    <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 16 14"/>
                   </svg>
                   Tuesday at 1:00 PM
                 </span>
@@ -192,7 +192,7 @@ export default function HeroSection() {
           </div>
 
           {/* 7. Right Bottom Overlapping/Underlapping Card (z-10, Top-Left Corner Underlaps Bottom-Right of Portrait Image!) */}
-          <div className="hero-floating-card absolute right-[100px] top-[480px] hidden lg:flex items-center gap-3 bg-slate-900/90 backdrop-blur-xl border border-white/25 rounded-[20px] p-4 w-[310px] text-left shadow-2xl z-10">
+          <div className="hero-floating-card absolute right-[100px] top-[505px] hidden lg:flex items-center gap-3 bg-slate-900/90 backdrop-blur-xl border border-white/25 rounded-[20px] p-4 w-[310px] text-left shadow-2xl z-10">
             <div className="w-8 h-8 rounded-full bg-[#2A2859] flex items-center justify-center shrink-0">
               <svg className="w-4 h-4 text-[#cbb7fb]" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/>
