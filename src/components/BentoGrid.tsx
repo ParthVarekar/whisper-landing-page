@@ -53,12 +53,12 @@ export default function BentoGrid() {
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
 
-    // Update Active Suite Tab on Natural Page Scroll
+    // Track active tab state naturally on scroll
     if (card1Ref.current) {
       ScrollTrigger.create({
         trigger: card1Ref.current,
-        start: "top 300px",
-        end: "bottom 300px",
+        start: "top 350px",
+        end: "bottom 350px",
         onEnter: () => setActiveTab("dictation"),
         onEnterBack: () => setActiveTab("dictation"),
       });
@@ -67,8 +67,8 @@ export default function BentoGrid() {
     if (card2Ref.current) {
       ScrollTrigger.create({
         trigger: card2Ref.current,
-        start: "top 300px",
-        end: "bottom 300px",
+        start: "top 350px",
+        end: "bottom 350px",
         onEnter: () => setActiveTab("commands"),
         onEnterBack: () => setActiveTab("commands"),
       });
@@ -77,8 +77,8 @@ export default function BentoGrid() {
     if (card3Ref.current) {
       ScrollTrigger.create({
         trigger: card3Ref.current,
-        start: "top 300px",
-        end: "bottom 300px",
+        start: "top 350px",
+        end: "bottom 350px",
         onEnter: () => setActiveTab("architecture"),
         onEnterBack: () => setActiveTab("architecture"),
       });
@@ -89,12 +89,21 @@ export default function BentoGrid() {
     };
   }, []);
 
+  const scrollToSection = (id: string, tab: "dictation" | "commands" | "architecture") => {
+    setActiveTab(tab);
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
+
   return (
-    <section id="bento-grid" ref={containerRef} className="py-20 bg-[#F9F8F6] relative">
-      <div className="max-w-[1200px] mx-auto px-6">
+    <section id="bento-grid" ref={containerRef} className="py-24 bg-[#F9F8F6] relative">
+      {/* Strict Vertical Flex-Col Block Flow Container */}
+      <div className="max-w-[1200px] mx-auto px-6 flex flex-col gap-10">
         
         {/* Section Header */}
-        <div className="text-center max-w-[800px] mx-auto mb-12 space-y-3">
+        <div className="text-center max-w-[800px] mx-auto space-y-4">
           <div className="inline-flex items-center gap-2 bg-[#2A2859] text-white px-4 py-1.5 rounded-[8px] text-xs font-bold font-mono">
             <span>THE SUSURRUS SUITE</span>
           </div>
@@ -106,55 +115,55 @@ export default function BentoGrid() {
           </p>
         </div>
 
-        {/* Sticky Suite Tab Bar (Solid Opaque Background so cards scroll UNDER it) */}
-        <div className="sticky top-[64px] z-30 bg-[#F9F8F6] py-4 border-b border-[#dcd7d3] mb-12 shadow-sm">
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-            <h3 className="text-2xl font-[540] text-[#0F172A] tracking-tight">Your Susurrus suite</h3>
-            
-            {/* Tab Switcher */}
-            <div className="flex bg-[#E9E5DD] p-1.5 rounded-[12px] gap-1 shadow-inner">
-              <a
-                href="#dictation"
-                className={`px-5 py-2 rounded-[8px] text-xs font-bold transition-all ${
-                  activeTab === "dictation"
-                    ? "bg-white text-[#2A2859] shadow-sm"
-                    : "text-[#475569] hover:text-[#0F172A]"
-                }`}
-              >
-                Dictation
-              </a>
-              <a
-                href="#commands"
-                className={`px-5 py-2 rounded-[8px] text-xs font-bold transition-all ${
-                  activeTab === "commands"
-                    ? "bg-white text-[#2A2859] shadow-sm"
-                    : "text-[#475569] hover:text-[#0F172A]"
-                }`}
-              >
-                Context Commands
-              </a>
-              <a
-                href="#architecture"
-                className={`px-5 py-2 rounded-[8px] text-xs font-bold transition-all ${
-                  activeTab === "architecture"
-                    ? "bg-white text-[#2A2859] shadow-sm"
-                    : "text-[#475569] hover:text-[#0F172A]"
-                }`}
-              >
-                Dual Engine
-              </a>
-            </div>
+        {/* Direct Sibling 1: Bounded Tab Selector Bar */}
+        <div className="w-full bg-[#E9E5DD] p-2 rounded-[16px] border border-[#dcd7d3] flex flex-col sm:flex-row items-center justify-between gap-4 shadow-sm">
+          <h3 className="text-xl font-[540] text-[#0F172A] tracking-tight px-4">
+            Your Susurrus suite
+          </h3>
+          
+          {/* Tab Button Group with 8px Binary Radius */}
+          <div className="flex bg-[#F9F8F6] p-1.5 rounded-[12px] gap-1.5 border border-[#dcd7d3] w-full sm:w-auto overflow-x-auto">
+            <button
+              onClick={() => scrollToSection("dictation", "dictation")}
+              className={`px-5 py-2.5 rounded-[8px] text-xs font-bold transition-all whitespace-nowrap ${
+                activeTab === "dictation"
+                  ? "bg-[#2A2859] text-white shadow-sm"
+                  : "text-[#475569] hover:text-[#0F172A] hover:bg-white/50"
+              }`}
+            >
+              Dictation
+            </button>
+            <button
+              onClick={() => scrollToSection("commands", "commands")}
+              className={`px-5 py-2.5 rounded-[8px] text-xs font-bold transition-all whitespace-nowrap ${
+                activeTab === "commands"
+                  ? "bg-[#2A2859] text-white shadow-sm"
+                  : "text-[#475569] hover:text-[#0F172A] hover:bg-white/50"
+              }`}
+            >
+              Context Commands
+            </button>
+            <button
+              onClick={() => scrollToSection("architecture", "architecture")}
+              className={`px-5 py-2.5 rounded-[8px] text-xs font-bold transition-all whitespace-nowrap ${
+                activeTab === "architecture"
+                  ? "bg-[#2A2859] text-white shadow-sm"
+                  : "text-[#475569] hover:text-[#0F172A] hover:bg-white/50"
+              }`}
+            >
+              Dual Engine
+            </button>
           </div>
         </div>
 
-        {/* Plain Scrolling Cards Container (No stacking - flow naturally like plain page) */}
-        <div className="space-y-16">
+        {/* Direct Sibling 2: Bounded Cards Container with Strict Overflow Clipping & 16px Radius */}
+        <div className="w-full bg-white border border-[#dcd7d3] rounded-[16px] overflow-hidden shadow-sm flex flex-col divide-y divide-[#dcd7d3]">
 
           {/* Card 1: Dictation Studio */}
           <div
             ref={card1Ref}
             id="dictation"
-            className="bg-[#F9F8F6] border border-[#dcd7d3] rounded-[16px] p-8 md:p-12 shadow-sm"
+            className="p-8 md:p-14 bg-white overflow-hidden scroll-mt-28"
           >
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
               
@@ -197,8 +206,8 @@ export default function BentoGrid() {
                 </ul>
               </div>
 
-              {/* Photography Canvas + Floating White UI Window */}
-              <div className="lg:col-span-7 relative rounded-[16px] overflow-hidden aspect-[4/3] p-6 flex items-center justify-center shadow-md">
+              {/* Bounded Photography Canvas + Floating White UI Window */}
+              <div className="lg:col-span-7 relative rounded-[16px] overflow-hidden aspect-[4/3] p-6 flex items-center justify-center border border-[#dcd7d3] bg-[#F9F8F6]">
                 <Image
                   src="/assets/card1_sky.jpg"
                   alt="Pastel Sky Background"
@@ -245,7 +254,7 @@ export default function BentoGrid() {
           <div
             ref={card2Ref}
             id="commands"
-            className="bg-[#F9F8F6] border border-[#dcd7d3] rounded-[16px] p-8 md:p-12 shadow-sm"
+            className="p-8 md:p-14 bg-white overflow-hidden scroll-mt-28"
           >
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
               
@@ -287,8 +296,8 @@ export default function BentoGrid() {
                 </ul>
               </div>
 
-              {/* Botanical Photography + Interactive Floating Card */}
-              <div className="lg:col-span-7 relative rounded-[16px] overflow-hidden aspect-[4/3] p-6 flex items-center justify-center shadow-md">
+              {/* Bounded Botanical Photography + Interactive Floating Card */}
+              <div className="lg:col-span-7 relative rounded-[16px] overflow-hidden aspect-[4/3] p-6 flex items-center justify-center border border-[#dcd7d3] bg-[#F9F8F6]">
                 <Image
                   src="/assets/card2_nature.jpg"
                   alt="Botanical Photography Background"
@@ -345,7 +354,7 @@ export default function BentoGrid() {
           <div
             ref={card3Ref}
             id="architecture"
-            className="bg-[#F9F8F6] border border-[#dcd7d3] rounded-[16px] p-8 md:p-12 shadow-sm"
+            className="p-8 md:p-14 bg-white overflow-hidden scroll-mt-28"
           >
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
               
@@ -387,8 +396,8 @@ export default function BentoGrid() {
                 </ul>
               </div>
 
-              {/* Sunset Photography + Architecture Flow Card */}
-              <div className="lg:col-span-7 relative rounded-[16px] overflow-hidden aspect-[4/3] p-6 flex items-center justify-center shadow-md">
+              {/* Bounded Sunset Photography + Architecture Flow Card */}
+              <div className="lg:col-span-7 relative rounded-[16px] overflow-hidden aspect-[4/3] p-6 flex items-center justify-center border border-[#dcd7d3] bg-[#F9F8F6]">
                 <Image
                   src="/assets/card3_sunset.jpg"
                   alt="Sunset Photography Background"
