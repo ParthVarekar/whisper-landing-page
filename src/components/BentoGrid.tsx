@@ -6,7 +6,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 export default function BentoGrid() {
-  const headingRef = useRef<HTMLHeadingElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
   const card1Ref = useRef<HTMLDivElement>(null);
   const card2Ref = useRef<HTMLDivElement>(null);
   const card3Ref = useRef<HTMLDivElement>(null);
@@ -52,54 +52,40 @@ export default function BentoGrid() {
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
 
-    // Heading Translation Slider (Offset 10% on load, snap back to 0% with 0.1s exponential ease)
-    if (headingRef.current) {
-      gsap.fromTo(
-        headingRef.current,
-        { x: 30, opacity: 0 },
-        {
-          x: 0,
-          opacity: 1,
-          duration: 0.1,
-          ease: "expo.out",
-          scrollTrigger: {
-            trigger: headingRef.current,
-            start: "top 85%",
-            toggleActions: "play none none reverse",
-          },
-        }
-      );
-    }
+    const cards = [card1Ref.current, card2Ref.current, card3Ref.current].filter(Boolean);
 
-    // Scroll line drawing effect
-    gsap.fromTo(
-      ".draw-svg-line",
-      { strokeDashoffset: 1000 },
-      {
-        strokeDashoffset: 0,
-        scrollTrigger: {
-          trigger: "#bento-grid",
-          start: "top 70%",
-          end: "bottom 30%",
-          scrub: 1,
-        },
+    // Cascading Stacking Deck GSAP Animation
+    cards.forEach((card, index) => {
+      if (index < cards.length - 1 && card) {
+        gsap.to(card, {
+          scale: 0.93,
+          opacity: 0.6,
+          ease: "none",
+          scrollTrigger: {
+            trigger: cards[index + 1],
+            start: "top 75%",
+            end: "top 120px",
+            scrub: true,
+          },
+        });
       }
-    );
+    });
+
+    return () => {
+      ScrollTrigger.getAll().forEach((t) => t.kill());
+    };
   }, []);
 
   return (
-    <section id="bento-grid" className="py-24 bg-[#F9F8F6] relative">
+    <section id="bento-grid" ref={containerRef} className="py-24 bg-[#F9F8F6] relative">
       <div className="max-w-[1200px] mx-auto px-6">
         
         {/* Section Header */}
-        <div className="text-center max-w-[800px] mx-auto mb-16 space-y-3">
+        <div className="text-center max-w-[800px] mx-auto mb-20 space-y-3">
           <div className="inline-flex items-center gap-2 bg-[#2A2859] text-white px-4 py-1.5 rounded-[8px] text-xs font-bold font-mono">
             <span>THE WHISPERFLOW SUITE</span>
           </div>
-          <h2
-            ref={headingRef}
-            className="text-[36px] md:text-[48px] font-[540] leading-[0.96] tracking-tight text-[#0F172A]"
-          >
+          <h2 className="text-[36px] md:text-[48px] font-[540] leading-[0.96] tracking-tight text-[#0F172A]">
             Capabilities & Architecture
           </h2>
           <p className="text-base text-[#475569] font-[460] leading-[1.50]">
@@ -107,25 +93,15 @@ export default function BentoGrid() {
           </p>
         </div>
 
-        {/* Dynamic Connecting SVG Line */}
-        <div className="hidden lg:block absolute left-1/2 top-48 bottom-48 w-full max-w-[1200px] -translate-x-1/2 pointer-events-none z-0">
-          <svg className="w-full h-full" viewBox="0 0 1200 1200" fill="none">
-            <path
-              className="draw-svg-line"
-              d="M 200,100 C 600,300 600,600 1000,900"
-              stroke="#dcd7d3"
-              strokeWidth="2"
-              strokeDasharray="1000"
-              strokeDashoffset="1000"
-            />
-          </svg>
-        </div>
+        {/* Cascading Stacking Cards Deck Container */}
+        <div className="space-y-16 relative">
 
-        {/* Bento Grid Layout (2-to-3 Column Layout) */}
-        <div className="space-y-12 relative z-10">
-
-          {/* Bento Card 1: Dictation Studio */}
-          <div ref={card1Ref} id="dictation" className="bg-[#F9F8F6] border border-[#dcd7d3] rounded-[16px] p-8 md:p-12 shadow-sm">
+          {/* Card 1: Dictation Studio (Cascading Pin 1) */}
+          <div
+            ref={card1Ref}
+            id="dictation"
+            className="sticky top-[120px] bg-[#F9F8F6] border border-[#dcd7d3] rounded-[16px] p-8 md:p-12 shadow-2xl transition-all origin-top z-10"
+          >
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
               
               <div className="lg:col-span-5 space-y-6">
@@ -202,8 +178,12 @@ export default function BentoGrid() {
             </div>
           </div>
 
-          {/* Bento Card 2: Context Commands */}
-          <div id="commands" className="bg-[#F9F8F6] border border-[#dcd7d3] rounded-[16px] p-8 md:p-12 shadow-sm">
+          {/* Card 2: Context Commands (Cascading Pin 2 - Slides over Card 1) */}
+          <div
+            ref={card2Ref}
+            id="commands"
+            className="sticky top-[140px] bg-[#F9F8F6] border border-[#dcd7d3] rounded-[16px] p-8 md:p-12 shadow-2xl transition-all origin-top z-20"
+          >
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
               
               <div className="lg:col-span-5 space-y-6">
@@ -291,8 +271,12 @@ export default function BentoGrid() {
             </div>
           </div>
 
-          {/* Bento Card 3: Dual Local Engine Architecture */}
-          <div id="architecture" className="bg-[#F9F8F6] border border-[#dcd7d3] rounded-[16px] p-8 md:p-12 shadow-sm">
+          {/* Card 3: Dual Local Engine (Cascading Pin 3 - Slides over Card 2) */}
+          <div
+            ref={card3Ref}
+            id="architecture"
+            className="sticky top-[160px] bg-[#F9F8F6] border border-[#dcd7d3] rounded-[16px] p-8 md:p-12 shadow-2xl transition-all origin-top z-30"
+          >
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
               
               <div className="lg:col-span-5 space-y-6">
