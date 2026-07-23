@@ -45,7 +45,7 @@ export default function HeroSection() {
         </div>
 
         {/* Hero Interactive Workspace Canvas */}
-        <div className="relative max-w-[1200px] mx-auto pt-8 pb-16 min-h-[620px] flex items-center justify-center">
+        <div className="relative max-w-[1180px] mx-auto pt-8 pb-16 min-h-[620px] flex items-center justify-center">
           
           {/* Central Editorial Portrait (Layer Z-20 - Middle Depth Layer) */}
           <div className="relative w-[340px] md:w-[420px] h-[480px] rounded-[32px] overflow-hidden border border-white/20 shadow-2xl mx-auto z-20">
@@ -60,21 +60,21 @@ export default function HeroSection() {
 
           {/* 
             ========================================================================
-            LEFT-SIDE CARDS: OVERLAPPING ON TOP OF THE IMAGE (Layer Z-30 - Highest)
-            Cleanly spaced with ZERO card-on-card overlap!
+            LEFT-SIDE CARDS: OVERLAPPING PORTRAIT (Layer Z-30 - Highest)
+            Strictly spaced vertically with ZERO card-on-card collisions!
             ========================================================================
           */}
 
-          {/* 1. Top Left Floating Chip (z-30) */}
-          <div className="hero-floating-card absolute left-2 top-2 hidden xl:flex items-center gap-2 bg-white/20 backdrop-blur-md border border-white/30 rounded-full px-4 py-2 text-xs font-semibold text-white shadow-lg z-30">
+          {/* 1. Top Left Floating Speed Chip (z-30) */}
+          <div className="hero-floating-card absolute left-4 top-0 hidden xl:flex items-center gap-2 bg-white/20 backdrop-blur-md border border-white/30 rounded-full px-4 py-2 text-xs font-semibold text-white shadow-lg z-30">
             <svg className="w-3.5 h-3.5 text-[#cbb7fb]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
             </svg>
             <span>Dictating at 160 WPM • Sub-200ms</span>
           </div>
 
-          {/* 2. Left Floating Voice Assistant Meeting Card (z-30, Overlaps Image Top-Left) */}
-          <div className="hero-floating-card absolute left-8 top-16 hidden lg:block bg-slate-900/90 backdrop-blur-xl border border-white/25 rounded-[16px] p-4 w-[270px] text-left space-y-2.5 shadow-2xl text-xs z-30">
+          {/* 2. Left Floating Voice Assistant Card (z-30, Overlaps Image Left) */}
+          <div className="hero-floating-card absolute left-10 top-16 hidden lg:block bg-slate-900/90 backdrop-blur-xl border border-white/25 rounded-[16px] p-5 w-[285px] text-left space-y-3 shadow-2xl text-xs z-30">
             <div className="flex items-center gap-2 text-slate-300 font-semibold">
               <div className="w-5 h-5 rounded-full bg-[#2A2859] flex items-center justify-center text-white text-[10px]">
                 <svg className="w-3 h-3 text-[#cbb7fb]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -84,20 +84,20 @@ export default function HeroSection() {
               </div>
               <span>Susurrus AI Assistant</span>
             </div>
-            <p className="text-slate-200 leading-normal text-[11px]">
-              Looks like you're chatting with Antonio and Laura in <span className="bg-white/15 px-1 py-0.5 rounded text-white font-mono">#launch-project-chat</span> and need to book a meeting. Would you like me to find a good time?
+            <p className="text-slate-200 leading-normal">
+              Looks like you're chatting with Antonio and Laura in <span className="bg-white/15 px-1.5 py-0.5 rounded text-white font-mono">#launch-project-chat</span> and need to book a meeting. Would you like me to find a good time?
             </p>
-            <div className="bg-white/10 rounded-full px-2.5 py-0.5 text-[10px] text-slate-300 w-fit ml-auto">yes!</div>
-            <div className="space-y-1 pt-1">
-              <div className="text-[10px] text-slate-400">Available times:</div>
-              <div className="flex gap-1.5">
-                <span className="bg-white/10 px-2 py-0.5 rounded-full text-[10px] flex items-center gap-1">
+            <div className="bg-white/10 rounded-full px-3 py-1 text-[11px] text-slate-300 w-fit ml-auto">yes!</div>
+            <div className="space-y-1.5 pt-1">
+              <div className="text-[11px] text-slate-400">Available times:</div>
+              <div className="flex gap-2">
+                <span className="bg-white/10 px-2.5 py-1 rounded-full text-[10px] flex items-center gap-1">
                   <svg className="w-2.5 h-2.5 text-slate-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
                   </svg>
                   Mon 3:00 PM
                 </span>
-                <span className="bg-white/10 px-2 py-0.5 rounded-full text-[10px] flex items-center gap-1">
+                <span className="bg-white/10 px-2.5 py-1 rounded-full text-[10px] flex items-center gap-1">
                   <svg className="w-2.5 h-2.5 text-slate-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
                   </svg>
@@ -105,38 +105,38 @@ export default function HeroSection() {
                 </span>
               </div>
             </div>
-            <div className="bg-white/10 border border-white/20 rounded-[8px] p-2 flex justify-between text-slate-300 text-[11px]">
+            <div className="bg-white/10 border border-white/20 rounded-[8px] p-2 flex justify-between text-slate-300">
               <span>book it for monday</span>
               <span className="text-[#cbb7fb]">➔</span>
             </div>
           </div>
 
-          {/* 3. Vertical Floating Icon Switcher Bar (z-30, Placed to the right of Assistant card with zero overlap!) */}
-          <div className="hero-floating-card absolute left-[295px] top-32 hidden xl:flex flex-col gap-3 bg-slate-900/90 backdrop-blur-md rounded-full p-2 border border-white/25 shadow-2xl z-30">
-            <div className="w-6 h-6 rounded-full bg-[#2A2859] text-white flex items-center justify-center">
-              <svg className="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+          {/* 3. Vertical Icon Switcher Bar (z-30) */}
+          <div className="hero-floating-card absolute left-[300px] top-32 hidden xl:flex flex-col gap-4 bg-slate-900/90 backdrop-blur-md rounded-full p-2.5 border border-white/25 shadow-2xl z-30">
+            <div className="w-7 h-7 rounded-full bg-[#2A2859] text-white flex items-center justify-center">
+              <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
               </svg>
             </div>
-            <div className="w-6 h-6 rounded-full bg-white/10 text-white flex items-center justify-center">
-              <svg className="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <div className="w-7 h-7 rounded-full bg-white/10 text-white flex items-center justify-center">
+              <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/>
               </svg>
             </div>
-            <div className="w-6 h-6 rounded-full bg-white/10 text-white flex items-center justify-center">
-              <svg className="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <div className="w-7 h-7 rounded-full bg-white/10 text-white flex items-center justify-center">
+              <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/>
               </svg>
             </div>
-            <div className="w-6 h-6 rounded-full bg-white/10 text-white flex items-center justify-center">
-              <svg className="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <div className="w-7 h-7 rounded-full bg-white/10 text-white flex items-center justify-center">
+              <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
               </svg>
             </div>
           </div>
 
-          {/* 4. Bottom Left Email Triage Card (z-30, Overlaps Image Bottom-Left) */}
-          <div className="hero-floating-card absolute left-10 bottom-0 hidden lg:block bg-slate-900/90 backdrop-blur-xl border border-white/25 rounded-[16px] p-4 w-[330px] text-left text-xs space-y-2 shadow-2xl z-30">
+          {/* 4. Bottom Left Email Triage Card (z-30, Placed at top-[385px] below Assistant Card) */}
+          <div className="hero-floating-card absolute left-10 top-[385px] hidden lg:block bg-slate-900/90 backdrop-blur-xl border border-white/25 rounded-[16px] p-4 w-[340px] text-left text-xs space-y-2 shadow-2xl z-30">
             <div className="flex gap-3 text-slate-400 font-mono text-[10px] pb-1 border-b border-white/10">
               <span className="text-white font-bold">Important 12</span>
               <span>Calendar 13</span>
@@ -160,21 +160,21 @@ export default function HeroSection() {
 
           {/* 
             ========================================================================
-            RIGHT-SIDE CARDS: UNDERLAPPING BELOW THE IMAGE (Layer Z-10 - Lower)
-            Cleanly spaced vertically with ZERO card-on-card collisions!
+            RIGHT-SIDE CARDS: UNDERLAPPING PORTRAIT (Layer Z-10 - Lower)
+            Strictly spaced vertically with ZERO card-on-card collisions!
             ========================================================================
           */}
 
-          {/* 5. Top Right Floating Chip (z-10) */}
-          <div className="hero-floating-card absolute right-2 top-2 hidden xl:flex items-center gap-2 bg-slate-900/80 backdrop-blur-md border border-white/20 rounded-full px-4 py-2 text-xs font-semibold text-white shadow-lg z-10">
+          {/* 5. Top Right Translate Chip (z-10) */}
+          <div className="hero-floating-card absolute right-4 top-0 hidden xl:flex items-center gap-2 bg-slate-900/80 backdrop-blur-md border border-white/20 rounded-full px-4 py-2 text-xs font-semibold text-white shadow-lg z-10">
             <svg className="w-3.5 h-3.5 text-[#cbb7fb]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               <circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/>
             </svg>
             <span>Translate selected text to Spanish</span>
           </div>
 
-          {/* 6. Right Document Workspace Window (z-10, Top Card) */}
-          <div className="hero-floating-card absolute right-12 top-16 hidden lg:block bg-slate-900/85 backdrop-blur-xl border border-white/20 rounded-[16px] py-4 pr-4 pl-14 w-[330px] text-left space-y-2.5 shadow-2xl text-xs z-10">
+          {/* 6. Right Document Workspace Window (z-10, Placed at top-16) */}
+          <div className="hero-floating-card absolute right-[60px] top-16 hidden lg:block bg-slate-900/85 backdrop-blur-xl border border-white/20 rounded-[16px] py-4 pr-5 pl-14 w-[340px] text-left space-y-2.5 shadow-2xl text-xs z-10">
             <div className="flex justify-between items-center text-slate-400 border-b border-white/10 pb-2">
               <span className="font-semibold text-white">Team workspace</span>
               <span className="flex items-center gap-1 text-[11px]">
@@ -185,51 +185,34 @@ export default function HeroSection() {
               </span>
             </div>
             <div className="space-y-1">
-              <div className="font-bold text-white text-xs">Streamlining Team Documentation</div>
+              <div className="font-bold text-white text-sm">Streamlining Team Documentation</div>
               <p className="text-slate-300 leading-normal text-[11px]">
                 I've been thinking about how our team can streamline the onboarding process for <span className="bg-white/20 px-1 rounded text-white">new-hires</span>...
               </p>
             </div>
           </div>
 
-          {/* 7. Mid-Right Dual Engine Status Card (z-10, Cleanly spaced below Document card!) */}
-          <div className="hero-floating-card absolute right-8 top-[240px] hidden xl:block bg-slate-900/85 backdrop-blur-xl border border-white/20 rounded-[16px] py-3.5 pr-4 pl-12 w-[290px] text-left text-xs space-y-1.5 shadow-2xl z-10">
-            <div className="flex items-center justify-between text-slate-400 pb-1 border-b border-white/10">
-              <span className="font-semibold text-white flex items-center gap-1.5 text-[11px]">
+          {/* 7. Mid-Right Dual Engine Status Card (z-10, Placed at top-[250px] below Workspace Card) */}
+          <div className="hero-floating-card absolute right-10 top-[250px] hidden xl:block bg-slate-900/85 backdrop-blur-xl border border-white/20 rounded-[16px] py-4 pr-4 pl-12 w-[300px] text-left text-xs space-y-2 shadow-2xl z-10">
+            <div className="flex items-center justify-between text-slate-400 pb-1.5 border-b border-white/10">
+              <span className="font-semibold text-white flex items-center gap-1.5">
                 <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
                 Dual Engine Status
               </span>
               <span className="font-mono text-[10px] text-emerald-400 font-bold">100% Local</span>
             </div>
-            <div className="flex justify-between text-[10px] text-slate-300 pt-0.5">
+            <div className="flex justify-between text-[11px] text-slate-300 pt-0.5">
               <span>whisper.cpp acoustic</span>
               <span className="font-mono text-slate-400">0.02s</span>
             </div>
-            <div className="flex justify-between text-[10px] text-slate-300">
+            <div className="flex justify-between text-[11px] text-slate-300">
               <span>Gemma 2B context</span>
               <span className="font-mono text-slate-400">0.14s</span>
             </div>
           </div>
 
-          {/* 8. Acoustic Neural Stream Telemetry Card (z-10, Cleanly spaced under image right!) */}
-          <div className="hero-floating-card absolute right-[210px] top-[375px] hidden xl:block bg-slate-900/70 backdrop-blur-md border border-white/15 rounded-[12px] p-2.5 w-[200px] text-left text-xs shadow-xl z-10">
-            <div className="flex items-center justify-between text-[10px] text-slate-400 font-mono mb-1">
-              <span>Acoustic Neural Stream</span>
-              <span className="text-[#cbb7fb]">16kHz</span>
-            </div>
-            <div className="flex items-end gap-1 h-5 pt-0.5">
-              <div className="w-1 bg-[#cbb7fb] h-3 animate-pulse" />
-              <div className="w-1 bg-[#cbb7fb] h-5 animate-pulse delay-75" />
-              <div className="w-1 bg-[#cbb7fb] h-2 animate-pulse delay-150" />
-              <div className="w-1 bg-[#cbb7fb] h-5 animate-pulse delay-100" />
-              <div className="w-1 bg-[#cbb7fb] h-4 animate-pulse delay-200" />
-              <div className="w-1 bg-[#cbb7fb] h-3 animate-pulse delay-50" />
-              <div className="w-1 bg-[#cbb7fb] h-5 animate-pulse delay-300" />
-            </div>
-          </div>
-
-          {/* 9. Bottom Right Floating Prompt Pills (z-10) */}
-          <div className="hero-floating-card absolute right-8 bottom-0 hidden lg:flex flex-col gap-2 z-10">
+          {/* 8. Bottom Right Floating Prompt Pills (z-10, Placed at top-[395px] below Dual Engine Card) */}
+          <div className="hero-floating-card absolute right-10 top-[395px] hidden lg:flex flex-col gap-2 z-10">
             <div className="bg-white/20 backdrop-blur-md border border-white/30 rounded-full px-4 py-2 text-xs font-semibold text-white shadow-lg flex items-center gap-2">
               <svg className="w-3.5 h-3.5 text-[#cbb7fb]" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/>
