@@ -3,23 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>WhisperFlow — The Fastest Voice Experience in the World</title>
-  <meta name="description" content="Speech to structured thought. WhisperFlow is an open-source, 100% offline local AI voice engine inspired by Superhuman. Sub-400ms speech-to-text dictation and contextual AI text transformation.">
+  <title>WhisperFlow — Speech to Structured Thought</title>
+  <meta name="description" content="The fastest voice experience in the world. WhisperFlow is an open-source, local-first voice productivity engine powered by whisper.cpp and llama.cpp (Gemma 2B). 100% offline, zero cloud latency.">
   <meta name="keywords" content="WhisperFlow, Superhuman voice, offline voice dictation, local AI speech to text, voice commands, whisper.cpp, llama.cpp, Gemma 2B">
   <meta name="author" content="Parth Varekar">
-  <meta name="theme-color" content="#F9F8F6">
+  <meta name="theme-color" content="#1b1938">
 
-  <!-- Open Graph / Facebook -->
+  <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://github.com/ParthVarekar/whisper-landing-page">
-  <meta property="og:title" content="WhisperFlow — The Fastest Voice Experience in the World">
-  <meta property="og:description" content="Speech to structured thought. 100% on-device AI voice dictation & context rewriting. Inspired by Superhuman.">
+  <meta property="og:title" content="WhisperFlow — Speech to Structured Thought">
+  <meta property="og:description" content="Speech to structured thought. The fastest voice experience in the world. 100% on-device AI voice engine.">
   <meta property="og:image" content="https://raw.githubusercontent.com/ParthVarekar/whisper_flow_clone_local/main/docs/assets/og-cover.png">
 
   <!-- Twitter Cards -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="WhisperFlow — The Fastest Voice Experience in the World">
-  <meta name="twitter:description" content="Speech to structured thought. 100% local, zero cloud dependencies. Sub-400ms latency.">
+  <meta name="twitter:title" content="WhisperFlow — Speech to Structured Thought">
+  <meta name="twitter:description" content="100% local, zero cloud dependencies. Sub-400ms voice transcription & in-place text rewriting.">
 
   <!-- Schema.org SoftwareApplication Structured Data -->
   <script type="application/ld+json">
@@ -64,35 +64,35 @@
   }
   </script>
 
-  <!-- Typography & Fonts -->
+  <!-- Typography & Fonts (Outfit + Newsreader + JetBrains Mono) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Newsreader:ital,opsz,wght@1,6..72,400;1,6..72,600&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-  <!-- Stylesheet -->
+  <!-- Core Stylesheet -->
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-  <!-- Top Superhuman Notification Bar -->
+  <!-- Top Announcement Banner -->
   <div class="top-announcement-bar">
     <div class="announcement-content">
-      <span class="announcement-badge">NEW v1.9</span>
-      <span class="announcement-text">Looking for WhisperFlow AI? Experience zero-latency voice dictation.</span>
+      <span class="announcement-badge">RELEASE v1.9</span>
+      <span class="announcement-text">AI that actually works in every app you use.</span>
       <a href="#quickstart" class="announcement-link">Get Started →</a>
     </div>
   </div>
 
-  <!-- Navigation Bar -->
+  <!-- Dynamic Fixed Header & Shrinking Pill Navbar -->
   <header class="navbar" id="navbar">
-    <div class="nav-container">
+    <div class="nav-container" id="navContainer">
       <a href="#" class="brand">
         <span class="brand-icon">🌊</span>
         <span class="brand-name">WhisperFlow</span>
       </a>
 
       <nav class="nav-menu">
-        <a href="#suite" class="nav-link">The Suite</a>
+        <a href="#suite" class="nav-link">Capabilities</a>
         <a href="#dictation" class="nav-link">Dictation</a>
         <a href="#commands" class="nav-link">Context Commands</a>
         <a href="#architecture" class="nav-link">Architecture</a>
@@ -118,24 +118,25 @@
     </div>
   </header>
 
-  <!-- Hero Section -->
-  <section class="hero-section">
+  <!-- Hero Section (Mysteria Twilight Canvas) -->
+  <section class="hero-section" id="hero">
     <div class="hero-container">
       
       <div class="hero-pill-wrapper">
         <span class="hero-pill">
           <span class="pill-sparkle">✦</span>
-          <span class="pill-text">WhisperFlow Local</span>
+          <span class="pill-text">WhisperFlow Local Engine</span>
         </span>
       </div>
 
-      <h1 class="hero-title">
+      <!-- Hero Display Headline: 64px, weight 540, line-height 0.96 -->
+      <h1 class="hero-title reveal-heading">
         Speech to Structured Thought.<br>
         <span class="hero-serif-italic">The fastest voice experience in the world.</span>
       </h1>
 
       <p class="hero-subtitle">
-        WhisperFlow is an open-source, local-first voice productivity engine. Speak naturally, strip verbal stutters instantly, and auto-paste executive-formatted text into any active application window.
+        The human voice speaks at 160 words per minute. The keyboard caps out at 40. Most speech tools dump raw, unpunctuated text into your app. WhisperFlow listens, cleans, structures, and pastes executive-ready text directly at your cursor—100% on your device.
       </p>
 
       <div class="hero-cta-group">
@@ -162,7 +163,7 @@
         <span class="hotkey-banner-sub">Hold anywhere on Desktop</span>
       </div>
 
-      <!-- Hero Warm Canvas HUD Showcase -->
+      <!-- Floating Glassmorphic HUD Hero Card -->
       <div class="hero-canvas-card">
         <div class="hud-capsule-glass">
           <div class="hud-status-dot recording" id="hudStatusDot"></div>
@@ -191,7 +192,10 @@
     </div>
   </section>
 
-  <!-- Metrics Ticker -->
+  <!-- Curtain-Lift Scroll Transition to Warm Cream Canvas (#e9e5dd) -->
+  <div class="canvas-transition-divider"></div>
+
+  <!-- Metrics Section -->
   <section class="metrics-section">
     <div class="container">
       <div class="metrics-grid">
@@ -222,7 +226,7 @@
   <!-- Section Title: The WhisperFlow Suite -->
   <section class="section-title-block" id="suite">
     <div class="container center">
-      <h2 class="suite-title">The WhisperFlow Suite</h2>
+      <h2 class="suite-title reveal-heading">The WhisperFlow Suite</h2>
       <p class="suite-subtitle">Engineered for speed, privacy, and flawless text execution.</p>
     </div>
   </section>
@@ -231,22 +235,22 @@
   <section class="suite-cards-section">
     <div class="container">
 
-      <!-- Card 1: Dictation (Sky Blue Pastel Backdrop) -->
+      <!-- Card 1: Dictation (Sky Blue Pastel Backdrop - #EEF2FF) -->
       <div class="suite-card sky-pastel" id="dictation">
         <div class="suite-card-content">
           
           <div class="suite-left-col">
             <span class="sub-brand-pill sky">
               <span class="pill-icon">🌊</span>
-              <span>Dictation</span>
+              <span>Dictation Studio</span>
             </span>
 
-            <h2 class="suite-card-heading">
-              The most productive voice engine ever made
+            <h2 class="suite-card-heading reveal-heading">
+              Raw speech in. Executive text out.
             </h2>
 
             <p class="suite-card-desc">
-              To be radically more productive, speech recognition must strip filler words ("um", "uh"), execute formatting cues, and structure bullet points automatically.
+              To be radically more productive, speech recognition must strip verbal stutters ("um", "uh"), execute spoken formatting cues, and structure bullet points automatically.
             </p>
 
             <a href="#quickstart" class="arrow-link sky">
@@ -262,12 +266,11 @@
             </ul>
           </div>
 
-          <!-- Right Column: Interactive UI Sandbox -->
+          <!-- Right Column: Interactive Live Studio Sandbox -->
           <div class="suite-right-col">
             <div class="ui-preview-card">
               <div class="preview-header">
-                <span class="preview-dot"></span>
-                <span class="preview-title">Real-Time Dictation Sandbox</span>
+                <span class="preview-title">Real-Time Dictation Studio</span>
                 <button class="btn btn-xs btn-navy" id="runDictationDemo">⚡ Transform Sample</button>
               </div>
 
@@ -298,7 +301,7 @@
         </div>
       </div>
 
-      <!-- Card 2: Context Commands (Sage Green Pastel Backdrop) -->
+      <!-- Card 2: Context Commands (Sage Green Pastel Backdrop - #F0FDF4) -->
       <div class="suite-card sage-pastel" id="commands">
         <div class="suite-card-content">
           
@@ -308,8 +311,8 @@
               <span>Context Commands</span>
             </span>
 
-            <h2 class="suite-card-heading">
-              Everyone's favorite AI writing partner
+            <h2 class="suite-card-heading reveal-heading">
+              AI that actually works in every app you use
             </h2>
 
             <p class="suite-card-desc">
@@ -366,7 +369,7 @@
         </div>
       </div>
 
-      <!-- Card 3: Dual Local Engine (Warm Amber Pastel Backdrop) -->
+      <!-- Card 3: Dual Local Engine (Warm Amber Pastel Backdrop - #FEF3C7) -->
       <div class="suite-card amber-pastel" id="architecture">
         <div class="suite-card-content">
           
@@ -376,7 +379,7 @@
               <span>Dual Engine</span>
             </span>
 
-            <h2 class="suite-card-heading">
+            <h2 class="suite-card-heading reveal-heading">
               100% Local. Zero Cloud. Zero Latency.
             </h2>
 
@@ -435,7 +438,7 @@
             <span class="pill-icon">⏱️</span>
             <span>Speed & Savings</span>
           </span>
-          <h2 class="calc-title">Calculate Your Time & Cost Savings</h2>
+          <h2 class="calc-title reveal-heading">Calculate Your Time & Cost Savings</h2>
           <p class="calc-subtitle">See how much time you recover each month by speaking at 160 WPM instead of typing at 40 WPM.</p>
         </div>
 
@@ -493,7 +496,7 @@
         </div>
 
         <div class="manifesto-right-content">
-          <h2 class="manifesto-heading">Becoming Superhuman.</h2>
+          <h2 class="manifesto-heading reveal-heading">Becoming Superhuman.</h2>
           <p class="manifesto-text">
             When all your tools are designed to put you in flow, you work faster, think clearer, and focus on what matters most. WhisperFlow brings zero-latency, local AI dictation directly to your keyboard—100% offline, private, and free forever.
           </p>
@@ -503,6 +506,36 @@
         </div>
 
       </div>
+    </div>
+  </section>
+
+  <!-- Quick Start Launcher Section -->
+  <section class="section quickstart-section" id="quickstart">
+    <div class="container">
+
+      <div class="center margin-bottom-40">
+        <h2 class="suite-title reveal-heading">Get Started in Under 60 Seconds</h2>
+        <p class="suite-subtitle">Automated background launcher for Windows 10/11.</p>
+      </div>
+
+      <div class="quickstart-grid">
+        <div class="qs-card">
+          <div class="qs-num">01</div>
+          <h3 class="qs-title">Clone Repository</h3>
+          <div class="qs-cmd"><code>git clone https://github.com/...</code></div>
+        </div>
+        <div class="qs-card">
+          <div class="qs-num">02</div>
+          <h3 class="qs-title">Run One-Click Launcher</h3>
+          <div class="qs-cmd"><code>start.bat</code></div>
+        </div>
+        <div class="qs-card">
+          <div class="qs-num">03</div>
+          <h3 class="qs-title">Hold Hotkey & Speak</h3>
+          <div class="qs-cmd"><code>Ctrl + Shift + Space</code></div>
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -539,7 +572,7 @@
   <section class="section faq-section" id="faq">
     <div class="container max-800">
       <div class="center margin-bottom-40">
-        <h2 class="suite-title">Frequently Asked Questions</h2>
+        <h2 class="suite-title reveal-heading">Frequently Asked Questions</h2>
       </div>
 
       <div class="faq-accordion">
