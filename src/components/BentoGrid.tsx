@@ -98,7 +98,7 @@ export default function BentoGrid() {
   };
 
   return (
-    <section id="bento-grid" ref={containerRef} className="py-24 bg-[#F9F8F6] relative">
+    <section id="bento-grid" ref={containerRef} className="py-24 bg-[#F9F8F6] relative z-0">
       <div className="max-w-[1200px] mx-auto px-6 flex flex-col">
         
         {/* Section Header */}
@@ -114,14 +114,17 @@ export default function BentoGrid() {
           </p>
         </div>
 
-        {/* STICKY SUITE TAB BAR (Solid Warm Parchment #EFECE6 background so it pops out from the #F9F8F6 canvas!) */}
-        <div className="sticky top-[64px] z-40 bg-[#EFECE6] px-6 py-4 rounded-[16px] border border-[#dcd7d3] mb-10 shadow-md">
+        {/* 
+          1. STICKY SUITE SLIDER BAR (Pinnable at top-16 with z-40 elevation and solid opaque #EFECE6 background mask)
+          Cards will pass strictly UNDERNEATH this bar and never bleed on top.
+        */}
+        <div className="sticky top-16 z-40 w-full bg-[#EFECE6] px-6 py-4 rounded-[16px] border border-[#dcd7d3] mb-10 shadow-md">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
             <h3 className="text-2xl font-[540] text-[#0F172A] tracking-tight">
               Your Susurrus suite
             </h3>
             
-            {/* Sticky Tab Switcher Button Group */}
+            {/* Tab Switcher Button Group */}
             <div className="flex bg-white p-1.5 rounded-[12px] gap-1 shadow-sm border border-[#dcd7d3]">
               <button
                 onClick={() => scrollToSection("dictation", "dictation")}
@@ -157,8 +160,11 @@ export default function BentoGrid() {
           </div>
         </div>
 
-        {/* Feature Cards Container (Passes cleanly UNDER the sticky tab bar at z-10) */}
-        <div className="w-full bg-white border border-[#dcd7d3] rounded-[16px] overflow-hidden shadow-sm flex flex-col divide-y divide-[#dcd7d3] relative z-10">
+        {/* 
+          2. CARDS CONTAINER (Strict z-10 lower stacking context with overflow-hidden boundary)
+          Ensures cards and child mockups are bounded and pass behind the z-40 slider bar.
+        */}
+        <div className="relative z-10 w-full bg-white border border-[#dcd7d3] rounded-[16px] overflow-hidden shadow-sm flex flex-col divide-y divide-[#dcd7d3]">
 
           {/* Card 1: Dictation Studio */}
           <div
