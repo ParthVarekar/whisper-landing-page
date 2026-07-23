@@ -45,7 +45,7 @@ export default function HeroSection() {
         </div>
 
         {/* Hero Interactive Workspace Canvas matching reference layout */}
-        <div className="relative max-w-[1180px] mx-auto pt-6 pb-28 min-h-[680px] flex items-center justify-center">
+        <div className="relative max-w-[1180px] mx-auto pt-6 pb-32 min-h-[700px] flex items-center justify-center">
           
           {/* Central Editorial Portrait (Layer Z-20 - Middle Backdrop Depth) */}
           <div className="relative w-[360px] md:w-[440px] h-[500px] rounded-[32px] overflow-hidden border border-white/20 shadow-2xl mx-auto z-20">
@@ -63,6 +63,14 @@ export default function HeroSection() {
             LEFT-SIDE CARDS: OVERLAPPING ON TOP OF THE IMAGE (Layer Z-30 to Z-50)
             ========================================================================
           */}
+
+          {/* NEW CARD 1: Top-Left Live Dictation Metrics Chip (Red Box #1) */}
+          <div className="hero-floating-card absolute left-6 top-0 hidden xl:flex items-center gap-3 bg-slate-900/90 backdrop-blur-xl border border-white/25 rounded-full px-4 py-2 text-xs text-white shadow-xl z-30">
+            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+            <span className="font-bold text-white">160 WPM</span>
+            <span className="text-slate-500">|</span>
+            <span className="text-slate-300 font-mono text-[11px]">Sub-200ms Latency</span>
+          </div>
 
           {/* 1. Left Base Card: Voice Assistant Card (z-30) */}
           <div className="hero-floating-card absolute left-2 top-16 hidden lg:block bg-slate-900/90 backdrop-blur-xl border border-white/25 rounded-[20px] p-5 w-[310px] text-left space-y-3 shadow-2xl text-xs z-30">
@@ -158,11 +166,44 @@ export default function HeroSection() {
             <span className="text-[11px] leading-tight">Schedule 15 minutes for a quick meeting with Mike</span>
           </div>
 
+          {/* NEW CARD 2: Bottom-Left Quick Command History Card (Red Box #2) */}
+          <div className="hero-floating-card absolute left-4 top-[505px] hidden lg:block bg-slate-900/90 backdrop-blur-xl border border-white/25 rounded-[18px] p-4 w-[280px] text-left text-xs space-y-2 shadow-2xl z-30">
+            <div className="flex justify-between items-center text-slate-400 font-mono text-[10px] pb-1 border-b border-white/10">
+              <span className="text-white font-bold">RECENT COMMANDS</span>
+              <span className="text-emerald-400 font-bold">Ctrl+Shift+T</span>
+            </div>
+            <div className="space-y-1.5 pt-0.5 text-[11px]">
+              <div className="flex items-center justify-between text-slate-200">
+                <span className="truncate">"Summarize meeting notes"</span>
+                <span className="text-[10px] text-slate-400 font-mono">0.1s</span>
+              </div>
+              <div className="flex items-center justify-between text-slate-400">
+                <span className="truncate">"Translate to Spanish"</span>
+                <span className="text-[10px] text-slate-400 font-mono">0.2s</span>
+              </div>
+            </div>
+          </div>
+
           {/* 
             ========================================================================
             RIGHT-SIDE CARDS: UNDERLAPPING BEHIND THE IMAGE (Layer Z-10 - Strictly Below Z-20)
             ========================================================================
           */}
+
+          {/* NEW CARD 3: Top-Right Active App Context Banner (Red Box #3) */}
+          <div className="hero-floating-card absolute right-4 top-4 hidden lg:flex items-center gap-3 bg-slate-900/85 backdrop-blur-xl border border-white/20 rounded-[16px] px-4 py-2.5 text-xs text-white shadow-xl z-10">
+            <div className="flex items-center gap-1.5 text-slate-300 font-semibold">
+              <svg className="w-4 h-4 text-[#cbb7fb]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <circle cx="12" cy="12" r="10"/><path d="M2 12h20"/>
+              </svg>
+              <span>Context Sync:</span>
+            </div>
+            <div className="flex gap-1.5">
+              <span className="bg-white/10 px-2 py-0.5 rounded text-[11px] font-mono text-white">VS Code</span>
+              <span className="bg-white/10 px-2 py-0.5 rounded text-[11px] font-mono text-white">Slack</span>
+              <span className="bg-white/10 px-2 py-0.5 rounded text-[11px] font-mono text-white">Notion</span>
+            </div>
+          </div>
 
           {/* 5. Top Right Prompt Chip (z-10, Passes BEHIND the back of the beanie/head!) */}
           <div className="hero-floating-card absolute right-[130px] top-[140px] hidden lg:flex items-center gap-2 bg-[#433E78]/80 backdrop-blur-md border border-white/20 rounded-full px-5 py-2.5 text-xs font-semibold text-white shadow-lg z-10">
@@ -191,11 +232,20 @@ export default function HeroSection() {
             </div>
           </div>
 
+          {/* NEW CARD 4: Mid-Right Dual Engine 100% Offline Badge (Red Box #4) */}
+          <div className="hero-floating-card absolute right-4 top-[400px] hidden xl:flex items-center gap-2.5 bg-slate-900/85 backdrop-blur-xl border border-white/20 rounded-full px-4 py-2 text-xs text-white shadow-xl z-10">
+            <svg className="w-3.5 h-3.5 text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            </svg>
+            <span className="font-semibold text-slate-200">whisper.cpp + Gemma 2B</span>
+            <span className="bg-emerald-500/20 text-emerald-300 font-mono text-[10px] px-2 py-0.5 rounded-full font-bold">100% Offline</span>
+          </div>
+
           {/* 7. Right Bottom Overlapping/Underlapping Card (z-10, Top-Left Corner Underlaps Bottom-Right of Portrait Image!) */}
           <div className="hero-floating-card absolute right-[100px] top-[505px] hidden lg:flex items-center gap-3 bg-slate-900/90 backdrop-blur-xl border border-white/25 rounded-[20px] p-4 w-[310px] text-left shadow-2xl z-10">
             <div className="w-8 h-8 rounded-full bg-[#2A2859] flex items-center justify-center shrink-0">
               <svg className="w-4 h-4 text-[#cbb7fb]" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/>
+                <path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 9.41L12 0Z"/>
               </svg>
             </div>
             <div className="space-y-0.5">
