@@ -35,13 +35,15 @@ export default function HeroSection() {
     <section className="pt-28 pb-20 bg-[#F9F8F6] text-[#0F172A] text-center relative overflow-hidden">
       <div className="max-w-[900px] mx-auto px-6 relative z-10">
         
-        {/* Top Superhuman Brand Pill */}
+        {/* Top Brand Pill with Clean SVG Sparkle */}
         <div className="inline-flex items-center gap-2 bg-[#2A2859] text-white px-5 py-2 rounded-full mb-8 shadow-sm">
-          <span className="font-bold text-sm">WhisperFlow</span>
-          <span className="text-[#cbb7fb]">✦</span>
+          <span className="font-bold text-sm">WhisperFlow Engine</span>
+          <svg className="w-3.5 h-3.5 text-[#cbb7fb]" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z" />
+          </svg>
         </div>
 
-        {/* Hero Editorial Portrait Photography (Matching Official Superhuman) */}
+        {/* Hero Editorial Portrait Photography */}
         <div
           ref={portraitRef}
           className="relative max-w-[440px] mx-auto mb-8 rounded-[24px] overflow-hidden shadow-2xl border border-[#dcd7d3] aspect-[3/4]"
@@ -55,7 +57,7 @@ export default function HeroSection() {
           />
         </div>
 
-        {/* Pain-First Display Headline */}
+        {/* Display Headline */}
         <h1
           ref={headlineRef}
           className="text-[44px] md:text-[56px] font-[540] leading-[1.05] tracking-tight text-[#0F172A] max-w-[800px] mx-auto mb-6"

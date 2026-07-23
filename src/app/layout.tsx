@@ -4,7 +4,7 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "WhisperFlow — Save 4 Hours Every Single Week",
   description: "The most productive voice experience in the world. 100% offline, zero cloud latency voice dictation and contextual AI rewriting engine powered by whisper.cpp and Gemma 2B.",
-  keywords: ["WhisperFlow", "Superhuman voice", "voice dictation", "whisper.cpp", "offline AI", "Gemma 2B"],
+  keywords: ["WhisperFlow", "voice dictation", "whisper.cpp", "offline AI", "Gemma 2B", "voice productivity"],
 };
 
 export default function RootLayout({
@@ -19,7 +19,7 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Newsreader:ital,opsz,wght@1,6..72,400;1,6..72,600&family=Outfit:wght@300;400;460;500;540;600;700;800&display=swap" rel="stylesheet" />
       </head>
-      <body className="antialiased bg-[#1b1938] text-[#292827]">
+      <body className="antialiased bg-[#F9F8F6] text-[#292827]">
         {children}
       </body>
     </html>

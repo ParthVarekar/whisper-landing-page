@@ -5,8 +5,11 @@ export default function Footer() {
         
         {/* Top Brand */}
         <div className="mb-12">
-          <a href="#" className="text-2xl font-extrabold flex items-center gap-2">
-            <span>🌊</span>
+          <a href="#" className="text-2xl font-extrabold flex items-center gap-2.5">
+            <svg className="w-6 h-6 text-[#cbb7fb]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M2 12c.6 0 1.2-.4 1.4-1 1.2-3.4 3.4-3.4 4.6 0 1.2 3.4 3.4 3.4 4.6 0 1.2-3.4 3.4-3.4 4.6 0 .2.6.8 1 1.4 1" />
+              <path d="M2 18c.6 0 1.2-.4 1.4-1 1.2-3.4 3.4-3.4 4.6 0 1.2 3.4 3.4 3.4 4.6 0 1.2-3.4 3.4-3.4 4.6 0 .2.6.8 1 1.4 1" />
+            </svg>
             <span>WhisperFlow</span>
           </a>
           <p className="text-xs text-[#94a3b8] mt-2">Builders of WhisperFlow Platform Voice Engine.</p>
@@ -57,12 +60,12 @@ export default function Footer() {
         {/* Bottom Copy */}
         <div className="border-t border-white/10 pt-6 text-xs text-[#64748b] flex flex-col sm:flex-row justify-between items-center gap-4">
           <span>© 2026 Parth Varekar. Open source under the MIT License.</span>
-          <span>Designed with Superhuman Teardown Architecture.</span>
+          <span>Engineered for ultimate productivity.</span>
         </div>
 
       </div>
 
-      {/* Giant Superhuman Background Watermark */}
+      {/* Giant Background Watermark */}
       <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 font-sans text-[120px] md:text-[150px] font-black text-white/[0.04] tracking-widest pointer-events-none select-none z-0 whitespace-nowrap">
         WHISPERFLOW
       </div>

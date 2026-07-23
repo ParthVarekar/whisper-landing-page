@@ -16,7 +16,7 @@ export default function CalculatorSection() {
           
           <div className="text-center max-w-[700px] mx-auto mb-12 space-y-3">
             <span className="bg-[#2A2859] text-white px-4 py-1.5 rounded-[8px] text-xs font-bold font-mono">
-              ⏱️ SPEED & SAVINGS CALCULATOR
+              SPEED & SAVINGS CALCULATOR
             </span>
             <h2 className="text-3xl md:text-4xl font-[540] leading-[0.96] text-[#0F172A] tracking-tight">
               Calculate Your Time & Cost Recovery
@@ -63,7 +63,12 @@ export default function CalculatorSection() {
 
             <div className="space-y-4">
               <div className="bg-[#F9F8F6] border border-[#dcd7d3] p-6 rounded-[8px] flex items-center gap-5">
-                <div className="text-4xl">⏱️</div>
+                <div className="p-3 bg-[#2A2859]/10 rounded-[8px] text-[#2A2859]">
+                  <svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <circle cx="12" cy="12" r="10"/>
+                    <polyline points="12 6 12 12 16 14"/>
+                  </svg>
+                </div>
                 <div>
                   <div className="text-3xl font-extrabold text-[#2A2859]">{hoursSaved} Hours</div>
                   <div className="text-xs font-semibold text-[#475569]">Saved Every Month</div>
@@ -71,7 +76,12 @@ export default function CalculatorSection() {
               </div>
 
               <div className="bg-[#F9F8F6] border border-[#dcd7d3] p-6 rounded-[8px] flex items-center gap-5">
-                <div className="text-4xl">💰</div>
+                <div className="p-3 bg-[#2A2859]/10 rounded-[8px] text-[#2A2859]">
+                  <svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <line x1="12" y1="1" x2="12" y2="23"/>
+                    <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                  </svg>
+                </div>
                 <div>
                   <div className="text-3xl font-extrabold text-[#2A2859]">${annualCostSaved} / Year</div>
                   <div className="text-xs font-semibold text-[#475569]">Saved vs Paid Cloud STT APIs</div>

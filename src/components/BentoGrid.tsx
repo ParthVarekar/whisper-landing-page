@@ -54,7 +54,6 @@ export default function BentoGrid() {
 
     const cards = [card1Ref.current, card2Ref.current, card3Ref.current].filter(Boolean);
 
-    // Cascading Stacking Deck GSAP Animation
     cards.forEach((card, index) => {
       if (index < cards.length - 1 && card) {
         gsap.to(card, {
@@ -96,7 +95,7 @@ export default function BentoGrid() {
         {/* Cascading Stacking Cards Deck Container */}
         <div className="space-y-16 relative">
 
-          {/* Card 1: Dictation Studio (Cascading Pin 1) */}
+          {/* Card 1: Dictation Studio */}
           <div
             ref={card1Ref}
             id="dictation"
@@ -106,7 +105,11 @@ export default function BentoGrid() {
               
               <div className="lg:col-span-5 space-y-6">
                 <div className="inline-flex items-center gap-2 text-[#2A2859] font-bold text-sm">
-                  <span>🌊</span>
+                  <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/>
+                    <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+                    <line x1="12" y1="19" x2="12" y2="22"/>
+                  </svg>
                   <span>Dictation Studio</span>
                 </div>
 
@@ -120,15 +123,21 @@ export default function BentoGrid() {
 
                 <ul className="space-y-2 text-sm font-semibold text-[#0F172A]">
                   <li className="flex items-center gap-2">
-                    <span className="w-4 h-4 rounded-full bg-[#2A2859] text-white flex items-center justify-center text-[10px]">✓</span>
+                    <svg className="w-4 h-4 text-[#2A2859]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                      <polyline points="20 6 9 17 4 12"/>
+                    </svg>
                     100% On-Device / Offline Speech Recognition
                   </li>
                   <li className="flex items-center gap-2">
-                    <span className="w-4 h-4 rounded-full bg-[#2A2859] text-white flex items-center justify-center text-[10px]">✓</span>
+                    <svg className="w-4 h-4 text-[#2A2859]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                      <polyline points="20 6 9 17 4 12"/>
+                    </svg>
                     Automatic Verbal Stutter & Filler Stripping
                   </li>
                   <li className="flex items-center gap-2">
-                    <span className="w-4 h-4 rounded-full bg-[#2A2859] text-white flex items-center justify-center text-[10px]">✓</span>
+                    <svg className="w-4 h-4 text-[#2A2859]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                      <polyline points="20 6 9 17 4 12"/>
+                    </svg>
                     Direct Cursor Auto-Pasting in any Desktop App
                   </li>
                 </ul>
@@ -150,7 +159,7 @@ export default function BentoGrid() {
                       onClick={() => setPresetIdx((presetIdx + 1) % dictationPresets.length)}
                       className="bg-[#2A2859] text-white text-xs font-bold px-3 py-1.5 rounded-[8px] hover:bg-[#1E1B42] transition-colors"
                     >
-                      ⚡ Transform Sample
+                      Transform Sample
                     </button>
                   </div>
 
@@ -178,7 +187,7 @@ export default function BentoGrid() {
             </div>
           </div>
 
-          {/* Card 2: Context Commands (Cascading Pin 2 - Slides over Card 1) */}
+          {/* Card 2: Context Commands */}
           <div
             ref={card2Ref}
             id="commands"
@@ -188,7 +197,9 @@ export default function BentoGrid() {
               
               <div className="lg:col-span-5 space-y-6">
                 <div className="inline-flex items-center gap-2 text-[#2A2859] font-bold text-sm">
-                  <span>🧠</span>
+                  <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M12 2a8 8 0 0 0-8 8c0 5.25 7 12 8 12s8-6.75 8-12a8 8 0 0 0-8-8z"/>
+                  </svg>
                   <span>Context Commands</span>
                 </div>
 
@@ -202,15 +213,21 @@ export default function BentoGrid() {
 
                 <ul className="space-y-2 text-sm font-semibold text-[#0F172A]">
                   <li className="flex items-center gap-2">
-                    <span className="w-4 h-4 rounded-full bg-[#2A2859] text-white flex items-center justify-center text-[10px]">✓</span>
+                    <svg className="w-4 h-4 text-[#2A2859]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                      <polyline points="20 6 9 17 4 12"/>
+                    </svg>
                     In-Place Text Editing Across All Desktop Apps
                   </li>
                   <li className="flex items-center gap-2">
-                    <span className="w-4 h-4 rounded-full bg-[#2A2859] text-white flex items-center justify-center text-[10px]">✓</span>
+                    <svg className="w-4 h-4 text-[#2A2859]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                      <polyline points="20 6 9 17 4 12"/>
+                    </svg>
                     Executive Tone Adjustments & Action Item Extraction
                   </li>
                   <li className="flex items-center gap-2">
-                    <span className="w-4 h-4 rounded-full bg-[#2A2859] text-white flex items-center justify-center text-[10px]">✓</span>
+                    <svg className="w-4 h-4 text-[#2A2859]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                      <polyline points="20 6 9 17 4 12"/>
+                    </svg>
                     Zero Clipboard Pollution
                   </li>
                 </ul>
@@ -253,8 +270,11 @@ export default function BentoGrid() {
                     </div>
 
                     <div className="flex items-center gap-2 text-emerald-700 font-semibold">
-                      <span>🎙️ Spoken:</span>
-                      <span>{contextData[promptKey].spoken}</span>
+                      <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                        <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/>
+                        <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+                      </svg>
+                      <span>Spoken: {contextData[promptKey].spoken}</span>
                     </div>
 
                     <div className="bg-[#2A2859]/5 border border-[#2A2859]/15 p-2.5 rounded-[8px]">
@@ -271,7 +291,7 @@ export default function BentoGrid() {
             </div>
           </div>
 
-          {/* Card 3: Dual Local Engine (Cascading Pin 3 - Slides over Card 2) */}
+          {/* Card 3: Dual Local Engine */}
           <div
             ref={card3Ref}
             id="architecture"
@@ -281,7 +301,9 @@ export default function BentoGrid() {
               
               <div className="lg:col-span-5 space-y-6">
                 <div className="inline-flex items-center gap-2 text-[#2A2859] font-bold text-sm">
-                  <span>⚡</span>
+                  <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+                  </svg>
                   <span>Dual Local Engine</span>
                 </div>
 
@@ -295,15 +317,21 @@ export default function BentoGrid() {
 
                 <ul className="space-y-2 text-sm font-semibold text-[#0F172A]">
                   <li className="flex items-center gap-2">
-                    <span className="w-4 h-4 rounded-full bg-[#2A2859] text-white flex items-center justify-center text-[10px]">✓</span>
+                    <svg className="w-4 h-4 text-[#2A2859]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                      <polyline points="20 6 9 17 4 12"/>
+                    </svg>
                     CUDA, Metal & Vulkan GPU Acceleration
                   </li>
                   <li className="flex items-center gap-2">
-                    <span className="w-4 h-4 rounded-full bg-[#2A2859] text-white flex items-center justify-center text-[10px]">✓</span>
+                    <svg className="w-4 h-4 text-[#2A2859]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                      <polyline points="20 6 9 17 4 12"/>
+                    </svg>
                     llama.cpp HTTP Server for Gemma 2B LLM
                   </li>
                   <li className="flex items-center gap-2">
-                    <span className="w-4 h-4 rounded-full bg-[#2A2859] text-white flex items-center justify-center text-[10px]">✓</span>
+                    <svg className="w-4 h-4 text-[#2A2859]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                      <polyline points="20 6 9 17 4 12"/>
+                    </svg>
                     Python stdlib-only Orchestrator
                   </li>
                 </ul>
@@ -325,17 +353,14 @@ export default function BentoGrid() {
 
                   <div className="grid grid-cols-3 gap-2 text-center text-xs">
                     <div className="bg-[#F9F8F6] p-3 rounded-[8px] border border-[#dcd7d3]">
-                      <div className="text-xl mb-1">🎙️</div>
                       <div className="font-bold text-[#0F172A]">Audio Input</div>
                       <div className="font-mono text-[10px] text-[#475569]">VAD Silence</div>
                     </div>
                     <div className="bg-[#2A2859]/5 border border-[#2A2859] p-3 rounded-[8px]">
-                      <div className="text-xl mb-1">⚡</div>
                       <div className="font-bold text-[#2A2859]">whisper.cpp</div>
                       <div className="font-mono text-[10px] text-[#2A2859]">CUDA / Metal</div>
                     </div>
                     <div className="bg-[#2A2859]/10 border border-[#2A2859] p-3 rounded-[8px]">
-                      <div className="text-xl mb-1">🧠</div>
                       <div className="font-bold text-[#2A2859]">llama.cpp</div>
                       <div className="font-mono text-[10px] text-[#2A2859]">Gemma 2B</div>
                     </div>

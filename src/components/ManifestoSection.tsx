@@ -10,7 +10,7 @@ export default function ManifestoSection() {
           <div className="lg:col-span-5 relative rounded-[16px] overflow-hidden h-[360px] border border-white/15 shadow-2xl">
             <Image
               src="/assets/manifesto_art.jpg"
-              alt="Becoming Superhuman Editorial Silhouette Photo"
+              alt="Unlocking Ultimate Flow Editorial Silhouette Photo"
               fill
               className="object-cover"
             />
@@ -19,7 +19,7 @@ export default function ManifestoSection() {
           {/* Copy */}
           <div className="lg:col-span-7 space-y-6">
             <h2 className="text-4xl md:text-5xl font-[540] leading-[0.96] tracking-tight">
-              Becoming Superhuman.
+              Unlocking Ultimate Flow.
             </h2>
             <p className="text-lg font-[460] leading-[1.50] text-[#cbd5e1]">
               When all your tools are designed to put you in flow, you work faster, think clearer, and focus on what matters most. WhisperFlow brings zero-latency, local AI dictation directly to your keyboard—100% offline, private, and free forever.
