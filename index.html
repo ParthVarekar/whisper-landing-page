@@ -67,7 +67,7 @@
   <!-- Typography & Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Newsreader:ital,opsz,wght@1,6..72,400;1,6..72,600&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
   <!-- Stylesheet -->
   <link rel="stylesheet" href="styles.css">
@@ -399,28 +399,23 @@
 
           <!-- Right Column: Architecture Grid Visualizer -->
           <div class="suite-right-col">
-            <div class="ui-preview-card">
-              <div class="preview-header">
-                <span class="preview-title">Local Dual Engine Architecture</span>
+            <div class="arch-flow-box">
+              <div class="arch-node">
+                <div class="node-icon">🎙️</div>
+                <div class="node-title">Audio Input</div>
+                <span class="node-sub">VAD Silence Trimming Engine</span>
               </div>
-              <div class="arch-flow-box">
-                <div class="arch-node">
-                  <div class="node-icon">🎙️</div>
-                  <div class="node-title">Audio Input</div>
-                  <div class="node-sub">VAD Silence Trim</div>
-                </div>
-                <div class="arch-arrow">➔</div>
-                <div class="arch-node highlight">
-                  <div class="node-icon">⚡</div>
-                  <div class="node-title">whisper.cpp STT</div>
-                  <div class="node-sub">CUDA / Metal</div>
-                </div>
-                <div class="arch-arrow">➔</div>
-                <div class="arch-node highlight-llm">
-                  <div class="node-icon">🧠</div>
-                  <div class="node-title">llama.cpp LLM</div>
-                  <div class="node-sub">Gemma 2B</div>
-                </div>
+              <div class="arch-arrow">➔</div>
+              <div class="arch-node highlight">
+                <div class="node-icon">⚡</div>
+                <div class="node-title">whisper.cpp STT</div>
+                <span class="node-sub">CUDA / Metal Acceleration</span>
+              </div>
+              <div class="arch-arrow">➔</div>
+              <div class="arch-node highlight-llm">
+                <div class="node-icon">🧠</div>
+                <div class="node-title">llama.cpp LLM</div>
+                <span class="node-sub">Gemma 2B Local Engine</span>
               </div>
             </div>
           </div>
@@ -594,7 +589,7 @@
 
       <div class="footer-grid">
         <div class="footer-col">
-          <h4 class="footer-col-title">Products</h4>
+          <h3 class="footer-col-title">Products</h3>
           <ul class="footer-links">
             <li><a href="#dictation">Whisper Dictation</a></li>
             <li><a href="#commands">Context Commands</a></li>
@@ -604,7 +599,7 @@
         </div>
 
         <div class="footer-col">
-          <h4 class="footer-col-title">Company</h4>
+          <h3 class="footer-col-title">Company</h3>
           <ul class="footer-links">
             <li><a href="https://github.com/ParthVarekar/whisper_flow_clone_local" target="_blank">About</a></li>
             <li><a href="https://github.com/ParthVarekar/whisper_flow_clone_local/blob/main/README.md" target="_blank">Documentation</a></li>
@@ -614,7 +609,7 @@
         </div>
 
         <div class="footer-col">
-          <h4 class="footer-col-title">Legal</h4>
+          <h3 class="footer-col-title">Legal</h3>
           <ul class="footer-links">
             <li><a href="#">MIT License</a></li>
             <li><a href="#">Privacy Guarantee</a></li>
@@ -623,7 +618,7 @@
         </div>
 
         <div class="footer-col">
-          <h4 class="footer-col-title">Connect</h4>
+          <h3 class="footer-col-title">Connect</h3>
           <ul class="footer-links">
             <li><a href="https://github.com/ParthVarekar" target="_blank">GitHub</a></li>
             <li><a href="#">Twitter / X</a></li>
