@@ -32,12 +32,17 @@ export default function WaitlistSection() {
       }
     } catch (err) {
       console.error(err);
-      // Client-side fallback success state if offline or API is unreachable
       setSubmitted(true);
     } finally {
       setLoading(false);
     }
   };
+
+  const mailtoUrl = `mailto:parthvarekar27@gmail.com?subject=${encodeURIComponent(
+    `Susurrus Early Access Signup: ${email}`
+  )}&body=${encodeURIComponent(
+    `Hi Parth,\n\nI just requested early access to Susurrus!\n\nEmail: ${email}\nRole: ${role}\n\nPlease add me to the next beta rollout batch.\n\nThanks!`
+  )}`;
 
   return (
     <section id="waitlist" className="py-28 bg-gradient-to-br from-[#dbeafe] via-[#eff6ff] to-[#f8fafc] text-[#0F172A] text-center relative overflow-hidden">
@@ -56,32 +61,45 @@ export default function WaitlistSection() {
         </p>
 
         {submitted ? (
-          <div className="max-w-[560px] mx-auto bg-white border border-emerald-200 rounded-[16px] p-8 shadow-xl text-left space-y-4">
+          <div className="max-w-[580px] mx-auto bg-white border border-emerald-200 rounded-[18px] p-8 shadow-2xl text-left space-y-5">
+            
             <div className="flex items-center gap-3 text-emerald-600 font-bold text-lg">
-              <div className="w-8 h-8 rounded-full bg-emerald-100 flex items-center justify-center">
+              <div className="w-9 h-9 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-600 text-xl font-bold">
                 ✓
               </div>
-              <span>Access Requested Successfully!</span>
+              <span>Access Request Registered!</span>
             </div>
 
             <p className="text-sm text-[#334155] leading-relaxed">
-              We've registered <strong className="text-[#0F172A]">{email || "your email"}</strong> for the next Susurrus beta rollout batch. A confirmation email has been dispatched.
+              We've registered <strong className="text-[#0F172A]">{email}</strong> for the upcoming Susurrus beta rollout batch.
             </p>
 
-            <div className="bg-[#F8FAFC] border border-slate-200 rounded-[10px] p-4 text-xs space-y-2 text-slate-600">
-              <div className="font-semibold text-[#0F172A] flex items-center gap-2">
-                <svg className="w-4 h-4 text-[#2A2859]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-                  <polyline points="22,6 12,13 2,6"/>
-                </svg>
-                <span>Direct Creator Access:</span>
+            {/* Direct Email Launch Action */}
+            <div className="bg-[#F8FAFC] border border-slate-200 rounded-[12px] p-4 space-y-3">
+              <div className="flex items-center justify-between text-xs font-bold text-[#0F172A]">
+                <span className="flex items-center gap-1.5">
+                  <svg className="w-4 h-4 text-[#2A2859]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                    <polyline points="22,6 12,13 2,6"/>
+                  </svg>
+                  Direct Founder Contact:
+                </span>
+                <span className="text-[#2A2859] font-mono text-[11px]">parthvarekar27@gmail.com</span>
               </div>
-              <p>
-                Need immediate priority access or custom enterprise integration? Reach out directly to Parth Varekar at{" "}
-                <a href="mailto:parthvarekar27@gmail.com" className="text-[#2A2859] font-bold underline hover:text-[#1E1B42]">
-                  parthvarekar27@gmail.com
-                </a>.
+
+              <p className="text-xs text-slate-600 leading-relaxed">
+                Click below to send a pre-filled confirmation email directly from your email application to Parth Varekar:
               </p>
+
+              <a
+                href={mailtoUrl}
+                className="w-full bg-[#2A2859] hover:bg-[#1E1B42] text-white font-bold text-xs py-3 px-4 rounded-[8px] transition-all duration-200 flex items-center justify-center gap-2 shadow-md"
+              >
+                <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M22 2L11 13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/>
+                </svg>
+                <span>Send Confirmation Email to parthvarekar27@gmail.com ✉️</span>
+              </a>
             </div>
 
             <button
@@ -89,13 +107,13 @@ export default function WaitlistSection() {
                 setSubmitted(false);
                 setEmail("");
               }}
-              className="text-xs font-semibold text-[#2A2859] hover:underline pt-2 block"
+              className="text-xs font-semibold text-[#2A2859] hover:underline pt-1 block"
             >
-              ← Submit another email
+              ← Submit another email address
             </button>
           </div>
         ) : (
-          <form onSubmit={handleSubmit} className="max-w-[560px] mx-auto space-y-4 pt-2">
+          <form onSubmit={handleSubmit} className="max-w-[580px] mx-auto space-y-4 pt-2">
             
             <div className="flex flex-col sm:flex-row gap-3">
               <input
@@ -125,7 +143,7 @@ export default function WaitlistSection() {
               </button>
             </div>
 
-            {/* Optional Role selector for better context */}
+            {/* Role selector */}
             <div className="flex items-center justify-center gap-2 text-xs text-[#475569]">
               <span className="font-semibold">Primary Use Case:</span>
               {["Developer", "Executive", "Writer", "Researcher"].map((item) => (
@@ -150,7 +168,7 @@ export default function WaitlistSection() {
               </p>
             )}
 
-            {/* Direct Mail Button */}
+            {/* Direct Email Fallback Link */}
             <div className="pt-2">
               <a
                 href="mailto:parthvarekar27@gmail.com?subject=Susurrus%20Priority%20Early%20Access"
