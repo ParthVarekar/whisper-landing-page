@@ -16,9 +16,22 @@ export default function HeroSection() {
   const [portrait, setPortrait] = useState<string | null>(null);
 
   useEffect(() => {
-    // Select a random portrait immediately on client mount to prevent flash of initial image
-    const randomIndex = Math.floor(Math.random() * PORTRAITS.length);
-    setPortrait(PORTRAITS[randomIndex]);
+    // Read last shown portrait from sessionStorage to avoid back-to-back repeats on reload
+    const lastPortrait = typeof window !== "undefined" ? sessionStorage.getItem("susurrus_last_portrait") : null;
+
+    // Exclude last shown portrait from the candidate pool if possible
+    const candidatePool = PORTRAITS.filter((p) => p !== lastPortrait);
+    const pool = candidatePool.length > 0 ? candidatePool : PORTRAITS;
+    
+    // Pick a random portrait from the remaining candidates
+    const selected = pool[Math.floor(Math.random() * pool.length)];
+
+    // Persist selected portrait for the next reload comparison
+    if (typeof window !== "undefined") {
+      sessionStorage.setItem("susurrus_last_portrait", selected);
+    }
+
+    setPortrait(selected);
 
     if (heroRef.current) {
       gsap.fromTo(
@@ -259,7 +272,7 @@ export default function HeroSection() {
           <div className="hero-floating-card absolute right-[100px] top-[505px] hidden lg:flex items-center gap-3 bg-slate-900/90 backdrop-blur-xl border border-white/25 rounded-[20px] p-4 w-[310px] text-left shadow-2xl z-10">
             <div className="w-8 h-8 rounded-full bg-[#2A2859] flex items-center justify-center shrink-0">
               <svg className="w-4 h-4 text-[#cbb7fb]" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/>
+                <path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 9.41L12 0Z"/>
               </svg>
             </div>
             <div className="space-y-0.5">
