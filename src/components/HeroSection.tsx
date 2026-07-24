@@ -1,13 +1,25 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import gsap from "gsap";
 
+const PORTRAITS = [
+  "/assets/hero_portrait.jpg",
+  "/assets/hero_portrait_2.jpg",
+  "/assets/hero_portrait_3.jpg",
+  "/assets/hero_portrait_4.jpg",
+];
+
 export default function HeroSection() {
   const heroRef = useRef<HTMLDivElement>(null);
+  const [portrait, setPortrait] = useState<string>("/assets/hero_portrait.jpg");
 
   useEffect(() => {
+    // Select a random portrait on client mount/reload
+    const randomIndex = Math.floor(Math.random() * PORTRAITS.length);
+    setPortrait(PORTRAITS[randomIndex]);
+
     if (heroRef.current) {
       gsap.fromTo(
         ".hero-floating-card",
@@ -48,12 +60,13 @@ export default function HeroSection() {
         <div className="relative max-w-[1180px] mx-auto pt-6 pb-32 min-h-[700px] flex items-center justify-center">
           
           {/* Central Editorial Portrait (Layer Z-20 - Middle Backdrop Depth) */}
-          <div className="relative w-[360px] md:w-[440px] h-[500px] rounded-[32px] overflow-hidden border border-white/20 shadow-2xl mx-auto z-20">
+          <div className="relative w-[360px] md:w-[440px] h-[500px] rounded-[32px] overflow-hidden border border-white/20 shadow-2xl mx-auto z-20 bg-[#2d2955]">
             <Image
-              src="/assets/hero_portrait.jpg"
+              key={portrait}
+              src={portrait}
               alt="Susurrus Editorial Portrait"
               fill
-              className="object-cover"
+              className="object-cover transition-opacity duration-300"
               priority
             />
           </div>
@@ -245,7 +258,7 @@ export default function HeroSection() {
           <div className="hero-floating-card absolute right-[100px] top-[505px] hidden lg:flex items-center gap-3 bg-slate-900/90 backdrop-blur-xl border border-white/25 rounded-[20px] p-4 w-[310px] text-left shadow-2xl z-10">
             <div className="w-8 h-8 rounded-full bg-[#2A2859] flex items-center justify-center shrink-0">
               <svg className="w-4 h-4 text-[#cbb7fb]" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 9.41L12 0Z"/>
+                <path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/>
               </svg>
             </div>
             <div className="space-y-0.5">
