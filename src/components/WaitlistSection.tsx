@@ -19,21 +19,15 @@ export default function WaitlistSection() {
   const [surveyLoading, setSurveyLoading] = useState(false);
 
   useEffect(() => {
-    // Fetch live real waitlist count on mount and poll every 4s for real-time updates
-    const fetchCount = () => {
-      fetch("/api/waitlist")
-        .then((res) => res.json())
-        .then((data) => {
-          if (typeof data.count === "number") {
-            setWaitlistCount(data.count);
-          }
-        })
-        .catch((err) => console.error("Failed to fetch count:", err));
-    };
-
-    fetchCount();
-    const interval = setInterval(fetchCount, 4000);
-    return () => clearInterval(interval);
+    // Fetch current waitlist count once on mount
+    fetch("/api/waitlist")
+      .then((res) => res.json())
+      .then((data) => {
+        if (typeof data.count === "number") {
+          setWaitlistCount(data.count);
+        }
+      })
+      .catch((err) => console.error("Failed to fetch count:", err));
   }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -102,7 +96,7 @@ export default function WaitlistSection() {
     <section id="waitlist" className="py-28 bg-gradient-to-br from-[#dbeafe] via-[#eff6ff] to-[#f8fafc] text-[#0F172A] text-center relative overflow-hidden">
       <div className="max-w-[840px] mx-auto px-6 relative z-10 space-y-6">
         
-        {/* Real-Time Live Waitlist Counter Pill Badge */}
+        {/* Real Waitlist Counter Pill Badge */}
         <div className="inline-flex items-center gap-2.5 bg-[#2A2859] text-white px-5 py-2 rounded-full text-xs font-bold shadow-md border border-white/20">
           <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
           <span>
