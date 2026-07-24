@@ -4,7 +4,7 @@ import Footer from "@/components/Footer";
 
 export const metadata = {
   title: "Privacy Policy — Susurrus",
-  description: "Strict 100% On-Device Privacy Policy and Zero-Telemetry Guarantee for Susurrus Platform Engine.",
+  description: "100% On-Device Privacy Policy and Zero-Telemetry Guarantee for Susurrus Platform Engine.",
 };
 
 export default function PrivacyPolicyPage() {
@@ -20,7 +20,7 @@ export default function PrivacyPolicyPage() {
             <span>LEGAL & TRUST GUARANTEE</span>
           </div>
           <h1 className="text-4xl md:text-5xl font-[540] tracking-tight text-white">
-            Strict Privacy Policy
+            Privacy Policy
           </h1>
           <p className="text-sm text-slate-300">
             Last Updated: July 24, 2026 • Effective Immediately

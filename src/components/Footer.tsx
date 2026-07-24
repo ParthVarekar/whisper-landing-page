@@ -48,7 +48,7 @@ export default function Footer() {
           <div className="space-y-3">
             <h4 className="text-xs font-bold text-slate-200 uppercase tracking-wider">Legal & Privacy</h4>
             <ul className="space-y-2 text-sm text-[#94a3b8]">
-              <li><Link href="/privacy" className="hover:text-white font-bold text-white transition-colors underline">Strict Privacy Policy</Link></li>
+              <li><Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link></li>
               <li><button onClick={() => setModalType("license")} className="hover:text-white transition-colors text-left">MIT License</button></li>
               <li><button onClick={() => setModalType("privacy")} className="hover:text-white transition-colors text-left">Privacy Guarantee Summary</button></li>
               <li><button onClick={() => setModalType("security")} className="hover:text-white transition-colors text-left">Security Architecture</button></li>
@@ -84,7 +84,7 @@ export default function Footer() {
         <div className="border-t border-white/10 pt-6 text-xs text-[#64748b] flex flex-col sm:flex-row justify-between items-center gap-4">
           <span>© 2026 Parth Varekar. Open source under the MIT License.</span>
           <div className="flex gap-4">
-            <Link href="/privacy" className="hover:text-white underline">Strict Privacy Policy</Link>
+            <Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
             <span>•</span>
             <span>Engineered for ultimate productivity.</span>
           </div>
@@ -127,7 +127,7 @@ export default function Footer() {
                     <li>Zero clipboard history pollution.</li>
                   </ul>
                   <div className="pt-2">
-                    <Link href="/privacy" className="text-[#cbb7fb] font-bold underline hover:text-white">Read Full Legal Privacy Policy Page →</Link>
+                    <Link href="/privacy" className="text-[#cbb7fb] font-semibold hover:text-white">Read Full Privacy Policy Page →</Link>
                   </div>
                 </>
               )}
