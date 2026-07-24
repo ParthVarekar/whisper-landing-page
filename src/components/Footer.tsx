@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 
 export default function Footer() {
   const [modalType, setModalType] = useState<"privacy" | "security" | "license" | null>(null);
@@ -27,10 +28,10 @@ export default function Footer() {
           <div className="space-y-3">
             <h4 className="text-xs font-bold text-slate-200 uppercase tracking-wider">Products</h4>
             <ul className="space-y-2 text-sm text-[#94a3b8]">
-              <li><a href="#dictation" className="hover:text-white transition-colors">Whisper Dictation</a></li>
-              <li><a href="#commands" className="hover:text-white transition-colors">Context Commands</a></li>
-              <li><a href="#architecture" className="hover:text-white transition-colors">Dual Local Engine</a></li>
-              <li><a href="#savings" className="hover:text-white transition-colors">Speed Calculator</a></li>
+              <li><a href="/#dictation" className="hover:text-white transition-colors">Whisper Dictation</a></li>
+              <li><a href="/#commands" className="hover:text-white transition-colors">Context Commands</a></li>
+              <li><a href="/#architecture" className="hover:text-white transition-colors">Dual Local Engine</a></li>
+              <li><a href="/#savings" className="hover:text-white transition-colors">Speed Calculator</a></li>
             </ul>
           </div>
 
@@ -39,16 +40,17 @@ export default function Footer() {
             <ul className="space-y-2 text-sm text-[#94a3b8]">
               <li><a href="https://github.com/ParthVarekar/whisper-landing-page" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">About Susurrus</a></li>
               <li><a href="https://github.com/ParthVarekar/whisper-landing-page#readme" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Documentation</a></li>
-              <li><a href="#architecture" className="hover:text-white transition-colors">Architecture Vision</a></li>
+              <li><a href="/#architecture" className="hover:text-white transition-colors">Architecture Vision</a></li>
               <li><a href="mailto:parthvarekar27@gmail.com" className="hover:text-white transition-colors">Contact Founder</a></li>
             </ul>
           </div>
 
           <div className="space-y-3">
-            <h4 className="text-xs font-bold text-slate-200 uppercase tracking-wider">Legal & Trust</h4>
+            <h4 className="text-xs font-bold text-slate-200 uppercase tracking-wider">Legal & Privacy</h4>
             <ul className="space-y-2 text-sm text-[#94a3b8]">
+              <li><Link href="/privacy" className="hover:text-white font-bold text-white transition-colors underline">Strict Privacy Policy</Link></li>
               <li><button onClick={() => setModalType("license")} className="hover:text-white transition-colors text-left">MIT License</button></li>
-              <li><button onClick={() => setModalType("privacy")} className="hover:text-white transition-colors text-left">Privacy Guarantee</button></li>
+              <li><button onClick={() => setModalType("privacy")} className="hover:text-white transition-colors text-left">Privacy Guarantee Summary</button></li>
               <li><button onClick={() => setModalType("security")} className="hover:text-white transition-colors text-left">Security Architecture</button></li>
             </ul>
           </div>
@@ -81,7 +83,11 @@ export default function Footer() {
         {/* Bottom Copy */}
         <div className="border-t border-white/10 pt-6 text-xs text-[#64748b] flex flex-col sm:flex-row justify-between items-center gap-4">
           <span>© 2026 Parth Varekar. Open source under the MIT License.</span>
-          <span>Engineered for ultimate productivity.</span>
+          <div className="flex gap-4">
+            <Link href="/privacy" className="hover:text-white underline">Strict Privacy Policy</Link>
+            <span>•</span>
+            <span>Engineered for ultimate productivity.</span>
+          </div>
         </div>
 
       </div>
@@ -120,6 +126,9 @@ export default function Footer() {
                     <li>No audio telemetry or keylogging.</li>
                     <li>Zero clipboard history pollution.</li>
                   </ul>
+                  <div className="pt-2">
+                    <Link href="/privacy" className="text-[#cbb7fb] font-bold underline hover:text-white">Read Full Legal Privacy Policy Page →</Link>
+                  </div>
                 </>
               )}
               {modalType === "security" && (
@@ -144,7 +153,7 @@ export default function Footer() {
               )}
             </div>
 
-            <div className="pt-2 flex justify-end">
+            <div className="pt-2 flex justify-end gap-3">
               <button
                 onClick={() => setModalType(null)}
                 className="bg-[#2A2859] hover:bg-[#1E1B42] text-white text-xs font-bold px-5 py-2.5 rounded-[8px] transition-colors"
