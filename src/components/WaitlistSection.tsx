@@ -7,7 +7,15 @@ export default function WaitlistSection() {
   const [role, setRole] = useState("Developer");
   const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [surveyCompleted, setSurveyCompleted] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
+
+  // Optional Survey State
+  const [os, setOs] = useState("Windows");
+  const [topFeature, setTopFeature] = useState("160 WPM Dictation");
+  const [dailyUsage, setDailyUsage] = useState("15-60 mins/day");
+  const [painPoint, setPainPoint] = useState("");
+  const [surveyLoading, setSurveyLoading] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -38,10 +46,34 @@ export default function WaitlistSection() {
     }
   };
 
+  const handleSurveySubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setSurveyLoading(true);
+
+    try {
+      await fetch("/api/waitlist/survey", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          email: email.trim(),
+          os,
+          topFeature,
+          dailyUsage,
+          painPoint: painPoint.trim() || "None provided",
+        }),
+      });
+    } catch (err) {
+      console.error("Survey submission error:", err);
+    } finally {
+      setSurveyLoading(false);
+      setSurveyCompleted(true);
+    }
+  };
+
   const mailtoUrl = `mailto:parthvarekar27@gmail.com?subject=${encodeURIComponent(
     `Susurrus Early Access Signup: ${email}`
   )}&body=${encodeURIComponent(
-    `Hi Parth,\n\nI just requested early access to Susurrus!\n\nEmail: ${email}\nRole: ${role}\n\nPlease add me to the next beta rollout batch.\n\nThanks!`
+    `Hi Parth,\n\nI just requested early access to Susurrus!\n\nEmail: ${email}\nRole: ${role}\nOS: ${os}\nFeature: ${topFeature}\nUsage: ${dailyUsage}\nPain Point: ${painPoint || "N/A"}\n\nPlease add me to the next beta rollout batch.\n\nThanks!`
   )}`;
 
   return (
@@ -61,18 +93,151 @@ export default function WaitlistSection() {
         </p>
 
         {submitted ? (
-          <div className="max-w-[580px] mx-auto bg-white border border-emerald-200 rounded-[18px] p-8 shadow-2xl text-left space-y-5">
+          <div className="max-w-[620px] mx-auto bg-white border border-emerald-200 rounded-[20px] p-6 md:p-8 shadow-2xl text-left space-y-6">
             
-            <div className="flex items-center gap-3 text-emerald-600 font-bold text-lg">
-              <div className="w-9 h-9 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-600 text-xl font-bold">
-                ✓
+            {/* Header badge */}
+            <div className="flex items-center justify-between border-b border-slate-100 pb-4">
+              <div className="flex items-center gap-3 text-emerald-600 font-bold text-lg">
+                <div className="w-8 h-8 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-600 text-lg font-bold">
+                  ✓
+                </div>
+                <span>Access Request Registered!</span>
               </div>
-              <span>Access Request Registered!</span>
+              <span className="text-xs font-mono text-slate-400 bg-slate-100 px-2.5 py-1 rounded-full">
+                {email}
+              </span>
             </div>
 
-            <p className="text-sm text-[#334155] leading-relaxed">
-              We've registered <strong className="text-[#0F172A]">{email}</strong> for the upcoming Susurrus beta rollout batch.
-            </p>
+            {!surveyCompleted ? (
+              /* OPTIONAL SURVEY FORM (NOT COMPULSORY) */
+              <form onSubmit={handleSurveySubmit} className="space-y-5 bg-[#F8FAFC] border border-slate-200 p-5 md:p-6 rounded-[14px]">
+                
+                <div className="flex justify-between items-center">
+                  <h3 className="text-sm font-bold text-[#0F172A] flex items-center gap-2">
+                    <span>📊 Quick 30-Second Survey</span>
+                    <span className="text-[11px] font-normal text-slate-500 bg-slate-200/80 px-2 py-0.5 rounded font-mono">
+                      Optional
+                    </span>
+                  </h3>
+                  <button
+                    type="button"
+                    onClick={() => setSurveyCompleted(true)}
+                    className="text-xs text-slate-500 hover:text-[#2A2859] underline font-semibold"
+                  >
+                    Skip Survey →
+                  </button>
+                </div>
+
+                <p className="text-xs text-slate-600 leading-relaxed">
+                  Help us prioritize build targets and tailor features for your workflow (or skip anytime):
+                </p>
+
+                {/* Q1: OS Selection */}
+                <div className="space-y-1.5">
+                  <label className="text-xs font-bold text-slate-700 block">1. What is your primary desktop operating system?</label>
+                  <div className="flex flex-wrap gap-2">
+                    {["Windows", "macOS", "Linux"].map((item) => (
+                      <button
+                        type="button"
+                        key={item}
+                        onClick={() => setOs(item)}
+                        className={`px-3 py-1.5 rounded-[6px] text-xs transition-colors ${
+                          os === item
+                            ? "bg-[#2A2859] text-white font-bold"
+                            : "bg-white text-slate-700 border border-slate-300 hover:bg-slate-50"
+                        }`}
+                      >
+                        {item}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Q2: Top Feature */}
+                <div className="space-y-1.5">
+                  <label className="text-xs font-bold text-slate-700 block">2. Which feature matters most to you?</label>
+                  <div className="flex flex-wrap gap-2">
+                    {["160 WPM Dictation", "Context Commands (Ctrl+Shift+T)", "100% Offline Privacy", "Custom AI Shortcuts"].map((item) => (
+                      <button
+                        type="button"
+                        key={item}
+                        onClick={() => setTopFeature(item)}
+                        className={`px-3 py-1.5 rounded-[6px] text-xs transition-colors ${
+                          topFeature === item
+                            ? "bg-[#2A2859] text-white font-bold"
+                            : "bg-white text-slate-700 border border-slate-300 hover:bg-slate-50"
+                        }`}
+                      >
+                        {item}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Q3: Daily Usage */}
+                <div className="space-y-1.5">
+                  <label className="text-xs font-bold text-slate-700 block">3. Estimated daily dictation usage:</label>
+                  <div className="flex flex-wrap gap-2">
+                    {["< 15 mins/day", "15-60 mins/day", "1-3 hours/day", "Full day flow"].map((item) => (
+                      <button
+                        type="button"
+                        key={item}
+                        onClick={() => setDailyUsage(item)}
+                        className={`px-3 py-1.5 rounded-[6px] text-xs transition-colors ${
+                          dailyUsage === item
+                            ? "bg-[#2A2859] text-white font-bold"
+                            : "bg-white text-slate-700 border border-slate-300 hover:bg-slate-50"
+                        }`}
+                      >
+                        {item}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Q4: Open Feedback */}
+                <div className="space-y-1.5">
+                  <label className="text-xs font-bold text-slate-700 block">4. What is your biggest pain point with existing voice tools? (Optional)</label>
+                  <textarea
+                    rows={2}
+                    value={painPoint}
+                    onChange={(e) => setPainPoint(e.target.value)}
+                    placeholder="e.g. Dictation in cloud tools has high latency or poor privacy..."
+                    className="w-full p-2.5 text-xs rounded-[8px] border border-slate-300 bg-white text-[#0F172A] outline-none focus:ring-2 focus:ring-[#2A2859]"
+                  />
+                </div>
+
+                {/* Survey Actions */}
+                <div className="flex items-center justify-between pt-2">
+                  <button
+                    type="button"
+                    onClick={() => setSurveyCompleted(true)}
+                    className="text-xs text-slate-500 hover:text-slate-800 font-semibold"
+                  >
+                    Skip & Finish
+                  </button>
+
+                  <button
+                    type="submit"
+                    disabled={surveyLoading}
+                    className="bg-[#2A2859] hover:bg-[#1E1B42] text-white font-bold text-xs py-2.5 px-5 rounded-[8px] transition-colors shadow-md flex items-center gap-2"
+                  >
+                    {surveyLoading ? "Saving..." : "Submit Preferences →"}
+                  </button>
+                </div>
+
+              </form>
+            ) : (
+              /* SURVEY COMPLETED / SKIPPED CONFIRMATION CARD */
+              <div className="space-y-4 bg-emerald-50/50 border border-emerald-200 p-5 rounded-[14px]">
+                <div className="flex items-center gap-2 text-emerald-800 font-bold text-sm">
+                  <span>🎉 Preferences Recorded!</span>
+                </div>
+                <p className="text-xs text-slate-600 leading-relaxed">
+                  Thank you for your feedback! We've saved your workflow preferences and placed your email on high priority for our upcoming beta rollout.
+                </p>
+              </div>
+            )}
 
             {/* Direct Email Launch Action */}
             <div className="bg-[#F8FAFC] border border-slate-200 rounded-[12px] p-4 space-y-3">
@@ -87,10 +252,6 @@ export default function WaitlistSection() {
                 <span className="text-[#2A2859] font-mono text-[11px]">parthvarekar27@gmail.com</span>
               </div>
 
-              <p className="text-xs text-slate-600 leading-relaxed">
-                Click below to send a pre-filled confirmation email directly from your email application to Parth Varekar:
-              </p>
-
               <a
                 href={mailtoUrl}
                 className="w-full bg-[#2A2859] hover:bg-[#1E1B42] text-white font-bold text-xs py-3 px-4 rounded-[8px] transition-all duration-200 flex items-center justify-center gap-2 shadow-md"
@@ -98,13 +259,14 @@ export default function WaitlistSection() {
                 <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <path d="M22 2L11 13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/>
                 </svg>
-                <span>Send Confirmation Email to parthvarekar27@gmail.com ✉️</span>
+                <span>Send Email to parthvarekar27@gmail.com ✉️</span>
               </a>
             </div>
 
             <button
               onClick={() => {
                 setSubmitted(false);
+                setSurveyCompleted(false);
                 setEmail("");
               }}
               className="text-xs font-semibold text-[#2A2859] hover:underline pt-1 block"
