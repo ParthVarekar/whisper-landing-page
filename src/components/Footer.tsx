@@ -26,7 +26,7 @@ export default function Footer() {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16">
           
           <div className="space-y-3">
-            <h4 className="text-xs font-bold text-slate-200 uppercase tracking-wider">Products</h4>
+            <h4 className="text-xs font-bold text-slate-200 uppercase tracking-wider">Sections</h4>
             <ul className="space-y-2 text-sm text-[#94a3b8]">
               <li><a href="/#dictation" className="hover:text-white transition-colors">Whisper Dictation</a></li>
               <li><a href="/#commands" className="hover:text-white transition-colors">Context Commands</a></li>

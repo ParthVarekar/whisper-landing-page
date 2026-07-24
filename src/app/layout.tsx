@@ -1,10 +1,53 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Susurrus — Speech to Structured Thought",
-  description: "The most productive voice experience in the world. 100% offline, zero cloud latency voice dictation and contextual AI rewriting engine.",
-  keywords: ["Susurrus", "voice dictation", "whisper.cpp", "offline AI", "Gemma 2B", "voice productivity"],
+  description: "Dictation, Context, and AI that works in every app and tab. 100% on-device, zero cloud latency voice dictation and contextual AI rewriting engine.",
+  keywords: [
+    "Susurrus",
+    "voice dictation",
+    "whisper.cpp",
+    "offline AI",
+    "Gemma 2B",
+    "voice productivity",
+    "context commands",
+    "speech to text",
+  ],
+  authors: [{ name: "Parth Varekar", url: "https://github.com/ParthVarekar" }],
+  creator: "Parth Varekar",
+  icons: {
+    icon: [
+      { url: "/icon.svg", type: "image/svg+xml" },
+      { url: "/favicon.svg", type: "image/svg+xml" },
+    ],
+    shortcut: "/icon.svg",
+    apple: "/icon.svg",
+  },
+  openGraph: {
+    title: "Susurrus — Speech to Structured Thought",
+    description: "Dictation, Context, and AI that works in every app and tab. 100% on-device, sub-200ms latency.",
+    url: "https://github.com/ParthVarekar/whisper-landing-page",
+    siteName: "Susurrus",
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Susurrus — Speech to Structured Thought",
+    description: "Dictation, Context, and AI that works in every app and tab. 100% on-device, sub-200ms latency.",
+    creator: "@ParthVarekar",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+};
+
+export const viewport: Viewport = {
+  themeColor: "#121929",
+  width: "device-width",
+  initialScale: 1,
 };
 
 export default function RootLayout({
