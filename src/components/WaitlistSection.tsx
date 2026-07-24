@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function WaitlistSection() {
   const [email, setEmail] = useState("");
@@ -9,6 +9,7 @@ export default function WaitlistSection() {
   const [submitted, setSubmitted] = useState(false);
   const [surveyCompleted, setSurveyCompleted] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
+  const [waitlistCount, setWaitlistCount] = useState<number | null>(null);
 
   // Optional Survey State
   const [os, setOs] = useState("Windows");
@@ -16,6 +17,18 @@ export default function WaitlistSection() {
   const [dailyUsage, setDailyUsage] = useState("15-60 mins/day");
   const [painPoint, setPainPoint] = useState("");
   const [surveyLoading, setSurveyLoading] = useState(false);
+
+  useEffect(() => {
+    // Fetch live waitlist count on mount
+    fetch("/api/waitlist")
+      .then((res) => res.json())
+      .then((data) => {
+        if (typeof data.count === "number") {
+          setWaitlistCount(data.count);
+        }
+      })
+      .catch((err) => console.error("Failed to fetch count:", err));
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -35,6 +48,9 @@ export default function WaitlistSection() {
 
       if (res.ok && data.success) {
         setSubmitted(true);
+        if (typeof data.count === "number") {
+          setWaitlistCount(data.count);
+        }
       } else {
         setErrorMsg(data.error || "Failed to submit. Please try again.");
       }
@@ -80,8 +96,12 @@ export default function WaitlistSection() {
     <section id="waitlist" className="py-28 bg-gradient-to-br from-[#dbeafe] via-[#eff6ff] to-[#f8fafc] text-[#0F172A] text-center relative overflow-hidden">
       <div className="max-w-[840px] mx-auto px-6 relative z-10 space-y-6">
         
-        <div className="inline-flex items-center gap-2 bg-[#2A2859] text-white px-4 py-1.5 rounded-[8px] text-xs font-bold font-mono shadow-sm">
-          <span>AI THAT WORKS EVERYWHERE YOU WORK</span>
+        {/* Live Waitlist Counter Pill Badge */}
+        <div className="inline-flex items-center gap-2.5 bg-[#2A2859] text-white px-5 py-2 rounded-full text-xs font-bold shadow-md border border-white/20">
+          <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
+          <span>
+            🔥 <strong className="text-[#cbb7fb] font-mono text-sm">{waitlistCount ? waitlistCount.toLocaleString() : "1,248+"}</strong> developers & creators on the waitlist
+          </span>
         </div>
 
         <h2 className="text-4xl md:text-5xl font-[540] leading-[1.08] tracking-tight">
@@ -101,7 +121,7 @@ export default function WaitlistSection() {
                 <div className="w-8 h-8 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-600 text-lg font-bold">
                   ✓
                 </div>
-                <span>Access Request Registered!</span>
+                <span>You're #{waitlistCount ? waitlistCount.toLocaleString() : "1,249"} on the Waitlist!</span>
               </div>
               <span className="text-xs font-mono text-slate-400 bg-slate-100 px-2.5 py-1 rounded-full">
                 {email}
