@@ -13,10 +13,10 @@ const PORTRAITS = [
 
 export default function HeroSection() {
   const heroRef = useRef<HTMLDivElement>(null);
-  const [portrait, setPortrait] = useState<string>("/assets/hero_portrait.jpg");
+  const [portrait, setPortrait] = useState<string | null>(null);
 
   useEffect(() => {
-    // Select a random portrait on client mount/reload
+    // Select a random portrait immediately on client mount to prevent flash of initial image
     const randomIndex = Math.floor(Math.random() * PORTRAITS.length);
     setPortrait(PORTRAITS[randomIndex]);
 
@@ -60,15 +60,16 @@ export default function HeroSection() {
         <div className="relative max-w-[1180px] mx-auto pt-6 pb-32 min-h-[700px] flex items-center justify-center">
           
           {/* Central Editorial Portrait (Layer Z-20 - Middle Backdrop Depth) */}
-          <div className="relative w-[360px] md:w-[440px] h-[500px] rounded-[32px] overflow-hidden border border-white/20 shadow-2xl mx-auto z-20 bg-[#2d2955]">
-            <Image
-              key={portrait}
-              src={portrait}
-              alt="Susurrus Editorial Portrait"
-              fill
-              className="object-cover transition-opacity duration-300"
-              priority
-            />
+          <div className="relative w-[360px] md:w-[440px] h-[500px] rounded-[32px] overflow-hidden border border-white/20 shadow-2xl mx-auto z-20 bg-slate-900/60">
+            {portrait && (
+              <Image
+                src={portrait}
+                alt="Susurrus Editorial Portrait"
+                fill
+                className="object-cover"
+                priority
+              />
+            )}
           </div>
 
           {/* 
