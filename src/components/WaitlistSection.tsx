@@ -19,15 +19,21 @@ export default function WaitlistSection() {
   const [surveyLoading, setSurveyLoading] = useState(false);
 
   useEffect(() => {
-    // Fetch live waitlist count on mount
-    fetch("/api/waitlist")
-      .then((res) => res.json())
-      .then((data) => {
-        if (typeof data.count === "number") {
-          setWaitlistCount(data.count);
-        }
-      })
-      .catch((err) => console.error("Failed to fetch count:", err));
+    // Fetch live real waitlist count on mount and poll every 4s for real-time updates
+    const fetchCount = () => {
+      fetch("/api/waitlist")
+        .then((res) => res.json())
+        .then((data) => {
+          if (typeof data.count === "number") {
+            setWaitlistCount(data.count);
+          }
+        })
+        .catch((err) => console.error("Failed to fetch count:", err));
+    };
+
+    fetchCount();
+    const interval = setInterval(fetchCount, 4000);
+    return () => clearInterval(interval);
   }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -96,11 +102,19 @@ export default function WaitlistSection() {
     <section id="waitlist" className="py-28 bg-gradient-to-br from-[#dbeafe] via-[#eff6ff] to-[#f8fafc] text-[#0F172A] text-center relative overflow-hidden">
       <div className="max-w-[840px] mx-auto px-6 relative z-10 space-y-6">
         
-        {/* Live Waitlist Counter Pill Badge */}
+        {/* Real-Time Live Waitlist Counter Pill Badge */}
         <div className="inline-flex items-center gap-2.5 bg-[#2A2859] text-white px-5 py-2 rounded-full text-xs font-bold shadow-md border border-white/20">
           <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
           <span>
-            🔥 <strong className="text-[#cbb7fb] font-mono text-sm">{waitlistCount ? waitlistCount.toLocaleString() : "1,248+"}</strong> developers & creators on the waitlist
+            {waitlistCount === null ? (
+              "Loading waitlist count..."
+            ) : waitlistCount === 0 ? (
+              "🔥 Be the first to join the waitlist"
+            ) : waitlistCount === 1 ? (
+              <>🔥 <strong className="text-[#cbb7fb] font-mono text-sm">1</strong> person joined the waitlist</>
+            ) : (
+              <>🔥 <strong className="text-[#cbb7fb] font-mono text-sm">{waitlistCount.toLocaleString()}</strong> people joined the waitlist</>
+            )}
           </span>
         </div>
 
@@ -121,7 +135,7 @@ export default function WaitlistSection() {
                 <div className="w-8 h-8 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-600 text-lg font-bold">
                   ✓
                 </div>
-                <span>You're #{waitlistCount ? waitlistCount.toLocaleString() : "1,249"} on the Waitlist!</span>
+                <span>You're #{waitlistCount ? waitlistCount.toLocaleString() : "1"} on the Waitlist!</span>
               </div>
               <span className="text-xs font-mono text-slate-400 bg-slate-100 px-2.5 py-1 rounded-full">
                 {email}

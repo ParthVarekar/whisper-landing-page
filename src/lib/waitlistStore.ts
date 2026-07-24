@@ -2,7 +2,7 @@ import fs from "fs";
 import path from "path";
 
 const COUNT_FILE = path.join(process.cwd(), ".waitlist_count.json");
-const INITIAL_COUNT = 1248;
+const INITIAL_COUNT = 0;
 
 export function getWaitlistCount(): number {
   try {
